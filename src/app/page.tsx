@@ -4,7 +4,7 @@ import { ProjectCard } from "./components/project-card";
 
 export default function Home() {
   return (
-    <div className="max-w-5xl w-full mx-auto">
+    <div className="max-w-5xl w-full mx-auto px-4 md:px-8">
       <Header />
 
       <main className="mt-8 flex flex-col gap-10">
@@ -13,7 +13,7 @@ export default function Home() {
         <div className="pt-6" id="projects">
           <h2 className="text-2xl font-bold mb-5">Projetos</h2>
 
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <ProjectCard project={{
               name: 'Notes App',
               repo_name: 'nlw-notes',
