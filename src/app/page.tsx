@@ -11,7 +11,7 @@ export default function Home() {
         <About />
 
         <div className="pt-6" id="projects">
-          <h2 className="text-2xl font-bold mb-5">Projetos</h2>
+          <h2 className="text-2xl font-bold mb-5 text-center md:text-left">Projetos</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <ProjectCard project={{
