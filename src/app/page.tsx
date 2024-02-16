@@ -1,6 +1,8 @@
-import { Header } from "./components/header";
-import { About } from "./components/about";
-import { ProjectCard } from "./components/project-card";
+import { Header } from "./components/header"
+import { About } from "./components/about"
+import { ProjectCard } from "./components/project-card"
+import { CertificateCard } from "./components/certificate-card"
+import { ArrowUpRight } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -38,6 +40,25 @@ export default function Home() {
               deploy: 'emanueltavecia.github.io/nlw-spacetime-explorer'
             }} />
             
+          </div>
+        </div>
+
+        <div id="certificates">
+          <h2 className="text-2xl font-bold mb-5 text-center md:text-left">Certificações</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <CertificateCard certificate={{
+              name: 'Curso: Webmaster Front-End Completo',
+              issuer: 'Danki Code',
+              status: 'Conclusão: 11/2023',
+              url: 'https://github.com/emanueltavecia/certificates/blob/main/DankiCode%20-%20Webmaster%20Front-End%20Completo.pdf'
+            }} />
+          </div>
+
+          <div>
+            <a className="flex gap-2 group" href="https://github.com/emanueltavecia/certificates" target="_blank">
+              Ver todos <ArrowUpRight className="transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/>
+            </a>
           </div>
         </div>
       </main>
