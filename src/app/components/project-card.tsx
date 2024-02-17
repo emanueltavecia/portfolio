@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="flex flex-col justify-between gap-4 bg-slate-950 rounded-md p-5 transition-all duration-200 hover:scale-105">
+    <div className="flex flex-col justify-between gap-4 bg-slate-900 rounded-md p-5 transition-all duration-200 hover:scale-105">
       <p className="text-lg font-semibold text-center">{project.name}</p>
       <img src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`} alt="" />
       <div className="flex justify-between">
