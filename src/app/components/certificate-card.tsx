@@ -19,7 +19,7 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
         <a className="flex gap-2 group mt-3" href={certificate.url} target="_blank">
           Acessar certificado <ArrowUpRight className="transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/>
         </a>
-      ) : (<a></a>)}
+      ) : (<></>)}
         
       
     </div>
