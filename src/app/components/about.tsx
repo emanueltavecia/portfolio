@@ -4,7 +4,7 @@ import { SiJavascript, SiTailwindcss, SiTypescript } from "react-icons/si"
 export function About() {
   return(
     <div>
-      <div id="about" className="flex flex-col md:flex-row justify-between items-center mb-4">
+      <div id="about" className="flex flex-col md:flex-row justify-between items-center mb-7">
         <div className='md:mr-7'>
           <h1 className="text-4xl font-bold my-4 text-center md:text-left">Olá, sou o Emanuel Tavecia</h1>
           <p className="text-lg text-center md:text-left">Estudante de desenvolvimento Front-End</p>
@@ -13,7 +13,7 @@ export function About() {
         </div>
         <img className="my-5 w-40 rounded-full" src="https://github.com/emanueltavecia.png" alt="Foto de perfil de Emanuel Tavecia" />
       </div>
-      <div id='techs'>
+      <div id='projects'>
         <h2 className='text-xl font-semibold mb-3 text-center md:text-left'>Techs</h2>
         <div className='flex gap-4 items-center justify-center md:justify-start'>
           <SiJavascript className='w-7 h-7' />

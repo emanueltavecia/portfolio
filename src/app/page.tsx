@@ -11,10 +11,10 @@ export default function Home() {
     <div id="top" className="text-slate-100">
       <Header />
 
-      <main className="max-w-5xl w-full mx-auto px-5 md:px-8 mt-8 flex flex-col gap-10">
+      <main className="max-w-5xl w-full mx-auto px-5 md:px-8 mt-36 md:mt-32 flex flex-col">
         <About />
 
-        <div className="pt-6" id="projects">
+        <div className="pt-16">
           <h2 className="text-2xl font-bold mb-5 text-center md:text-left">Projetos</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -46,7 +46,7 @@ export default function Home() {
         </div>
 
         <div id="certificates">
-          <h2 className="pt-6 text-2xl font-bold text-center md:text-left">Certificações</h2>
+          <h2 className="pt-16 text-2xl font-bold text-center md:text-left">Certificações</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
             <CertificateCard certificate={{

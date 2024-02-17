@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa"
 export function Contact() {
   return (
     <div id="contact" className='flex flex-col gap-4'>
-      <h2 className="pt-6 text-2xl font-bold text-center md:text-left">Contato</h2>
+      <h2 className="pt-12 text-2xl font-bold text-center md:text-left">Contato</h2>
 
       <div className='flex flex-col md:flex-row gap-7 md:gap-32'>
         <div>
