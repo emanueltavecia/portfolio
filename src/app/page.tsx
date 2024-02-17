@@ -46,12 +46,33 @@ export default function Home() {
         <div id="certificates">
           <h2 className="text-2xl font-bold mb-5 text-center md:text-left">Certificações</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <CertificateCard certificate={{
+              name: 'Curso: Explorer',
+              issuer: 'Rocketseat',
+              status: 'Em andamento',
+              url: 'https://github.com/emanueltavecia/certificates/blob/main/Diploma%20T%C3%A9cnico%20em%20Eletromec%C3%A2nica.pdf'
+            }} />
+            
+            <CertificateCard certificate={{
+              name: 'Curso: Técnico em Eletromecânica Integrado ao Ensino Médio',
+              issuer: 'Instituto Federal de Santa Catarina',
+              status: 'Conclusão: 12/2023',
+              url: 'https://github.com/emanueltavecia/certificates/blob/main/Diploma%20T%C3%A9cnico%20em%20Eletromec%C3%A2nica.pdf'
+            }} />
+
             <CertificateCard certificate={{
               name: 'Curso: Webmaster Front-End Completo',
               issuer: 'Danki Code',
               status: 'Conclusão: 11/2023',
               url: 'https://github.com/emanueltavecia/certificates/blob/main/DankiCode%20-%20Webmaster%20Front-End%20Completo.pdf'
+            }} />
+
+            <CertificateCard certificate={{
+              name: 'Evento: NLW Expert React',
+              issuer: 'Rocketseat',
+              status: 'Conclusão: 02/2024',
+              url: 'https://github.com/emanueltavecia/certificates/blob/main/NLW%20Expert%20React%20-%20Rocketseat.pdf'
             }} />
           </div>
 
