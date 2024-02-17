@@ -2,14 +2,16 @@ import { Header } from "./components/header"
 import { About } from "./components/about"
 import { ProjectCard } from "./components/project-card"
 import { CertificateCard } from "./components/certificate-card"
+import { Contact } from "./components/contact"
+import { Footer } from "./components/footer"
 import { ArrowUpRight } from 'lucide-react'
 
 export default function Home() {
   return (
-    <div className="max-w-5xl w-full mx-auto px-4 md:px-8">
+    <div id="top" className="text-slate-100">
       <Header />
 
-      <main className="mt-8 flex flex-col gap-10">
+      <main className="max-w-5xl w-full mx-auto px-4 md:px-8 mt-8 flex flex-col gap-10">
         <About />
 
         <div className="pt-6" id="projects">
@@ -25,26 +27,26 @@ export default function Home() {
             <ProjectCard project={{
               name: 'GitFav',
               repo_name: 'gitfav',
-              deploy: 'emanueltavecia.github.io/gitfav'
+              deploy: 'https://emanueltavecia.github.io/gitfav'
             }} />
 
             <ProjectCard project={{
               name: 'FocusTimer v2.0',
               repo_name: 'focustimer-v2.0',
-              deploy: 'emanueltavecia.github.io/focustimer-v2.0'
+              deploy: 'https://emanueltavecia.github.io/focustimer-v2.0'
             }} />
 
             <ProjectCard project={{
               name: 'Time Capsule',
               repo_name: 'nlw-spacetime-explorer',
-              deploy: 'emanueltavecia.github.io/nlw-spacetime-explorer'
+              deploy: 'https://emanueltavecia.github.io/nlw-spacetime-explorer'
             }} />
             
           </div>
         </div>
 
         <div id="certificates">
-          <h2 className="text-2xl font-bold text-center md:text-left">Certificações</h2>
+          <h2 className="pt-6 text-2xl font-bold text-center md:text-left">Certificações</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
             <CertificateCard certificate={{
@@ -84,12 +86,16 @@ export default function Home() {
           </div>
 
           <div>
-            <a className="flex gap-2 group" href="https://github.com/emanueltavecia/certificates" target="_blank">
+            <a className="flex gap-2 group w-fit" href="https://github.com/emanueltavecia/certificates" target="_blank">
               Ver todos <ArrowUpRight className="transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/>
             </a>
           </div>
         </div>
+
+        <Contact />
       </main>
+      
+      <Footer />
     </div>
   );
 }
