@@ -11,7 +11,7 @@ interface CertificateCardProps {
 
 export function CertificateCard({ certificate }: CertificateCardProps) {
   return (
-    <div className="bg-zinc-900 rounded-md p-5">
+    <div className="bg-slate-950 rounded-md p-5">
       <p className="font-bold">{certificate.name}</p>
       <p>{certificate.issuer}</p>
       <p>{certificate.status}</p>
