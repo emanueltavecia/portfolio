@@ -4,10 +4,12 @@ import { SiJavascript, SiTailwindcss, SiTypescript } from "react-icons/si"
 export function About() {
   return(
     <div>
-      <div id="about" className="flex flex-col md:flex-row justify-between items-center">
-        <div>
-          <h1 className="text-4xl font-bold mb-2 text-center md:text-left">Olá, sou o Emanuel Tavecia</h1>
+      <div id="about" className="flex flex-col md:flex-row justify-between items-center mb-4">
+        <div className='md:mr-7'>
+          <h1 className="text-4xl font-bold my-4 text-center md:text-left">Olá, sou o Emanuel Tavecia</h1>
           <p className="text-lg text-center md:text-left">Estudante de desenvolvimento Front-End</p>
+          <p className='text-sm mt-2 text-center md:text-left text-slate-200'>Desenvolvedor Front-End apaixonado por tecnologia. Estou iniciando minha jornada como programador, com foco no ecossistema JavaScript. Busco oportunidades para aplicar meus conhecimentos e continuar aprendendo na área da tecnologia.</p>
+          <p className='text-sm mt-2 text-center md:text-left text-slate-200'><span className='font-semibold'>Soft Skils:</span> Comunicação, Trabalho em equipe, Resolução de problemas, Adaptabilidade, Proatividade</p>
         </div>
         <img className="my-5 w-40 rounded-full" src="https://github.com/emanueltavecia.png" alt="Foto de perfil de Emanuel Tavecia" />
       </div>
