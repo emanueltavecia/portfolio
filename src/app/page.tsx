@@ -21,7 +21,7 @@ export default function Home() {
             <ProjectCard project={{
               name: 'Notes App',
               repo_name: 'nlw-notes',
-              deploy: 'https://nlw-notes-psi.vercel.app/'
+              deploy: 'https://notes-nlw-app.vercel.app/'
             }} />
 
             <ProjectCard project={{
@@ -53,7 +53,7 @@ export default function Home() {
               name: 'Curso: Explorer',
               issuer: 'Rocketseat',
               status: 'Em andamento',
-              url: 'https://github.com/emanueltavecia/certificates/blob/main/Diploma%20T%C3%A9cnico%20em%20Eletromec%C3%A2nica.pdf'
+              url: ''
             }} />
             
             <CertificateCard certificate={{
