@@ -11,7 +11,7 @@ export default function Home() {
     <div id="top" className="text-slate-100">
       <Header />
 
-      <main className="max-w-5xl w-full mx-auto px-4 md:px-8 mt-8 flex flex-col gap-10">
+      <main className="max-w-5xl w-full mx-auto px-5 md:px-8 mt-8 flex flex-col gap-10">
         <About />
 
         <div className="pt-6" id="projects">
