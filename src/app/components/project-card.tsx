@@ -1,4 +1,4 @@
-import { Rocket, Github } from "lucide-react";
+import { Eye, Github } from "lucide-react";
 
 interface ProjectCardProps {
   project: {
@@ -15,8 +15,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <img className="rounded-md" src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`} alt={`Capa do projeto ${project.name}`} />
       <div className="flex justify-between">
         <a href={project.deploy} target="_blank" className="flex items-center gap-2">
-          <Rocket />
-          <p>Deploy</p>
+          <Eye />
+          <p>Preview</p>
         </a>
         <a href={`https://github.com/emanueltavecia/${project.repo_name}`} target="_blank" className="flex items-center gap-2">
           <Github />
