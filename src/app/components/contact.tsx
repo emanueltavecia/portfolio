@@ -6,7 +6,7 @@ export function Contact() {
     <div id="contact" className='flex flex-col gap-4'>
       <h2 className="pt-6 text-2xl font-bold text-center md:text-left">Contato</h2>
 
-      <div className='flex flex-col md:flex-row gap-32'>
+      <div className='flex flex-col md:flex-row gap-7 md:gap-32'>
         <div>
           <p className='mb-3 text-lg font-bold'>Fale comigo:</p>
           <a className='flex gap-2 mb-2 group' href="mailto:emanueltavecia@hotmail.com" target='_blank'>
