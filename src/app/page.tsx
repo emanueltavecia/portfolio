@@ -1,9 +1,9 @@
-import { Header } from "./components/header"
-import { About } from "./components/about"
-import { ProjectCard } from "./components/project-card"
-import { CertificateCard } from "./components/certificate-card"
-import { Contact } from "./components/contact"
-import { Footer } from "./components/footer"
+import { Header } from "../components/header"
+import { About } from "../components/about"
+import { ProjectCard } from "../components/project-card"
+import { CertificateCard } from "../components/certificate-card"
+import { Contact } from "../components/contact"
+import { Footer } from "../components/footer"
 import { ArrowUpRight } from 'lucide-react'
 
 export default function Home() {
