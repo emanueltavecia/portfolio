@@ -11,6 +11,12 @@ const projects = [
     name: 'Notes App',
     repo_name: 'nlw-notes',
     deploy: 'https://notes-nlw-app.vercel.app/',
+    id: 5,
+  },
+  {
+    name: 'Twitter UI',
+    repo_name: 'twitter-ui',
+    deploy: 'https://twitter-ui-app.vercel.app/',
     id: 4,
   },
   {
