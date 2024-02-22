@@ -5,7 +5,7 @@ interface CertificateCardProps {
     name: string
     issuer: string
     status: string
-    url: string
+    url?: string
   }
 }
 
@@ -15,13 +15,16 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
       <p className="font-bold">{certificate.name}</p>
       <p>{certificate.issuer}</p>
       <p>{certificate.status}</p>
-      {certificate.status !== 'Em andamento' ? (
-        <a className="flex gap-2 group mt-3" href={certificate.url} target="_blank">
-          Acessar certificado <ArrowUpRight className="transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/>
+      {certificate.status !== 'Em andamento' && (
+        <a
+          className="flex gap-2 group mt-3"
+          href={certificate.url}
+          target="_blank"
+        >
+          Acessar certificado{' '}
+          <ArrowUpRight className="transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
-      ) : (<></>)}
-        
-      
+      )}
     </div>
   )
 }
