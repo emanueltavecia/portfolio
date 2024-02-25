@@ -81,10 +81,10 @@ export default function Home() {
     <div id="top" className="text-slate-100">
       <Header />
 
-      <main className="max-w-5xl w-full mx-auto px-5 md:px-8 pt-36 md:pt-32 flex flex-col">
+      <main className="max-w-5xl w-full mx-auto px-5 md:px-8 pt-36 md:pt-32 flex flex-col gap-7">
         <About />
 
-        <div className="pt-16">
+        <div id='projects' className='pt-7'>
           <h2 className="text-2xl font-bold mb-5 text-center md:text-left">
             Projetos
           </h2>
@@ -96,8 +96,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div id="certificates">
-          <h2 className="pt-16 text-2xl font-bold text-center md:text-left">
+        <div id="certificates" className='pt-7'>
+          <h2 className="text-2xl font-bold text-center md:text-left">
             Certificações
           </h2>
 
