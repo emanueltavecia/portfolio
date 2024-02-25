@@ -13,7 +13,7 @@ export function About() {
         </div>
         <img className="my-5 w-40 rounded-full" src="https://github.com/emanueltavecia.png" alt="Foto de perfil de Emanuel Tavecia" />
       </div>
-      <div id='projects'>
+      <div>
         <h2 className='text-xl font-semibold mb-3 text-center md:text-left'>Techs</h2>
         <div className='flex gap-4 items-center justify-center md:justify-start'>
           <SiJavascript className='w-7 h-7' />
