@@ -1,80 +1,12 @@
-import { ArrowUpRight } from 'lucide-react'
+import { Certificates } from '@/components/certificates'
+import { Projects } from '@/components/projects'
+import { FileText } from 'lucide-react'
 import { About } from '../components/about'
-import { CertificateCard } from '../components/certificate-card'
 import { Contact } from '../components/contact'
 import { Footer } from '../components/footer'
 import { Header } from '../components/header'
-import { ProjectCard } from '../components/project-card'
-
-const projects = [
-  {
-    name: 'Notes App',
-    repo_name: 'nlw-notes',
-    deploy: 'https://notes-nlw-app.vercel.app/',
-    id: 5,
-  },
-  {
-    name: 'Twitter UI',
-    repo_name: 'twitter-ui',
-    deploy: 'https://twitter-ui-app.vercel.app/',
-    id: 4,
-  },
-  {
-    name: 'GitFav',
-    repo_name: 'gitfav',
-    deploy: 'https://emanueltavecia.github.io/gitfav',
-    id: 3,
-  },
-  {
-    name: 'FocusTimer v2.0',
-    repo_name: 'focustimer-v2.0',
-    deploy: 'https://emanueltavecia.github.io/focustimer-v2.0',
-    id: 2,
-  },
-  {
-    name: 'Time Capsule',
-    repo_name: 'nlw-spacetime-explorer',
-    deploy: 'https://emanueltavecia.github.io/nlw-spacetime-explorer',
-    id: 1,
-  },
-]
-
-const certificates = [
-  {
-    name: 'Curso: Explorer',
-    issuer: 'Rocketseat',
-    status: 'Em andamento',
-    id: 5,
-  },
-  {
-    name: 'Curso: Técnico em Eletromecânica Integrado ao Ensino Médio',
-    issuer: 'Instituto Federal de Santa Catarina',
-    status: 'Conclusão: 12/2023',
-    url: 'https://github.com/emanueltavecia/certificates/blob/main/Diploma%20T%C3%A9cnico%20em%20Eletromec%C3%A2nica.pdf',
-    id: 4,
-  },
-  {
-    name: 'Evento: NLW Expert React',
-    issuer: 'Rocketseat',
-    status: 'Conclusão: 02/2024',
-    url: 'https://github.com/emanueltavecia/certificates/blob/main/NLW%20Expert%20React%20-%20Rocketseat.pdf',
-    id: 3,
-  },
-  {
-    name: 'Curso: Discover Especializar',
-    issuer: 'Rocketseat',
-    status: 'Conclusão: 08/2023',
-    url: 'https://github.com/emanueltavecia/certificates/blob/main/Discover%20Especializar%20-%20Rocketseat.pdf',
-    id: 2,
-  },
-  {
-    name: 'Curso: Webmaster Front-End Completo',
-    issuer: 'Danki Code',
-    status: 'Conclusão: 11/2023',
-    url: 'https://github.com/emanueltavecia/certificates/blob/main/DankiCode%20-%20Webmaster%20Front-End%20Completo.pdf',
-    id: 1,
-  },
-]
+import { Experience } from '@/components/experience'
+import { Education } from '@/components/education'
 
 export default function Home() {
   return (
@@ -84,40 +16,22 @@ export default function Home() {
       <main className="max-w-5xl w-full mx-auto px-5 md:px-8 pt-36 md:pt-32 flex flex-col gap-7">
         <About />
 
-        <div id='projects' className='pt-7'>
-          <h2 className="text-2xl font-bold mb-5 text-center md:text-left">
-            Projetos
-          </h2>
+        <a
+          href="https://drive.google.com/file/d/1gwnR2KPxXG2QulLa4P8B2bb2f4YUkjXu/view?usp=sharing"
+          target="_blank"
+          className="w-fit md:ml-0 mx-auto flex items-center justify-center gap-4 px-4 py-2 font-medium ring-2 ring-slate-300 text-slate-50 rounded-md hover:rounded-3xl hover:bg-slate-100 hover:text-slate-800 hover:ring-slate-600 transition-all duration-300 outline-none focus:bg-slate-100 focus:text-slate-800 focus:ring-slate-600"
+        >
+          <FileText />
+          Acessar CV
+        </a>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        </div>
+        <Experience />
 
-        <div id="certificates" className='pt-7'>
-          <h2 className="text-2xl font-bold text-center md:text-left">
-            Certificações
-          </h2>
+        <Projects />
+        
+        <Education />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
-            {certificates.map((certificate) => (
-              <CertificateCard key={certificate.id} certificate={certificate} />
-            ))}
-          </div>
-
-          <div>
-            <a
-              className="flex gap-2 group w-fit"
-              href="https://github.com/emanueltavecia/certificates"
-              target="_blank"
-            >
-              Ver todos{' '}
-              <ArrowUpRight className="transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          </div>
-        </div>
+        <Certificates />
 
         <Contact />
       </main>
