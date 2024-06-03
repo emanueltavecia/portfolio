@@ -1,8 +1,8 @@
 export const projects = [
   {
-    name: 'Pass.in',
-    repo_name: 'pass-in-web',
-    deploy: 'https://passin-app.vercel.app/',
+    name: 'uFitt',
+    repo_name: 'uFitt',
+    deploy: 'https://ufitt.vercel.app/',
     id: 6,
   },
   {
@@ -18,21 +18,21 @@ export const projects = [
     id: 4,
   },
   {
+    name: 'Notesify',
+    repo_name: 'notesify-web',
+    deploy: 'https://notesify-web.netlify.app/',
+    id: 3,
+  },
+  {
     name: 'GitFav',
     repo_name: 'gitfav',
     deploy: 'https://emanueltavecia.github.io/gitfav',
-    id: 3,
+    id: 2,
   },
   {
     name: 'FocusTimer v2.0',
     repo_name: 'focustimer-v2.0',
     deploy: 'https://emanueltavecia.github.io/focustimer-v2.0',
-    id: 2,
-  },
-  {
-    name: 'Time Capsule',
-    repo_name: 'nlw-spacetime-explorer',
-    deploy: 'https://emanueltavecia.github.io/nlw-spacetime-explorer',
     id: 1,
   },
 ]
