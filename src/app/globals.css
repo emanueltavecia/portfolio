@@ -16,7 +16,7 @@
 
 /* Para navegadores baseados em Webkit */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 .light {
@@ -28,7 +28,7 @@
 
 .dark {
   ::-webkit-scrollbar-thumb {
-    background: #c3c2e2;
+    background: #4b4474;
     border-radius: 10px;
   }
 }
