@@ -21,6 +21,75 @@ export default function PhotoModal() {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent>
         <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
+        <p>Project Details Page | ID {id}</p>
       </DialogContent>
     </Dialog>
   )
