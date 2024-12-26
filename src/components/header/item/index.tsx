@@ -17,7 +17,7 @@ export function NavItem({ name, href, onCloseSheet }: NavItemProps) {
         className={cn(
           buttonVariants({ variant: 'link' }),
           'p-0 text-base',
-          pathname === href ? 'underline' : 'opacity-70'
+          pathname === href ? 'underline' : 'opacity-70',
         )}
       >
         {name}

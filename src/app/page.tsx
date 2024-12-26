@@ -57,7 +57,7 @@ export default function Home() {
               buttonVariants({
                 variant: 'link',
               }),
-              'p-0 group text-base font-normal'
+              'p-0 group text-base font-normal',
             )}
           >
             ver todos
