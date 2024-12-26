@@ -30,13 +30,13 @@ export function ThemeToggle({ isMobile }: ThemeToggleProps) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align={isMobile ? 'start' : 'end'}>
         <DropdownMenuItem onClick={() => setTheme('light')}>
-          <Sun /> Light
+          <Sun /> Claro
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('dark')}>
-          <Moon /> Dark
+          <Moon /> Escuro
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('system')}>
-          <Settings /> System
+          <Settings /> Sistema
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
