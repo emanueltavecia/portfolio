@@ -57,7 +57,7 @@ export default function Home() {
               buttonVariants({
                 variant: 'link',
               }),
-              'p-0 group text-lg font-normal'
+              'p-0 group text-base font-normal'
             )}
           >
             ver todos
@@ -66,7 +66,7 @@ export default function Home() {
         </div>
         <Carousel
           plugins={[plugin.current]}
-          className="w-full md:px-5"
+          className="w-full"
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
         >
@@ -74,11 +74,11 @@ export default function Home() {
             {projects.map((project, index) => (
               <CarouselItem
                 key={index}
-                className="pl-0 md:basis-2/3 basis-10/12 group"
+                className="ml-0 p-0 md:basis-2/3 basis-10/12 group"
               >
                 <Link
                   href={`/projects/${project.id}`}
-                  className="flex md:px-3 px-2 group-first:pl-6 group-last:pr-5 md:group-first:pl-1 md:group-last:pr-0"
+                  className="flex mx-2 group-first:ml-6 group-last:mr-5"
                 >
                   <Image
                     className="rounded-md w-full"
