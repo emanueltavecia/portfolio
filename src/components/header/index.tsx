@@ -18,7 +18,7 @@ export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
-    <header className="flex items-center justify-center py-4 border-b border-zinc-300 dark:border-zinc-900 bg-slate-300/10 dark:bg-gray-900/50 fixed left-0 right-0 top-0 backdrop-blur shadow">
+    <header className="flex items-center justify-center py-4 border-b border-zinc-100/70 dark:border-slate-900 bg-slate-200/60 dark:bg-[#0d152480] fixed left-0 right-0 top-0 backdrop-blur-md shadow z-10">
       <div className="flex items-center gap-4 justify-between w-full max-w-screen-xl px-5">
         <h1>
           <Link

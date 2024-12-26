@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -15,5 +11,24 @@ body {
 @layer base {
   :root {
     --radius: 0.5rem;
+  }
+}
+
+/* Para navegadores baseados em Webkit */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+.light {
+  ::-webkit-scrollbar-thumb {
+    background: #0f0e46;
+    border-radius: 10px;
+  }
+}
+
+.dark {
+  ::-webkit-scrollbar-thumb {
+    background: #c3c2e2;
+    border-radius: 10px;
   }
 }
