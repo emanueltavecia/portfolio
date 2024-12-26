@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
-import { ThemeToggle } from '@/components/theme-toggle'
+import { Header } from '@/components/header'
 
 const mainFontFamily = Outfit({ subsets: ['latin'], variable: '--font-main' })
 
@@ -29,8 +29,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ThemeToggle />
-          {children}
+          <Header />
+          <div className="mt-20 max-w-screen-xl mx-auto px-5">{children}</div>
           {modal}
         </ThemeProvider>
       </body>
