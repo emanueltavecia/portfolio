@@ -18,7 +18,7 @@ export function Header() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-10 border-b border-blue-100/20 bg-white/80 backdrop-blur-lg dark:border-blue-950/20 dark:bg-gray-950/80">
-      <div className="mx-auto flex h-16 w-full max-w-screen-xl items-center justify-between gap-4 px-5">
+      <div className="mx-auto flex h-20 w-full max-w-screen-xl items-center justify-between gap-4 px-5">
         <Link
           href="/"
           className="text-xl font-bold tracking-tight text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
@@ -26,7 +26,7 @@ export function Header() {
           Emanuel Tavecia
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           <HeaderNav isMobile={false} />
         </nav>
 
@@ -35,7 +35,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-blue-50 dark:hover:bg-blue-900/20 md:hidden"
+              className="hover:bg-blue-50 dark:hover:bg-blue-900/20 lg:hidden"
               onClick={() => setIsSheetOpen(true)}
             >
               <Menu className="size-5" />

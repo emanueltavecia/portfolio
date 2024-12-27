@@ -19,6 +19,7 @@ import { Card, CardContent } from '@/components/ui/card'
 const techStack = [
   'React',
   'React Native',
+  'Expo',
   'Next.js',
   'TypeScript',
   'Tailwind CSS',
@@ -29,16 +30,14 @@ export default function Home() {
 
   return (
     <main className="relative mt-12 flex min-h-[calc(100vh-6rem)] flex-col items-center gap-20 md:mt-20">
-      <div className="flex w-full flex-col items-center justify-between gap-10 px-5 md:flex-row md:items-start">
+      <div className="flex w-full max-w-xl flex-col items-center justify-between gap-10 px-5 md:max-w-full md:flex-row md:items-start">
         <div className="relative flex max-w-3xl flex-col items-center gap-6 md:items-start">
-          <div className="absolute -left-20 -top-20 h-72 w-72 animate-pulse rounded-full bg-blue-500/15 blur-2xl filter dark:bg-blue-500/5" />
-
           <div className="flex flex-col gap-2">
             <p className="text-center font-medium text-blue-600 dark:text-blue-400 md:text-left">
               Desenvolvedor Front-end e Mobile
             </p>
             <h1 className="flex flex-wrap justify-center gap-x-2 text-center text-4xl font-bold tracking-tight md:block md:text-left lg:text-5xl">
-              <span>Olá, sou o</span>{' '}
+              <span>Olá, sou o</span>
               <span className="text-blue-600 dark:text-blue-400">
                 Emanuel Tavecia
               </span>
