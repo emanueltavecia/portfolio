@@ -18,12 +18,12 @@ export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
-    <header className="flex items-center justify-center py-4 border-b border-zinc-100/70 dark:border-slate-900 bg-slate-200/60 dark:bg-[#0d152480] fixed left-0 right-0 top-0 backdrop-blur-md shadow z-10">
-      <div className="flex items-center gap-4 justify-between w-full max-w-screen-xl px-5">
+    <header className="fixed left-0 right-0 top-0 z-10 flex items-center justify-center border-b border-zinc-100/70 bg-slate-200/60 py-4 shadow backdrop-blur-md dark:border-slate-900 dark:bg-[#0d152480]">
+      <div className="flex w-full max-w-screen-xl items-center justify-between gap-4 px-5">
         <h1>
           <Link
             href="/"
-            className={cn(buttonVariants({ variant: 'link' }), 'text-xl p-0')}
+            className={cn(buttonVariants({ variant: 'link' }), 'p-0 text-xl')}
           >
             Emanuel Tavecia
           </Link>
@@ -35,13 +35,13 @@ export function Header() {
           <SheetTrigger asChild>
             <Button
               variant="ghost"
-              className="flex md:hidden p-3 -mr-3"
+              className="-mr-3 flex p-3 md:hidden"
               onClick={() => setIsSheetOpen(true)}
             >
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent className="dark:border-zinc-900 max-w-72">
+          <SheetContent className="max-w-72 dark:border-zinc-900">
             <SheetHeader className="mb-4">
               <SheetTitle className="text-left">Menu</SheetTitle>
             </SheetHeader>

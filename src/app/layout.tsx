@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br" className="scroll-smooth">
       <body
-        className={`${mainFontFamily.className} antialiased dark:bg-zinc-950 dark:text-slate-50 flex flex-col justify-between min-h-screen`}
+        className={`${mainFontFamily.className} flex min-h-screen flex-col justify-between antialiased dark:bg-zinc-950 dark:text-slate-50`}
       >
         <ThemeProvider
           attribute="class"
@@ -32,7 +32,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <div className="mt-20 max-w-screen-xl mx-auto w-full">{children}</div>
+          <div className="mx-auto mt-20 w-full max-w-screen-xl">{children}</div>
           {modal}
           <Footer />
         </ThemeProvider>
