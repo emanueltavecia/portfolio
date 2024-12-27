@@ -37,7 +37,7 @@ export default function Home() {
               Desenvolvedor Front-end e Mobile
             </p>
             <h1 className="flex flex-wrap justify-center gap-x-2 text-center text-4xl font-bold tracking-tight md:block md:text-left lg:text-5xl">
-              <span>Olá, sou o</span>
+              <span>Olá, sou o</span>{' '}
               <span className="text-blue-600 dark:text-blue-400">
                 Emanuel Tavecia
               </span>
