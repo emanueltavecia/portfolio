@@ -45,8 +45,10 @@ export default function Home() {
           </div>
 
           <p className="text-center text-lg text-gray-600 dark:text-gray-400 md:text-left">
-            Desenvolvedor front-end apaixonado por tecnologia, iniciando minha
-            jornada como programador com foco no ecossistema JavaScript.
+            Desenvolvedor front-end e mobile apaixonado por tecnologia. Tenho
+            cerca de 1 ano e meio de experiência com desenvolvimento web e
+            mobile com React e React Native, e estou sempre em busca de novos
+            desafios e aprendizados.
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 md:justify-start">
