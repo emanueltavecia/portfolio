@@ -24,6 +24,6 @@ export const experiences = [
     endDate: 'Jun 2024',
     position: 'Desenvolvedor Front-end',
     description:
-      'Atuei como desenvolvedor front-end principal em uma startup, liderando uma squad individualmente e sendo responsável pela criação e manutenção de soluções front-end. Utilizei tecnologias como JavaScript, TypeScript, React, Next.js e TailwindCSS para desenvolver aplicações modernas e intuitivas.',
+      'Atuei como desenvolvedor front-end principal nessa startup, liderando uma squad individualmente e sendo responsável pela criação e manutenção de soluções front-end. Utilizei tecnologias como JavaScript, TypeScript, React, Next.js e TailwindCSS para desenvolver aplicações modernas e intuitivas.',
   },
 ]

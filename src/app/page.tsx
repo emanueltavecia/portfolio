@@ -29,7 +29,7 @@ export default function Home() {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }))
 
   return (
-    <main className="relative mt-12 flex min-h-[calc(100vh-6rem)] flex-col items-center gap-20 md:mt-20">
+    <main className="relative mt-10 flex flex-col items-center gap-20 md:mt-20">
       <div className="flex w-full max-w-xl flex-col items-center justify-between gap-10 px-5 md:max-w-full md:flex-row md:items-start">
         <div className="relative flex max-w-3xl flex-col items-center gap-6 md:items-start">
           <div className="flex flex-col gap-2">
@@ -44,7 +44,7 @@ export default function Home() {
             </h1>
           </div>
 
-          <p className="text-center text-lg text-gray-600 dark:text-gray-400 md:text-left">
+          <p className="text-center text-lg text-gray-600 dark:text-gray-400 md:text-justify">
             Desenvolvedor front-end e mobile apaixonado por tecnologia. Tenho
             cerca de 1 ano e meio de experiência com desenvolvimento web e
             mobile com React e React Native, e estou sempre em busca de novos
@@ -96,27 +96,27 @@ export default function Home() {
       </div>
 
       <div className="flex w-full flex-col gap-8">
-        <div className="flex items-center justify-between gap-10 px-5">
-          <div className="flex flex-col gap-1">
-            <h2 className="text-2xl font-bold tracking-tight">
-              Projetos em destaque
-            </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex flex-col px-5">
+          <h2 className="mb-1 text-2xl font-bold tracking-tight md:-mb-3">
+            Projetos em destaque
+          </h2>
+          <div className="flex items-end justify-between gap-6">
+            <p className="max-w-64 text-sm text-gray-600 dark:text-gray-400 md:max-w-none">
               Deslize para ver alguns dos meus trabalhos recentes
             </p>
+            <Link
+              href="/projects"
+              className={cn(
+                buttonVariants({
+                  variant: 'link',
+                }),
+                'group gap-2 p-0 text-base font-medium',
+              )}
+            >
+              ver todos
+              <ArrowRight className="size-4 transition-all duration-200 group-hover:translate-x-0.5" />
+            </Link>
           </div>
-          <Link
-            href="/projects"
-            className={cn(
-              buttonVariants({
-                variant: 'link',
-              }),
-              'group gap-2 p-0 text-base font-medium',
-            )}
-          >
-            ver todos
-            <ArrowRight className="size-4 transition-all duration-200 group-hover:translate-x-0.5" />
-          </Link>
         </div>
 
         <Carousel

@@ -77,7 +77,7 @@ export default function Experience() {
                 </div>
 
                 <div className="space-y-4">
-                  <p className="text-gray-700 dark:text-gray-300 md:text-lg">
+                  <p className="text-justify text-gray-700 dark:text-gray-300 md:text-lg">
                     {experience.description}
                   </p>
                 </div>
