@@ -49,7 +49,7 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-5">
-        <div className="flex items-center justify-between gap-4 px-5">
+        <div className="flex items-center justify-between gap-10 px-5">
           <h3 className="text-2xl font-medium">Confira meus projetos</h3>
           <Link
             href="/projects"
