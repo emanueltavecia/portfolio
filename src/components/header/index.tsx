@@ -1,8 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Button, buttonVariants } from '../ui/button'
-import { cn } from '@/lib/utils'
+import { Button } from '../ui/button'
 import { HeaderNav } from './nav'
 import {
   Sheet,
@@ -18,32 +17,35 @@ export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-10 flex items-center justify-center border-b border-zinc-100/70 bg-slate-200/60 py-4 shadow backdrop-blur-md dark:border-slate-900 dark:bg-[#0d152480]">
-      <div className="flex w-full max-w-screen-xl items-center justify-between gap-4 px-5">
-        <h1>
-          <Link
-            href="/"
-            className={cn(buttonVariants({ variant: 'link' }), 'p-0 text-xl')}
-          >
-            Emanuel Tavecia
-          </Link>
-        </h1>
-        <nav className="hidden items-center gap-6 md:flex">
+    <header className="fixed left-0 right-0 top-0 z-10 border-b border-blue-100/20 bg-white/80 backdrop-blur-lg dark:border-blue-950/20 dark:bg-gray-950/80">
+      <div className="mx-auto flex h-16 w-full max-w-screen-xl items-center justify-between gap-4 px-5">
+        <Link
+          href="/"
+          className="text-xl font-bold tracking-tight text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+        >
+          Emanuel Tavecia
+        </Link>
+
+        <nav className="hidden items-center gap-8 md:flex">
           <HeaderNav isMobile={false} />
         </nav>
+
         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
-              className="-mr-3 flex p-3 md:hidden"
+              size="icon"
+              className="hover:bg-blue-50 dark:hover:bg-blue-900/20 md:hidden"
               onClick={() => setIsSheetOpen(true)}
             >
-              <Menu />
+              <Menu className="size-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent className="max-w-72 dark:border-zinc-900">
-            <SheetHeader className="mb-4">
-              <SheetTitle className="text-left">Menu</SheetTitle>
+          <SheetContent className="w-72 border-blue-100 bg-white/95 backdrop-blur-lg dark:border-blue-950/20 dark:bg-gray-950/95">
+            <SheetHeader className="mb-6">
+              <SheetTitle className="text-left font-bold tracking-tight text-blue-600 dark:text-blue-400">
+                Menu
+              </SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-3">
               <HeaderNav
