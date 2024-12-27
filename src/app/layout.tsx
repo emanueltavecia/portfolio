@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { ReactNode } from 'react'
 
 const mainFontFamily = Outfit({ subsets: ['latin'], variable: '--font-main' })
 
@@ -16,8 +17,8 @@ export default function RootLayout({
   children,
   modal,
 }: Readonly<{
-  children: React.ReactNode
-  modal: React.ReactNode
+  children: ReactNode
+  modal: ReactNode
 }>) {
   return (
     <html lang="pt-br" className="scroll-smooth">
