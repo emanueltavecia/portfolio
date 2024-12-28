@@ -4,13 +4,7 @@ import React, { useState, useMemo } from 'react'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
+import { SelectMultiple } from '@/components/ui/select-multiple'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -24,35 +18,59 @@ import {
 import { projects } from '@/data/projects'
 
 interface FilterState {
-  type: ProjectType | 'ALL'
-  source: ProjectSource | 'ALL'
-  visibility: ProjectVisibility | 'ALL'
-  complexity: ProjectComplexity | 'ALL'
+  type: string[]
+  source: string[]
+  visibility: string[]
+  complexity: string[]
 }
 
 export default function Projects() {
   useScrollToTopOnPageLoad()
 
   const [filters, setFilters] = useState<FilterState>({
-    type: 'ALL',
-    source: 'ALL',
-    visibility: 'ALL',
-    complexity: 'ALL',
+    type: [],
+    source: [],
+    visibility: [],
+    complexity: [],
   })
+
+  const typeOptions = Object.values(ProjectType).map((type) => ({
+    label: type.charAt(0) + type.slice(1).toLowerCase(),
+    value: type,
+  }))
+
+  const sourceOptions = Object.values(ProjectSource).map((source) => ({
+    label: source,
+    value: source,
+  }))
+
+  const visibilityOptions = Object.values(ProjectVisibility).map(
+    (visibility) => ({
+      label: visibility,
+      value: visibility,
+    }),
+  )
+
+  const complexityOptions = Object.values(ProjectComplexity).map(
+    (complexity) => ({
+      label: complexity,
+      value: complexity,
+    }),
+  )
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
       const typeMatch =
-        filters.type === 'ALL' ||
-        project.type.includes(filters.type as ProjectType)
+        filters.type.length === 0 ||
+        project.type.some((type) => filters.type.includes(type))
       const sourceMatch =
-        filters.source === 'ALL' || project.source === filters.source
+        filters.source.length === 0 || filters.source.includes(project.source)
       const visibilityMatch =
-        filters.visibility === 'ALL' ||
-        project.visibility === filters.visibility
+        filters.visibility.length === 0 ||
+        filters.visibility.includes(project.visibility)
       const complexityMatch =
-        filters.complexity === 'ALL' ||
-        project.complexity === filters.complexity
+        filters.complexity.length === 0 ||
+        filters.complexity.includes(project.complexity)
 
       return typeMatch && sourceMatch && visibilityMatch && complexityMatch
     })
@@ -75,93 +93,55 @@ export default function Projects() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
-        <Select
-          value={filters.type}
-          onValueChange={(value) =>
-            setFilters((prev) => ({
-              ...prev,
-              type: value as FilterState['type'],
-            }))
-          }
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Tipo" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="ALL">Todos os tipos</SelectItem>
-            {Object.values(ProjectType).map((type) => (
-              <SelectItem key={type} value={type}>
-                {type.charAt(0) + type.slice(1).toLowerCase()}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <SelectMultiple
+          options={typeOptions}
+          selected={filters.type}
+          onSelect={(value) => setFilters((prev) => ({ ...prev, type: value }))}
+          placeholder="Tipo"
+          useAll
+          multiple
+          allDescription="Todos os tipos"
+          allSelectedDescription="Todos os tipos selecionados"
+        />
 
-        <Select
-          value={filters.source}
-          onValueChange={(value) =>
-            setFilters((prev) => ({
-              ...prev,
-              source: value as FilterState['source'],
-            }))
+        <SelectMultiple
+          options={sourceOptions}
+          selected={filters.source}
+          onSelect={(value) =>
+            setFilters((prev) => ({ ...prev, source: value }))
           }
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Origem" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="ALL">Todas as origens</SelectItem>
-            {Object.values(ProjectSource).map((source) => (
-              <SelectItem key={source} value={source}>
-                {source}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+          placeholder="Origem"
+          useAll
+          multiple
+          allDescription="Todas as origens"
+          allSelectedDescription="Todas as origens selecionadas"
+        />
 
-        <Select
-          value={filters.complexity}
-          onValueChange={(value) =>
-            setFilters((prev) => ({
-              ...prev,
-              complexity: value as FilterState['complexity'],
-            }))
+        <SelectMultiple
+          options={visibilityOptions}
+          selected={filters.visibility}
+          onSelect={(value) =>
+            setFilters((prev) => ({ ...prev, visibility: value }))
           }
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Complexidade" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="ALL">Todas as complexidades</SelectItem>
-            {Object.values(ProjectComplexity).map((complexity) => (
-              <SelectItem key={complexity} value={complexity}>
-                {complexity}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+          placeholder="Visibilidade"
+          useAll
+          multiple
+          allDescription="Todas as visibilidades"
+          allSelectedDescription="Todas as visibilidades selecionadas"
+        />
 
-        <Select
-          value={filters.visibility}
-          onValueChange={(value) =>
-            setFilters((prev) => ({
-              ...prev,
-              visibility: value as FilterState['visibility'],
-            }))
+        <SelectMultiple
+          options={complexityOptions}
+          selected={filters.complexity}
+          onSelect={(value) =>
+            setFilters((prev) => ({ ...prev, complexity: value }))
           }
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Visibilidade" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="ALL">Todas as visibilidades</SelectItem>
-            {Object.values(ProjectVisibility).map((visibility) => (
-              <SelectItem key={visibility} value={visibility}>
-                {visibility}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+          placeholder="Complexidade"
+          useAll
+          multiple
+          allDescription="Todas as complexidades"
+          allSelectedDescription="Todas as complexidades selecionadas"
+        />
       </div>
 
       <motion.div
