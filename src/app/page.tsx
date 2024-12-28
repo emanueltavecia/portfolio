@@ -15,15 +15,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import { useRef } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
-
-const techStack = [
-  'React',
-  'React Native',
-  'Expo',
-  'Next.js',
-  'TypeScript',
-  'Tailwind CSS',
-]
+import { techStack } from '@/data/tech-stack'
 
 export default function Home() {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }))
@@ -126,27 +118,29 @@ export default function Home() {
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent className="-ml-1">
-            {projects.map((project, index) => (
-              <CarouselItem
-                key={index}
-                className="group ml-0 basis-10/12 p-0 md:basis-2/3"
-              >
-                <Link
-                  href={`/projects/${project.id}`}
-                  className="relative mx-2 block overflow-hidden rounded-lg group-first:ml-6 group-last:mr-5"
+            {projects
+              .filter((project) => project.isFeatured)
+              .map((project) => (
+                <CarouselItem
+                  key={project.id}
+                  className="group ml-0 basis-10/12 p-0 md:basis-2/3"
                 >
-                  <Image
-                    className="w-full"
-                    src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`}
-                    alt={`Capa do projeto ${project.name}`}
-                    priority
-                    fetchPriority="high"
-                    width={1500}
-                    height={400}
-                  />
-                </Link>
-              </CarouselItem>
-            ))}
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="relative mx-2 block overflow-hidden rounded-lg group-first:ml-6 group-last:mr-5"
+                  >
+                    <Image
+                      className="w-full"
+                      src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`}
+                      alt={`Capa do projeto ${project.name}`}
+                      priority
+                      fetchPriority="high"
+                      width={1500}
+                      height={400}
+                    />
+                  </Link>
+                </CarouselItem>
+              ))}
           </CarouselContent>
         </Carousel>
       </div>
