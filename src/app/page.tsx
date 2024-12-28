@@ -113,11 +113,11 @@ export default function Home() {
 
         <Carousel
           plugins={[plugin.current]}
-          className="w-full"
+          className="w-full overflow-hidden 2xl:rounded-lg"
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
         >
-          <CarouselContent className="-ml-1">
+          <CarouselContent className="mx-3">
             {projects
               .filter((project) => project.isFeatured)
               .map((project) => (
@@ -127,7 +127,7 @@ export default function Home() {
                 >
                   <Link
                     href={`/projects/${project.id}`}
-                    className="relative mx-2 block overflow-hidden rounded-lg group-first:ml-6 group-last:mr-5"
+                    className="relative mx-2 block overflow-hidden rounded-lg"
                   >
                     <Image
                       className="w-full"
