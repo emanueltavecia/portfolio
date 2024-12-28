@@ -16,7 +16,7 @@ export default function Experience() {
           Experiência Profissional
         </h2>
         <p className="mt-3 text-gray-600 dark:text-gray-400">
-          Minha jornada profissional e principais realizações
+          Conheça a minha jornada profissional
         </p>
       </div>
 
