@@ -10,7 +10,7 @@ import { Techs } from './tech-stack'
 export const projects: Project[] = [
   {
     name: 'Sistema Ponto de Caixa',
-    id: 9,
+    id: 10,
     type: [ProjectType.DESKTOP],
     source: ProjectSource.FREELANCE,
     visibility: ProjectVisibility.PRIVATE,
@@ -46,12 +46,22 @@ export const projects: Project[] = [
           },
         ],
       },
+      {
+        title: 'Conceitos aprendidos',
+        content: [
+          'Criação de app desktop com o Electron, utilizando tecnologias da web',
+          'Utilização do React Query para gerenciamento das requisições',
+          'Utilização da biblioteca Sonner para exibição de toasts',
+          'Envio de parâmetros na rota, utilizando os recursos do Next.js',
+          'Utilização da Context API do React',
+        ],
+      },
     ],
   },
   {
     name: 'Nearby',
     repo_name: 'nearby-mobile',
-    id: 8,
+    id: 9,
     type: [ProjectType.MOBILE],
     source: ProjectSource.PERSONAL,
     visibility: ProjectVisibility.PUBLIC,
@@ -406,7 +416,7 @@ export const projects: Project[] = [
     source: ProjectSource.PERSONAL,
     visibility: ProjectVisibility.PUBLIC,
     complexity: ProjectComplexity.MEDIUM,
-    isFeatured: true,
+    isFeatured: false,
     description: [
       'Este projeto é um clone da interface do site Twitter, projetado para aprender conceitos básicos do ReactJS',
     ],
@@ -446,7 +456,7 @@ export const projects: Project[] = [
     source: ProjectSource.PERSONAL,
     visibility: ProjectVisibility.PUBLIC,
     complexity: ProjectComplexity.LOW,
-    isFeatured: true,
+    isFeatured: false,
     description: [
       'GitFav é um site que permite favoritar usuários do GitHub, projetado para colocar em prática conceitos de programação JavaScript',
     ],
