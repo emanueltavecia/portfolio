@@ -1,10 +1,10 @@
 import { Techs } from '@/data/tech-stack'
 
 export enum ProjectType {
-  FRONTEND = 'FRONTEND',
-  BACKEND = 'BACKEND',
-  MOBILE = 'MOBILE',
-  DESKTOP = 'DESKTOP',
+  FRONTEND = 'Front-end',
+  BACKEND = 'Back-end',
+  MOBILE = 'Mobile',
+  DESKTOP = 'Desktop',
 }
 
 export enum ProjectSource {
