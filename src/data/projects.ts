@@ -105,7 +105,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: 'plan.er',
+    name: 'plann.er',
     repo_name: 'planner-mobile',
     overviewVideo: 'overview.mp4',
     id: 8,
