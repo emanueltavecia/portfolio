@@ -8,9 +8,9 @@ export enum ProjectType {
 }
 
 export enum ProjectSource {
+  PERSONAL = 'PERSONAL',
   UNIVERSITY = 'UNIVERSITY',
   FREELANCE = 'FREELANCE',
-  PERSONAL = 'PERSONAL',
 }
 
 export enum ProjectVisibility {
