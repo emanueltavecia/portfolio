@@ -16,12 +16,18 @@ import { useRef } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { techStack } from '@/data/tech-stack'
+import { motion } from 'framer-motion'
 
 export default function Home() {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }))
 
   return (
-    <main className="relative mt-10 flex flex-col items-center gap-20 md:mt-20">
+    <motion.main
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="relative mt-10 flex flex-col items-center gap-20 md:mt-20"
+    >
       <div className="flex w-full max-w-xl flex-col items-center justify-between gap-10 px-5 md:max-w-full md:flex-row md:items-start">
         <div className="relative flex max-w-3xl flex-col items-center gap-6 md:items-start">
           <div className="flex flex-col gap-2">
@@ -144,6 +150,6 @@ export default function Home() {
           </CarouselContent>
         </Carousel>
       </div>
-    </main>
+    </motion.main>
   )
 }
