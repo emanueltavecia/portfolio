@@ -103,7 +103,11 @@ export function SelectMultiple({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-gray-200 bg-transparent px-3 py-2 text-sm font-normal shadow-sm ring-offset-white placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-950 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:ring-offset-gray-950 dark:placeholder:text-gray-400 dark:focus:ring-gray-300 [&>span]:line-clamp-1"
+          className={cn(
+            'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-gray-200 bg-transparent px-3 py-2 text-sm font-normal shadow-sm ring-offset-white focus:outline-none focus:ring-1 focus:ring-gray-950 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:ring-offset-gray-950 dark:hover:bg-gray-900/50 dark:focus:ring-gray-300 [&>span]:line-clamp-1',
+            !selected?.length &&
+              'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300',
+          )}
         >
           {isAllSelected && allSelectedDescription
             ? allSelectedDescription
