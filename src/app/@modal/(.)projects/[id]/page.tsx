@@ -1,6 +1,6 @@
 'use client'
 
-import ProjectDetails from '@/app/projects/[id]/page'
+import { Details } from '@/app/projects/[id]/details'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -18,7 +18,7 @@ export default function ProjectDetailsModal() {
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="px-2 py-0 md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
-        <ProjectDetails isModal />
+        <Details isModal />
       </DialogContent>
     </Dialog>
   )
