@@ -195,7 +195,7 @@ export default function Projects() {
                             ))}
                           </div>
 
-                          <p className="line-clamp-1 text-gray-600 dark:text-gray-400">
+                          <p className="w-full overflow-hidden text-ellipsis text-nowrap text-gray-600 dark:text-gray-400">
                             {project.description[0]}
                           </p>
 

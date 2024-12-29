@@ -117,7 +117,7 @@ export function SelectMultiple({
               'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300',
           )}
         >
-          <span className="w-full max-w-[92%] overflow-hidden text-ellipsis text-left">
+          <span className="w-full max-w-[92%] overflow-hidden text-ellipsis text-nowrap text-left">
             {isAllSelected && allSelectedDescription
               ? allSelectedDescription
               : selected?.length
