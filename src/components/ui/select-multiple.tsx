@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
-import { Check, ChevronDown } from 'lucide-react'
+import { useState, useMemo, useEffect, MouseEvent } from 'react'
+import { Check, ChevronDown, X } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -30,6 +30,7 @@ interface SelectMultipleProps {
   onSelect: (value: string[]) => void
   setIsAllSelected?: (isAllSelected: boolean) => void
   multiple?: boolean
+  useClear?: boolean
   useAll?: boolean
   allDescription?: string
   allSelectedDescription?: string
@@ -45,6 +46,7 @@ export function SelectMultiple({
   onSelect,
   setIsAllSelected,
   multiple = false,
+  useClear = false,
   useAll = false,
   allDescription = 'Select All',
   allSelectedDescription,
@@ -96,6 +98,12 @@ export function SelectMultiple({
     }
   }
 
+  const handleClear = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
+    onSelect([])
+    setOpen(false)
+  }
+
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -104,20 +112,32 @@ export function SelectMultiple({
           role="combobox"
           aria-expanded={open}
           className={cn(
-            'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-gray-200 bg-transparent px-3 py-2 text-sm font-normal shadow-sm ring-offset-white focus:outline-none focus:ring-1 focus:ring-gray-950 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:ring-offset-gray-950 dark:hover:bg-gray-900/50 dark:focus:ring-gray-300 [&>span]:line-clamp-1',
+            'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-gray-200 bg-transparent px-3 py-2 text-sm font-normal shadow-sm ring-offset-white focus:outline-none focus:ring-1 focus:ring-gray-950 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:ring-offset-gray-950 dark:hover:bg-gray-900/50 dark:focus:ring-gray-300',
             !selected?.length &&
               'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300',
           )}
         >
-          {isAllSelected && allSelectedDescription
-            ? allSelectedDescription
-            : selected?.length
-              ? options
-                  .filter((option) => selected?.includes(option.value))
-                  .map((opt) => opt.label)
-                  .join(', ')
-              : placeholder}
-          <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <span className="max-w-[92%] overflow-hidden text-ellipsis">
+            {isAllSelected && allSelectedDescription
+              ? allSelectedDescription
+              : selected?.length
+                ? options
+                    .filter((option) => selected?.includes(option.value))
+                    .map((opt) => opt.label)
+                    .join(', ')
+                : placeholder}
+          </span>
+          {selected?.length && useClear ? (
+            <Button
+              variant="link"
+              onClick={handleClear}
+              className="p-0 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 [&_svg]:size-3.5"
+            >
+              <X className="shrink-0" />
+            </Button>
+          ) : (
+            <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[300px] p-0" align="start">
@@ -144,12 +164,17 @@ export function SelectMultiple({
                 </CommandItem>
               )}
 
-              {options.map((option) => (
+              {options.map((option, i) => (
                 <CommandItem
                   key={option.value}
                   value={option.value}
                   onSelect={() => handleSelect(option.value)}
-                  className="justify-between"
+                  className={cn(
+                    'justify-between',
+                    selected?.includes(option.value) &&
+                      'bg-gray-200/70 dark:bg-gray-900',
+                    (i || useAll) && 'mt-1',
+                  )}
                 >
                   {option.label}
                   <Check
