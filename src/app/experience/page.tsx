@@ -5,17 +5,23 @@ import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { MapPin, Calendar, Building2 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import { motion } from 'framer-motion'
 
 export default function Experience() {
   useScrollToTopOnPageLoad()
 
   return (
-    <div className="my-10 flex flex-col gap-10 px-5">
-      <div className="relative">
+    <motion.main
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="my-10 flex min-h-[75vh] flex-col gap-10 px-5"
+    >
+      <div className="flex flex-col gap-3">
         <h2 className="text-3xl font-bold tracking-tight dark:text-white md:text-4xl">
           Experiência Profissional
         </h2>
-        <p className="mt-3 text-gray-600 dark:text-gray-400">
+        <p className="text-gray-600 dark:text-gray-400">
           Conheça a minha jornada profissional
         </p>
       </div>
@@ -86,6 +92,6 @@ export default function Experience() {
           </Card>
         ))}
       </div>
-    </div>
+    </motion.main>
   )
 }
