@@ -6,27 +6,37 @@ import { scrollToTop } from '@/utils/scroll-to-top'
 import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
 import { usePathname } from 'next/navigation'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '../ui/tooltip'
 
 const SOCIAL_LINKS = [
   {
     name: 'GitHub',
     href: 'https://github.com/emanueltavecia',
     icon: Github,
+    description: '@emanueltavecia',
   },
   {
     name: 'LinkedIn',
     href: 'https://linkedin.com/in/emanueltavecia',
     icon: Linkedin,
+    description: '@emanueltavecia',
   },
   {
     name: 'Instagram',
     href: 'https://instagram.com/emanueltavecia',
     icon: Instagram,
+    description: '@emanueltavecia',
   },
   {
     name: 'Email',
     href: 'mailto:emanueltavecia@hotmail.com',
     icon: Mail,
+    description: 'emanueltavecia@hotmail.com',
   },
 ]
 
@@ -63,15 +73,28 @@ export function Footer() {
             <ul className="flex flex-col gap-2">
               {SOCIAL_LINKS.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-                  >
-                    <link.icon className="size-4" />
-                    {link.name}
-                  </Link>
+                  <TooltipProvider>
+                    <Tooltip disableHoverableContent>
+                      <TooltipTrigger asChild>
+                        <Link
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex w-fit items-center gap-2 text-sm text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+                        >
+                          <link.icon className="size-4" />
+                          {link.name}
+                        </Link>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        align="center"
+                        sideOffset={12}
+                        side="right"
+                      >
+                        <p>{link.description}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </li>
               ))}
             </ul>
