@@ -8,7 +8,7 @@ import { SelectMultiple } from '@/components/ui/select-multiple'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Eraser } from 'lucide-react'
 import {
   ProjectType,
   ProjectSource,
@@ -16,6 +16,7 @@ import {
   ProjectComplexity,
 } from './types'
 import { projects } from '@/data/projects'
+import { Button } from '@/components/ui/button'
 
 interface FilterState {
   type: string[]
@@ -24,15 +25,17 @@ interface FilterState {
   complexity: string[]
 }
 
+const filtersInitialState: FilterState = {
+  type: [],
+  source: [],
+  visibility: [],
+  complexity: [],
+}
+
 export default function Projects() {
   useScrollToTopOnPageLoad()
 
-  const [filters, setFilters] = useState<FilterState>({
-    type: [],
-    source: [],
-    visibility: [],
-    complexity: [],
-  })
+  const [filters, setFilters] = useState<FilterState>(filtersInitialState)
 
   const typeOptions = Object.values(ProjectType).map((type) => ({
     label: type.charAt(0) + type.slice(1).toLowerCase(),
@@ -92,61 +95,76 @@ export default function Projects() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
-        <SelectMultiple
-          options={typeOptions}
-          selected={filters.type}
-          onSelect={(value) => setFilters((prev) => ({ ...prev, type: value }))}
-          placeholder="Tipo"
-          useAll
-          multiple
-          allDescription="Todos os tipos"
-          allSelectedDescription="Todos os tipos selecionados"
-        />
+      <div className="space-y-2">
+        <div className="flex items-center justify-between gap-4">
+          <p className="text-lg">Filtros</p>
+          <Button
+            variant="link"
+            className="p-0 text-slate-700 dark:text-slate-300"
+            onClick={() => setFilters(filtersInitialState)}
+          >
+            <Eraser />
+            Limpar filtros
+          </Button>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+          <SelectMultiple
+            options={typeOptions}
+            selected={filters.type}
+            onSelect={(value) =>
+              setFilters((prev) => ({ ...prev, type: value }))
+            }
+            placeholder="Tipo"
+            useAll
+            multiple
+            allDescription="Todos os tipos"
+            allSelectedDescription="Todos os tipos selecionados"
+          />
 
-        <SelectMultiple
-          options={sourceOptions}
-          selected={filters.source}
-          onSelect={(value) =>
-            setFilters((prev) => ({ ...prev, source: value }))
-          }
-          placeholder="Origem"
-          useAll
-          multiple
-          allDescription="Todas as origens"
-          allSelectedDescription="Todas as origens selecionadas"
-        />
+          <SelectMultiple
+            options={sourceOptions}
+            selected={filters.source}
+            onSelect={(value) =>
+              setFilters((prev) => ({ ...prev, source: value }))
+            }
+            placeholder="Origem"
+            useAll
+            multiple
+            allDescription="Todas as origens"
+            allSelectedDescription="Todas as origens selecionadas"
+          />
 
-        <SelectMultiple
-          options={visibilityOptions}
-          selected={filters.visibility}
-          onSelect={(value) =>
-            setFilters((prev) => ({ ...prev, visibility: value }))
-          }
-          placeholder="Visibilidade"
-          useAll
-          multiple
-          allDescription="Todas as visibilidades"
-          allSelectedDescription="Todas as visibilidades selecionadas"
-        />
+          <SelectMultiple
+            options={visibilityOptions}
+            selected={filters.visibility}
+            onSelect={(value) =>
+              setFilters((prev) => ({ ...prev, visibility: value }))
+            }
+            placeholder="Visibilidade"
+            useAll
+            multiple
+            allDescription="Todas as visibilidades"
+            allSelectedDescription="Todas as visibilidades selecionadas"
+          />
 
-        <SelectMultiple
-          options={complexityOptions}
-          selected={filters.complexity}
-          onSelect={(value) =>
-            setFilters((prev) => ({ ...prev, complexity: value }))
-          }
-          placeholder="Complexidade"
-          useAll
-          multiple
-          allDescription="Todas as complexidades"
-          allSelectedDescription="Todas as complexidades selecionadas"
-        />
+          <SelectMultiple
+            options={complexityOptions}
+            selected={filters.complexity}
+            onSelect={(value) =>
+              setFilters((prev) => ({ ...prev, complexity: value }))
+            }
+            placeholder="Complexidade"
+            useAll
+            multiple
+            allDescription="Todas as complexidades"
+            allSelectedDescription="Todas as complexidades selecionadas"
+          />
+        </div>
       </div>
 
       <motion.div
         layout
-        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
       >
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project) => (
@@ -166,7 +184,7 @@ export default function Projects() {
               }}
             >
               <Link href={`/projects/${project.id}`}>
-                <Card className="group relative h-full overflow-hidden bg-slate-50/40 transition-all duration-300 hover:-translate-y-1 hover:bg-gray-50">
+                <Card className="group relative h-full overflow-hidden bg-slate-50/40 transition-all duration-300 hover:-translate-y-1 hover:bg-gray-50 dark:bg-gray-950/40 dark:hover:bg-gray-950">
                   <CardContent className="flex h-full flex-col justify-between p-0">
                     {project.repo_name && (
                       <Image
