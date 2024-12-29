@@ -44,3 +44,10 @@ export interface Project {
   techs: Techs[]
   listItems?: ProjectListItem[]
 }
+
+export interface FilterState {
+  type: string[]
+  source: string[]
+  visibility: string[]
+  complexity: string[]
+}
