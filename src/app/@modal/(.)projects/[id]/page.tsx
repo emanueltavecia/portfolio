@@ -1,16 +1,14 @@
 'use client'
 
+import ProjectDetails from '@/app/projects/[id]/page'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-export default function PhotoModal() {
-  console.log('---- Intercepted Route ----')
-
+export default function ProjectDetailsModal() {
   const [open, setOpen] = useState(true)
 
   const router = useRouter()
-  const { id } = useParams()
 
   function handleClose() {
     setOpen(false)
@@ -19,77 +17,8 @@ export default function PhotoModal() {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
-        <p>Project Details Page | ID {id}</p>
+      <DialogContent className="px-2 py-0 md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+        <ProjectDetails isModal />
       </DialogContent>
     </Dialog>
   )

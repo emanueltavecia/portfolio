@@ -9,58 +9,22 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Eraser } from 'lucide-react'
-import {
-  ProjectType,
-  ProjectSource,
-  ProjectVisibility,
-  ProjectComplexity,
-} from './types'
+import { FilterState } from './types'
 import { projects } from '@/data/projects'
 import { Button } from '@/components/ui/button'
 import { EmptyState } from './empty-state'
-
-interface FilterState {
-  type: string[]
-  source: string[]
-  visibility: string[]
-  complexity: string[]
-}
-
-const filtersInitialState: FilterState = {
-  type: [],
-  source: [],
-  visibility: [],
-  complexity: [],
-}
+import {
+  complexityOptions,
+  filtersInitialState,
+  sourceOptions,
+  typeOptions,
+  visibilityOptions,
+} from './rules'
 
 export default function Projects() {
   useScrollToTopOnPageLoad()
 
   const [filters, setFilters] = useState<FilterState>(filtersInitialState)
-
-  const typeOptions = Object.values(ProjectType).map((type) => ({
-    label: type.charAt(0) + type.slice(1).toLowerCase(),
-    value: type,
-  }))
-
-  const sourceOptions = Object.values(ProjectSource).map((source) => ({
-    label: source,
-    value: source,
-  }))
-
-  const visibilityOptions = Object.values(ProjectVisibility).map(
-    (visibility) => ({
-      label: visibility,
-      value: visibility,
-    }),
-  )
-
-  const complexityOptions = Object.values(ProjectComplexity).map(
-    (complexity) => ({
-      label: complexity,
-      value: complexity,
-    }),
-  )
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
@@ -87,18 +51,18 @@ export default function Projects() {
       transition={{ duration: 0.5 }}
       className="my-10 flex min-h-[75vh] flex-col gap-10 px-5"
     >
-      <div className="relative">
+      <div className="flex flex-col gap-3">
         <h2 className="text-3xl font-bold tracking-tight dark:text-white md:text-4xl">
           Projetos
         </h2>
-        <p className="mt-3 text-gray-600 dark:text-gray-400">
+        <p className="text-gray-600 dark:text-gray-400">
           Conheça alguns dos projetos que desenvolvi
         </p>
       </div>
 
       <div className="space-y-2">
         <div className="flex items-center justify-between gap-4">
-          <p className="text-lg">Filtros</p>
+          <p className="text-lg font-medium">Filtros</p>
           <Button
             variant="link"
             className="p-0 text-slate-700 dark:text-slate-300"
@@ -116,6 +80,7 @@ export default function Projects() {
               setFilters((prev) => ({ ...prev, type: value }))
             }
             placeholder="Tipo"
+            useClear
             useAll
             multiple
             allDescription="Todos os tipos"
@@ -129,6 +94,7 @@ export default function Projects() {
               setFilters((prev) => ({ ...prev, source: value }))
             }
             placeholder="Origem"
+            useClear
             useAll
             multiple
             allDescription="Todas as origens"
@@ -142,6 +108,7 @@ export default function Projects() {
               setFilters((prev) => ({ ...prev, visibility: value }))
             }
             placeholder="Visibilidade"
+            useClear
             useAll
             multiple
             allDescription="Todas as visibilidades"
@@ -155,6 +122,7 @@ export default function Projects() {
               setFilters((prev) => ({ ...prev, complexity: value }))
             }
             placeholder="Complexidade"
+            useClear
             useAll
             multiple
             allDescription="Todas as complexidades"
@@ -192,7 +160,7 @@ export default function Projects() {
                         <Image
                           src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`}
                           alt={`Capa do projeto ${project.name}`}
-                          className="max-h-[222px] w-full rounded-xl object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                          className="aspect-video w-full rounded-xl object-cover object-top transition-transform duration-300 group-hover:scale-105"
                           fill
                           style={{ position: '' as never }}
                           priority
