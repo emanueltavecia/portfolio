@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { SelectMultiple } from '@/components/ui/select-multiple'
+import { Select } from '@/components/ui/select'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -73,7 +73,7 @@ export default function Projects() {
           </Button>
         </div>
         <div className="grid grid-cols-1 gap-x-4 gap-y-2.5 sm:grid-cols-2 md:grid-cols-4">
-          <SelectMultiple
+          <Select
             options={typeOptions}
             selected={filters.type}
             onSelect={(value) =>
@@ -87,7 +87,7 @@ export default function Projects() {
             allSelectedDescription="Todos os tipos selecionados"
           />
 
-          <SelectMultiple
+          <Select
             options={sourceOptions}
             selected={filters.source}
             onSelect={(value) =>
@@ -101,7 +101,7 @@ export default function Projects() {
             allSelectedDescription="Todas as origens selecionadas"
           />
 
-          <SelectMultiple
+          <Select
             options={visibilityOptions}
             selected={filters.visibility}
             onSelect={(value) =>
@@ -115,7 +115,7 @@ export default function Projects() {
             allSelectedDescription="Todas as visibilidades selecionadas"
           />
 
-          <SelectMultiple
+          <Select
             options={complexityOptions}
             selected={filters.complexity}
             onSelect={(value) =>
