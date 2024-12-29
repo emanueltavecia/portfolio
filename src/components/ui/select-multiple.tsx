@@ -117,7 +117,7 @@ export function SelectMultiple({
               'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300',
           )}
         >
-          <span className="max-w-[92%] overflow-hidden text-ellipsis">
+          <span className="w-full max-w-[92%] overflow-hidden text-ellipsis text-left">
             {isAllSelected && allSelectedDescription
               ? allSelectedDescription
               : selected?.length
@@ -133,10 +133,10 @@ export function SelectMultiple({
               onClick={handleClear}
               className="p-0 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 [&_svg]:size-3.5"
             >
-              <X className="shrink-0" />
+              <X className="mr-px shrink-0" />
             </Button>
           ) : (
-            <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            <ChevronDown className="h-4 w-4 shrink-0 opacity-50" />
           )}
         </Button>
       </PopoverTrigger>
@@ -152,7 +152,10 @@ export function SelectMultiple({
                 <CommandItem
                   value="ALL"
                   onSelect={() => handleSelect('ALL')}
-                  className="justify-between"
+                  className={cn(
+                    'justify-between',
+                    isAllSelected && 'bg-gray-200/70 dark:bg-gray-900',
+                  )}
                 >
                   {allDescription}
                   <Check
