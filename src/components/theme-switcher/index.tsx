@@ -1,6 +1,6 @@
 'use client'
 
-import { Moon, Settings, Sun } from 'lucide-react'
+import { Check, Moon, Settings, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
@@ -10,12 +10,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { ThemeSwitcherProps } from './types'
+import { Themes, ThemeSwitcherProps } from './types'
 import { cn } from '@/lib/utils'
 
 export function ThemeSwitcher({ isMobile }: ThemeSwitcherProps) {
-  const { setTheme } = useTheme()
-
+  const { theme, setTheme } = useTheme()
+  console.log(theme)
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -35,15 +35,43 @@ export function ThemeSwitcher({ isMobile }: ThemeSwitcherProps) {
           </span>
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align={isMobile ? 'start' : 'end'}>
-        <DropdownMenuItem onClick={() => setTheme('light')}>
-          <Sun /> Claro
+      <DropdownMenuContent
+        align={isMobile ? 'start' : 'end'}
+        className="w-32"
+        sideOffset={8}
+      >
+        <DropdownMenuItem
+          onClick={() => setTheme(Themes.LIGHT)}
+          className="justify-between gap-3"
+        >
+          <span className="flex items-center gap-3">
+            <Sun className="h-4 w-4 shrink-0" />
+            <span>Claro</span>
+          </span>
+
+          {theme === Themes.LIGHT && <Check className="h-4 w-4 shrink-0" />}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>
-          <Moon /> Escuro
+        <DropdownMenuItem
+          onClick={() => setTheme(Themes.DARK)}
+          className="justify-between gap-3"
+        >
+          <span className="flex items-center gap-3">
+            <Moon className="h-4 w-4 shrink-0" />
+            <span>Escuro</span>
+          </span>
+
+          {theme === Themes.DARK && <Check className="h-4 w-4 shrink-0" />}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>
-          <Settings /> Sistema
+        <DropdownMenuItem
+          onClick={() => setTheme(Themes.SYSTEM)}
+          className="justify-between gap-3"
+        >
+          <span className="flex items-center gap-3">
+            <Settings className="h-4 w-4 shrink-0" />
+            <span>Sistema</span>
+          </span>
+
+          {theme === Themes.SYSTEM && <Check className="h-4 w-4 shrink-0" />}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
