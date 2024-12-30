@@ -26,7 +26,7 @@ export default function Home() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative mt-10 flex flex-col items-center gap-20 md:mt-20"
+      className="relative mb-6 mt-10 flex flex-col items-center gap-20 md:mt-20"
     >
       <div className="flex w-full max-w-xl flex-col items-center justify-between gap-10 px-5 md:max-w-full md:flex-row md:items-start">
         <div className="relative flex max-w-3xl flex-col items-center gap-6 md:items-start">
