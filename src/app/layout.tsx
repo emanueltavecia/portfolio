@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
-import { Outfit } from 'next/font/google'
-import './globals.css'
+import localFont from 'next/font/local'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { ReactNode, Suspense } from 'react'
+import './globals.css'
 
-const mainFontFamily = Outfit({ subsets: ['latin'], variable: '--font-main' })
+const mainFontFamily = localFont({
+  src: './assets/outfit.ttf',
+})
 
 export const metadata: Metadata = {
   title: 'Emanuel Tavecia',
