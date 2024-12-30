@@ -247,11 +247,12 @@ export function Details({ isModal }: ProjectDetailsProps) {
                     </h2>
                   </div>
                   <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
-                    <video
-                      src={project.overviewVideo}
-                      controls
-                      className="h-full w-full"
-                    />
+                    <video controls className="h-full w-full">
+                      <source
+                        src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/${project.overviewVideo}?raw=true`}
+                        type="video/mp4"
+                      ></source>
+                    </video>
                   </div>
                 </div>
               )}
