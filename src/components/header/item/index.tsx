@@ -1,21 +1,25 @@
 'use client'
 
-import Link from 'next/link'
 import { NavItemProps } from './types'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 
 export function NavItem({ name, href, onCloseSheet }: NavItemProps) {
   const pathname = usePathname()
+  const router = useRouter()
   const isActive = pathname === href
+
+  function handleClick() {
+    onCloseSheet?.()
+    router.push(href)
+  }
 
   return (
     <li>
-      <Link
-        href={href}
-        onClick={onCloseSheet}
+      <button
+        onClick={handleClick}
         className={cn(
-          'relative font-medium transition-colors',
+          'relative cursor-pointer font-medium transition-colors',
           isActive
             ? 'text-blue-600 dark:text-blue-400'
             : 'text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400',
@@ -24,7 +28,7 @@ export function NavItem({ name, href, onCloseSheet }: NavItemProps) {
         )}
       >
         {name}
-      </Link>
+      </button>
     </li>
   )
 }
