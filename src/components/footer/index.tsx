@@ -3,9 +3,8 @@
 import { ArrowUp, Github, Linkedin, Mail, Instagram } from 'lucide-react'
 import { Button } from '../ui/button'
 import { scrollToTop } from '@/utils/scroll-to-top'
-import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
-import { usePathname } from 'next/navigation'
+import { usePathname, Link } from '@/navigation'
 import {
   Tooltip,
   TooltipContent,

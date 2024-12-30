@@ -4,7 +4,7 @@ import {
   ProjectSource,
   ProjectType,
   ProjectVisibility,
-} from '@/app/projects/types'
+} from '@/app/[locale]/projects/types'
 import { Techs } from './tech-stack'
 import project10Screenshot from '@/app/assets/project-10-screenshot.png'
 

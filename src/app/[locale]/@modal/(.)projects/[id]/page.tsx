@@ -1,8 +1,8 @@
 'use client'
 
-import { Details } from '@/app/projects/[id]/details'
+import { Details } from '@/app/[locale]/projects/[id]/details'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/navigation'
 import { useState } from 'react'
 
 export default function ProjectDetailsModal() {

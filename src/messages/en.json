@@ -1,6 +1,5 @@
 {
-    "Home": {
-      "title": "Hello, World!",
-      "about": "Go to about page"
-    }
+  "Home": {
+    "title": "Hello, I'm"
+  }
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { NavItemProps } from './types'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter } from '@/navigation'
 import { cn } from '@/lib/utils'
 
 export function NavItem({ name, href, onCloseSheet }: NavItemProps) {
