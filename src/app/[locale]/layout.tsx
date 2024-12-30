@@ -24,11 +24,11 @@ export const metadata: Metadata = {
 
 export default async function LocaleLayout({
   children,
-  // modal,
+  modal,
   params: { locale },
 }: {
   children: ReactNode
-  // modal: ReactNode
+  modal: ReactNode
   params: { locale: string }
 }) {
   if (!routing.locales.includes(locale as Locales)) {
@@ -55,7 +55,7 @@ export default async function LocaleLayout({
               <div className="pointer-events-none absolute -left-[15%] top-0 h-96 w-full max-w-96 animate-pulse rounded-full bg-blue-500/15 blur-3xl filter dark:bg-blue-500/5" />
               <Suspense>{children}</Suspense>
             </div>
-            {/* {modal} */}
+            {modal}
             <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
