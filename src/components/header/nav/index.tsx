@@ -1,4 +1,4 @@
-import { ThemeToggle } from '@/components/theme-toggle'
+import { ThemeSwitcher } from '@/components/theme-switcher'
 import { NavItem } from '../item'
 import { HeaderNavProps } from './types'
 import { cn } from '@/lib/utils'
@@ -40,7 +40,7 @@ export function HeaderNav({ isMobile, handleCloseSheet }: HeaderNavProps) {
         />
       </ul>
       <div className={cn(isMobile && 'mt-4')}>
-        <ThemeToggle isMobile={isMobile} />
+        <ThemeSwitcher isMobile={isMobile} />
       </div>
     </>
   )

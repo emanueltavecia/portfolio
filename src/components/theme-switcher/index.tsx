@@ -10,10 +10,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { ThemeToggleProps } from './types'
+import { ThemeSwitcherProps } from './types'
 import { cn } from '@/lib/utils'
 
-export function ThemeToggle({ isMobile }: ThemeToggleProps) {
+export function ThemeSwitcher({ isMobile }: ThemeSwitcherProps) {
   const { setTheme } = useTheme()
 
   return (
