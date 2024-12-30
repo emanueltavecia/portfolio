@@ -38,6 +38,8 @@ interface SelectMultipleProps {
   emptyMessage?: string
   placeholder: string
   allowNoSelection?: boolean
+  triggerDescriptionSeparator?: string
+  triggerDescriptionLastSeparator?: string
 }
 
 export function Select({
@@ -54,6 +56,8 @@ export function Select({
   emptyMessage = 'No options found',
   placeholder = 'Select...',
   allowNoSelection = true,
+  triggerDescriptionSeparator = ', ',
+  triggerDescriptionLastSeparator,
 }: SelectMultipleProps) {
   const [open, setOpen] = useState(false)
 
@@ -64,6 +68,23 @@ export function Select({
       false
     )
   }, [selected, options])
+
+  const getTriggerDescription = () => {
+    const formattedOptions = options
+      .filter((option) => selected?.includes(option.value))
+      .map((option) => option.label)
+
+    const result =
+      formattedOptions.length > 1
+        ? `${formattedOptions.slice(0, -1).join(triggerDescriptionSeparator)}${triggerDescriptionLastSeparator || triggerDescriptionSeparator}${formattedOptions.slice(-1)}`
+        : formattedOptions.join('')
+
+    return isAllSelected && allSelectedDescription
+      ? allSelectedDescription
+      : selected?.length
+        ? result
+        : placeholder
+  }
 
   useEffect(() => {
     if (setIsAllSelected) {
@@ -112,29 +133,21 @@ export function Select({
           role="combobox"
           aria-expanded={open}
           className={cn(
-            'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-gray-200 bg-transparent px-3 py-2 text-sm font-normal shadow-sm ring-offset-white focus:outline-none focus:ring-1 focus:ring-gray-950 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:ring-offset-gray-950 dark:hover:bg-gray-900/50 dark:focus:ring-gray-300',
+            'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-gray-200 bg-transparent px-3 py-2 text-sm font-normal shadow-sm focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:hover:bg-gray-900/50',
             !selected?.length &&
               'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300',
           )}
         >
           <span className="w-full max-w-[92%] overflow-hidden text-ellipsis text-nowrap text-left">
-            {isAllSelected && allSelectedDescription
-              ? allSelectedDescription
-              : selected?.length
-                ? options
-                    .filter((option) => selected?.includes(option.value))
-                    .map((opt) => opt.label)
-                    .join(', ')
-                : placeholder}
+            {getTriggerDescription()}
           </span>
           {selected?.length && useClear ? (
-            <Button
-              variant="link"
+            <span
               onClick={handleClear}
               className="p-0 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 [&_svg]:size-3.5"
             >
               <X className="mr-px shrink-0" />
-            </Button>
+            </span>
           ) : (
             <ChevronDown className="h-4 w-4 shrink-0 opacity-50" />
           )}
