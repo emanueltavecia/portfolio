@@ -6,11 +6,13 @@ import {
   ProjectVisibility,
 } from '@/app/projects/types'
 import { Techs } from './tech-stack'
+import project10Screenshot from '@/app/assets/project-10-screenshot.png'
 
 export const projects: Project[] = [
   {
     name: 'Sistema Ponto de Caixa',
     id: 10,
+    screenshot: project10Screenshot,
     type: [ProjectType.DESKTOP],
     source: ProjectSource.FREELANCE,
     visibility: ProjectVisibility.PRIVATE,

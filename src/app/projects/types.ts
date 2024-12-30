@@ -1,4 +1,5 @@
 import { Techs } from '@/data/tech-stack'
+import { StaticImageData } from 'next/image'
 
 export enum ProjectType {
   FRONTEND = 'Front-end',
@@ -33,6 +34,7 @@ export interface Project {
   name: string
   repo_name?: string
   deploy?: string
+  screenshot?: StaticImageData
   overviewVideo?: string
   id: number
   type: ProjectType[]

@@ -88,9 +88,12 @@ export default function Projects() {
                 <Link href={`/projects/${project.id}`}>
                   <Card className="group relative h-full overflow-hidden bg-slate-50/40 transition-all duration-300 hover:-translate-y-1 hover:bg-gray-50 dark:bg-gray-950/40 dark:hover:bg-gray-950">
                     <CardContent className="flex h-full flex-col justify-between p-0">
-                      {project.repo_name && (
+                      {(project.screenshot || project.repo_name) && (
                         <Image
-                          src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`}
+                          src={
+                            project.screenshot ||
+                            `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
+                          }
                           alt={`Capa do projeto ${project.name}`}
                           className="aspect-video w-full rounded-xl object-cover object-top transition-transform duration-300 group-hover:scale-105"
                           fill

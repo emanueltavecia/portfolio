@@ -199,11 +199,14 @@ export function Details({ isModal }: ProjectDetailsProps) {
           )}
         </div>
 
-        {project.repo_name && (
+        {(project.screenshot || project.repo_name) && (
           <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
             <div className="absolute inset-0 bg-slate-950/10 transition-opacity duration-300 hover:opacity-0" />
             <Image
-              src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`}
+              src={
+                project.screenshot ||
+                `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
+              }
               alt={`Capa do projeto ${project.name}`}
               className="object-cover object-top"
               fill
