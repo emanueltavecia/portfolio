@@ -1,9 +1,5 @@
 import { ReactNode } from 'react'
 
-export default async function LocaleLayout({
-  children,
-}: {
-  children: ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return children
 }
