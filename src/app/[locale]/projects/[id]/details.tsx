@@ -1,6 +1,6 @@
 'use client'
 
-import { useParams } from 'next/navigation'
+import { notFound, useParams } from 'next/navigation'
 import { useRouter } from '@/navigation'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -41,8 +41,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
   const project = projects.find((p) => p.id === Number(id))
 
   if (!project) {
-    router.push('/404')
-    return null
+    notFound()
   }
 
   const list = (listItems: (string | ProjectListItem)[]) => {
