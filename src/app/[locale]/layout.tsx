@@ -3,7 +3,11 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, setRequestLocale } from 'next-intl/server'
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { Locales } from '@/locales'
@@ -17,13 +21,22 @@ const mainFontFamily = localFont({
   src: '../assets/outfit.ttf',
 })
 
-export const metadata: Metadata = {
-  title: 'Emanuel Tavecia',
-  description: 'Portfólio de Emanuel Tavecia',
-}
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string }
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'RootMetadata' })
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: ['portfolio', 'front-end', 'React', 'TypeScript', 'React Native'],
+  }
 }
 
 export default async function LocaleLayout({
