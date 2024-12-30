@@ -10,7 +10,7 @@ export function HeaderNav({ isMobile, handleCloseSheet }: HeaderNavProps) {
       <ul
         className={cn(
           'flex',
-          isMobile ? 'flex-col gap-3' : 'flex-row items-center gap-6',
+          isMobile ? 'flex-col gap-3.5' : 'flex-row items-center gap-6',
         )}
       >
         <NavItem name="Home" href="/" onCloseSheet={handleCloseSheet} />
@@ -40,7 +40,7 @@ export function HeaderNav({ isMobile, handleCloseSheet }: HeaderNavProps) {
           onCloseSheet={handleCloseSheet}
         />
       </ul>
-      <div className={cn('flex gap-2', isMobile && 'mt-4 flex-col')}>
+      <div className={cn('flex gap-2', isMobile && 'flex-col')}>
         <LocaleSwitcher isMobile={isMobile} />
         <ThemeSwitcher isMobile={isMobile} />
       </div>

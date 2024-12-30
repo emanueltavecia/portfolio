@@ -47,7 +47,7 @@ export function Header() {
                 Menu
               </SheetTitle>
             </SheetHeader>
-            <nav className="flex flex-col gap-3">
+            <nav className="flex flex-col gap-7">
               <HeaderNav
                 isMobile
                 handleCloseSheet={() => setIsSheetOpen(false)}
