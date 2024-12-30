@@ -1,17 +1,10 @@
 import {
-  FilterState,
+  FilterOption,
   ProjectComplexity,
   ProjectSource,
   ProjectType,
   ProjectVisibility,
 } from './types'
-
-export const filtersInitialState: FilterState = {
-  type: [],
-  source: [],
-  visibility: [],
-  complexity: [],
-}
 
 export function getSourceLabel(value: ProjectSource): string {
   switch (value) {
@@ -67,3 +60,34 @@ export const complexityOptions = Object.values(ProjectComplexity).map(
     value: complexity,
   }),
 )
+
+export const filtersOptions: FilterOption[] = [
+  {
+    id: 'type',
+    options: typeOptions,
+    placeholder: 'Tipo',
+    allDescription: 'Todos os tipos',
+    allSelectedDescription: 'Todos os tipos selecionados',
+  },
+  {
+    id: 'source',
+    options: sourceOptions,
+    placeholder: 'Origem',
+    allDescription: 'Todas as origens',
+    allSelectedDescription: 'Todas as origens selecionadas',
+  },
+  {
+    id: 'visibility',
+    options: visibilityOptions,
+    placeholder: 'Visibilidade',
+    allDescription: 'Todas as visibilidades',
+    allSelectedDescription: 'Todas as visibilidades selecionadas',
+  },
+  {
+    id: 'complexity',
+    options: complexityOptions,
+    placeholder: 'Complexidade',
+    allDescription: 'Todas as complexidades',
+    allSelectedDescription: 'Todas as complexidades selecionadas',
+  },
+]

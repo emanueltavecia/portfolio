@@ -1,44 +1,45 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Select } from '@/components/ui/select'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Eraser } from 'lucide-react'
-import { FilterState } from './types'
+import { ArrowRight } from 'lucide-react'
 import { projects } from '@/data/projects'
-import { Button } from '@/components/ui/button'
 import { EmptyState } from './empty-state'
-import {
-  complexityOptions,
-  filtersInitialState,
-  sourceOptions,
-  typeOptions,
-  visibilityOptions,
-} from './rules'
+import { Filters } from './filters'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { FilterState } from './types'
 
 export default function Projects() {
   useScrollToTopOnPageLoad()
 
-  const [filters, setFilters] = useState<FilterState>(filtersInitialState)
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const filters = useMemo(() => {
+    const parsedFilters: Partial<FilterState> = {}
+    searchParams.forEach((value, key) => {
+      parsedFilters[key as keyof FilterState] = JSON.parse(value)
+    })
+    return parsedFilters
+  }, [searchParams])
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
       const typeMatch =
-        filters.type.length === 0 ||
-        project.type.some((type) => filters.type.includes(type))
+        !filters.type ||
+        project.type.some((type) => filters.type?.includes(type))
       const sourceMatch =
-        filters.source.length === 0 || filters.source.includes(project.source)
+        !filters.source || filters.source.includes(project.source)
       const visibilityMatch =
-        filters.visibility.length === 0 ||
-        filters.visibility.includes(project.visibility)
+        !filters.visibility || filters.visibility.includes(project.visibility)
       const complexityMatch =
-        filters.complexity.length === 0 ||
-        filters.complexity.includes(project.complexity)
+        !filters.complexity || filters.complexity.includes(project.complexity)
 
       return typeMatch && sourceMatch && visibilityMatch && complexityMatch
     })
@@ -60,76 +61,7 @@ export default function Projects() {
         </p>
       </div>
 
-      <div className="space-y-2">
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-lg font-medium">Filtros</p>
-          <Button
-            variant="link"
-            className="p-0 text-slate-700 dark:text-slate-300"
-            onClick={() => setFilters(filtersInitialState)}
-          >
-            <Eraser />
-            Limpar filtros
-          </Button>
-        </div>
-        <div className="grid grid-cols-1 gap-x-4 gap-y-2.5 sm:grid-cols-2 md:grid-cols-4">
-          <Select
-            options={typeOptions}
-            selected={filters.type}
-            onSelect={(value) =>
-              setFilters((prev) => ({ ...prev, type: value }))
-            }
-            placeholder="Tipo"
-            useClear
-            useAll
-            multiple
-            allDescription="Todos os tipos"
-            allSelectedDescription="Todos os tipos selecionados"
-          />
-
-          <Select
-            options={sourceOptions}
-            selected={filters.source}
-            onSelect={(value) =>
-              setFilters((prev) => ({ ...prev, source: value }))
-            }
-            placeholder="Origem"
-            useClear
-            useAll
-            multiple
-            allDescription="Todas as origens"
-            allSelectedDescription="Todas as origens selecionadas"
-          />
-
-          <Select
-            options={visibilityOptions}
-            selected={filters.visibility}
-            onSelect={(value) =>
-              setFilters((prev) => ({ ...prev, visibility: value }))
-            }
-            placeholder="Visibilidade"
-            useClear
-            useAll
-            multiple
-            allDescription="Todas as visibilidades"
-            allSelectedDescription="Todas as visibilidades selecionadas"
-          />
-
-          <Select
-            options={complexityOptions}
-            selected={filters.complexity}
-            onSelect={(value) =>
-              setFilters((prev) => ({ ...prev, complexity: value }))
-            }
-            placeholder="Complexidade"
-            useClear
-            useAll
-            multiple
-            allDescription="Todas as complexidades"
-            allSelectedDescription="Todas as complexidades selecionadas"
-          />
-        </div>
-      </div>
+      <Filters />
 
       {filteredProjects.length ? (
         <motion.div
@@ -225,7 +157,7 @@ export default function Projects() {
           </AnimatePresence>
         </motion.div>
       ) : (
-        <EmptyState onClearFilters={() => setFilters(filtersInitialState)} />
+        <EmptyState onClearFilters={() => router.push(pathname)} />
       )}
     </motion.div>
   )

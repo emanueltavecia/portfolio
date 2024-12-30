@@ -51,3 +51,11 @@ export interface FilterState {
   visibility: string[]
   complexity: string[]
 }
+
+export interface FilterOption {
+  id: keyof FilterState
+  options: { value: string; label: string }[]
+  placeholder: string
+  allDescription: string
+  allSelectedDescription: string
+}
