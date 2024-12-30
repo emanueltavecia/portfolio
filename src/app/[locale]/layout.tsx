@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { Locales } from '@/locales'
@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   description: 'Portfólio de Emanuel Tavecia',
 }
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }))
+}
+
 export default async function LocaleLayout({
   children,
   modal,
@@ -34,6 +38,8 @@ export default async function LocaleLayout({
   if (!routing.locales.includes(locale as Locales)) {
     notFound()
   }
+
+  setRequestLocale(locale)
 
   const messages = await getMessages()
 
@@ -51,7 +57,7 @@ export default async function LocaleLayout({
           >
             <Header />
 
-            <div className="relative mx-auto mt-24 w-full max-w-screen-xl">
+            <div className="relative mx-auto mt-24 min-h-[calc(100vh-96px)] w-full max-w-screen-xl">
               <div className="pointer-events-none absolute -left-[15%] top-0 h-96 w-full max-w-96 animate-pulse rounded-full bg-blue-500/15 blur-3xl filter dark:bg-blue-500/5" />
               <Suspense>{children}</Suspense>
             </div>

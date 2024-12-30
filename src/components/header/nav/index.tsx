@@ -2,6 +2,7 @@ import { ThemeSwitcher } from '@/components/theme-switcher'
 import { NavItem } from '../item'
 import { HeaderNavProps } from './types'
 import { cn } from '@/lib/utils'
+import { LocaleSwitcher } from '@/components/locale-switcher'
 
 export function HeaderNav({ isMobile, handleCloseSheet }: HeaderNavProps) {
   return (
@@ -39,7 +40,8 @@ export function HeaderNav({ isMobile, handleCloseSheet }: HeaderNavProps) {
           onCloseSheet={handleCloseSheet}
         />
       </ul>
-      <div className={cn(isMobile && 'mt-4')}>
+      <div className={cn('flex gap-2', isMobile && 'mt-4 flex-col')}>
+        <LocaleSwitcher isMobile={isMobile} />
         <ThemeSwitcher isMobile={isMobile} />
       </div>
     </>

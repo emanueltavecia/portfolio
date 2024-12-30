@@ -4,7 +4,7 @@ import { Locales, locales } from '../locales'
 
 export const routing = defineRouting({
   locales,
-  defaultLocale: Locales.PT,
+  defaultLocale: Locales.PT_BR,
 })
 
 export const {

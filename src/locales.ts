@@ -1,6 +1,6 @@
 export enum Locales {
-  PT = 'pt',
-  EN = 'en',
+  PT_BR = 'pt-BR',
+  EN_US = 'en-US',
 }
 
-export const locales: readonly Locales[] = [Locales.PT, Locales.EN]
+export const locales: readonly Locales[] = [Locales.PT_BR, Locales.EN_US]
