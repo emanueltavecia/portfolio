@@ -35,10 +35,10 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-blue-50 dark:hover:bg-blue-900/20 lg:hidden"
+              className="hover:bg-blue-50 dark:hover:bg-blue-900/20 lg:hidden [&_svg]:size-5"
               onClick={() => setIsSheetOpen(true)}
             >
-              <Menu className="size-5" />
+              <Menu />
             </Button>
           </SheetTrigger>
           <SheetContent className="w-72 border-blue-100 bg-white/95 backdrop-blur-lg dark:border-blue-950/20 dark:bg-gray-950/95">
