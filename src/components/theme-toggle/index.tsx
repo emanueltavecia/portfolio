@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { ThemeToggleProps } from './types'
+import { cn } from '@/lib/utils'
 
 export function ThemeToggle({ isMobile }: ThemeToggleProps) {
   const { setTheme } = useTheme()
@@ -24,7 +25,14 @@ export function ThemeToggle({ isMobile }: ThemeToggleProps) {
             <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             <span className="sr-only">Toggle theme</span>
           </Button>
-          <span className={!isMobile ? 'hidden' : ''}>Trocar o tema</span>
+          <span
+            className={cn(
+              'text-gray-800 dark:text-gray-300',
+              !isMobile && 'hidden',
+            )}
+          >
+            Trocar o tema
+          </span>
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent align={isMobile ? 'start' : 'end'}>
