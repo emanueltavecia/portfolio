@@ -35,7 +35,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-blue-50 dark:hover:bg-blue-900/20 lg:hidden [&_svg]:size-5"
+              className="-mr-2.5 hover:bg-blue-50 dark:hover:bg-blue-900/20 lg:hidden [&_svg]:size-5"
               onClick={() => setIsSheetOpen(true)}
             >
               <Menu />
