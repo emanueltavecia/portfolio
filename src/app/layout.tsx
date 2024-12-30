@@ -4,7 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { ReactNode } from 'react'
+import { ReactNode, Suspense } from 'react'
 
 const mainFontFamily = Outfit({ subsets: ['latin'], variable: '--font-main' })
 
@@ -35,7 +35,7 @@ export default function RootLayout({
 
           <div className="relative mx-auto mt-24 w-full max-w-screen-xl">
             <div className="pointer-events-none absolute -left-[15%] top-0 h-96 w-full max-w-96 animate-pulse rounded-full bg-blue-500/15 blur-3xl filter dark:bg-blue-500/5" />
-            {children}
+            <Suspense>{children}</Suspense>
           </div>
           {modal}
           <Footer />
