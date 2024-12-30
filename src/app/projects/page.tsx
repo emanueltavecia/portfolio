@@ -52,7 +52,7 @@ export default function Projects() {
       transition={{ duration: 0.5 }}
       className="my-10 flex min-h-[75vh] flex-col gap-10 px-5"
     >
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
         <h2 className="text-3xl font-bold tracking-tight dark:text-white md:text-4xl">
           Projetos
         </h2>
