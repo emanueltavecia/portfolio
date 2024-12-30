@@ -108,7 +108,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
               {!isModal && (
                 <Button
                   variant="ghost"
-                  className="[&_svg]:size-5 sm:[&_svg]:size-6"
+                  className="-ml-2.5 shrink-0 [&_svg]:size-5 sm:[&_svg]:size-6"
                   size="icon"
                   onClick={() => router.push('/projects')}
                 >
