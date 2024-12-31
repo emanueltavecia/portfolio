@@ -39,6 +39,7 @@ import {
 import { cn } from '@/lib/utils'
 import { useLocale, useTranslations } from 'next-intl'
 import { Locales } from '@/locales'
+import { DialogTitle } from '../ui/dialog'
 
 export function Details({ id, isModal }: ProjectDetailsProps) {
   const router = useRouter()
@@ -123,9 +124,15 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
                   <ArrowLeft />
                 </Button>
               )}
-              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                {project.name}
-              </h1>
+              {isModal ? (
+                <DialogTitle className="text-3xl font-bold tracking-tight md:text-4xl">
+                  {project.name}
+                </DialogTitle>
+              ) : (
+                <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+                  {project.name}
+                </h1>
+              )}
             </div>
             {project.isFeatured && (
               <Badge
