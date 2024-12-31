@@ -1,6 +1,6 @@
 'use client'
 
-import { notFound, useParams } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { useRouter } from '@/navigation'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -26,18 +26,21 @@ import {
 } from 'lucide-react'
 import { projects } from '@/data/projects'
 import { ProjectDetailsProps } from './types'
-import { ProjectComplexity, ProjectListItem, ProjectType } from '../types'
+import {
+  ProjectComplexity,
+  ProjectListItem,
+  ProjectType,
+} from '../../app/[locale]/projects/types'
 import {
   getComplexityLabel,
   getSourceLabel,
   getVisibilityLabel,
-} from '../rules'
+} from '../../app/[locale]/projects/rules'
 import { cn } from '@/lib/utils'
 import { useLocale, useTranslations } from 'next-intl'
 import { Locales } from '@/locales'
 
-export function Details({ isModal }: ProjectDetailsProps) {
-  const { id } = useParams()
+export function Details({ id, isModal }: ProjectDetailsProps) {
   const router = useRouter()
 
   const locale = useLocale() as Locales

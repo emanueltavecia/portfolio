@@ -14,18 +14,36 @@ import { ArrowRight, Download } from 'lucide-react'
 import { projects } from '@/data/projects'
 import { cn } from '@/lib/utils'
 import Autoplay from 'embla-carousel-autoplay'
-import { useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { techStack } from '@/data/tech-stack'
 import { motion } from 'framer-motion'
 import { Locales } from '@/locales'
+import { ProjectDetailsModal } from '@/components/project-details/modal'
+import { useRouter, usePathname } from '@/navigation'
+import { useSearchParams } from 'next/navigation'
 
 export default function Home() {
   const locale = useLocale() as Locales
   const t = useTranslations('Home')
 
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }))
+
+  const handleOpenProjectDetails = useCallback(
+    (id: number) => {
+      if (id) {
+        const newSearchParams = new URLSearchParams(searchParams)
+        newSearchParams.set('id', String(id))
+        router.push(`${pathname}?${newSearchParams.toString()}`)
+      }
+    },
+    [pathname, router, searchParams],
+  )
 
   return (
     <motion.main
@@ -137,8 +155,8 @@ export default function Home() {
                   key={project.id}
                   className="group ml-0 basis-10/12 p-0 md:basis-2/3"
                 >
-                  <Link
-                    href={`/projects/${project.id}`}
+                  <div
+                    onClick={() => handleOpenProjectDetails(project.id)}
                     className="relative mx-2 block overflow-hidden rounded-lg"
                   >
                     <Image
@@ -152,12 +170,14 @@ export default function Home() {
                       width={1500}
                       height={400}
                     />
-                  </Link>
+                  </div>
                 </CarouselItem>
               ))}
           </CarouselContent>
         </Carousel>
       </div>
+
+      <ProjectDetailsModal />
     </motion.main>
   )
 }

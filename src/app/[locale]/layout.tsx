@@ -40,11 +40,9 @@ export async function generateMetadata({
 
 export default async function LocaleLayout({
   children,
-  modal,
   params: { locale },
 }: {
   children: ReactNode
-  modal: ReactNode
 } & LocaleParams) {
   if (!routing.locales.includes(locale as Locales)) {
     notFound()
@@ -59,23 +57,24 @@ export default async function LocaleLayout({
       <body
         className={`${mainFontFamily.className} flex min-h-screen flex-col justify-between antialiased dark:bg-zinc-950 dark:text-slate-50`}
       >
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Header />
+        <Suspense>
+          <NextIntlClientProvider messages={messages}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Header />
 
-            <div className="relative mx-auto mt-24 min-h-[calc(100vh-96px)] w-full max-w-screen-xl">
-              <div className="pointer-events-none absolute -left-[15%] top-0 h-96 w-full max-w-96 animate-pulse rounded-full bg-blue-500/15 blur-3xl filter dark:bg-blue-500/5" />
-              <Suspense>{children}</Suspense>
-            </div>
-            {modal}
-            <Footer />
-          </ThemeProvider>
-        </NextIntlClientProvider>
+              <div className="relative mx-auto mt-24 min-h-[calc(100vh-96px)] w-full max-w-screen-xl">
+                <div className="pointer-events-none absolute -left-[15%] top-0 h-96 w-full max-w-96 animate-pulse rounded-full bg-blue-500/15 blur-3xl filter dark:bg-blue-500/5" />
+                {children}
+              </div>
+              <Footer />
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </Suspense>
       </body>
     </html>
   )

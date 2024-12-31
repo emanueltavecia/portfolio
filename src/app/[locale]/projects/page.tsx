@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -11,10 +11,11 @@ import { projects } from '@/data/projects'
 import { EmptyState } from './empty-state'
 import { Filters } from './filters'
 import { useSearchParams } from 'next/navigation'
-import { usePathname, useRouter, Link } from '@/navigation'
+import { usePathname, useRouter } from '@/navigation'
 import { FilterState } from './types'
 import { useLocale, useTranslations } from 'next-intl'
 import { Locales } from '@/locales'
+import { ProjectDetailsModal } from '@/components/project-details/modal'
 
 export default function Projects() {
   useScrollToTopOnPageLoad()
@@ -49,6 +50,17 @@ export default function Projects() {
       return typeMatch && sourceMatch && visibilityMatch && complexityMatch
     })
   }, [filters, locale])
+
+  const handleOpenProjectDetails = useCallback(
+    (id: number) => {
+      if (id) {
+        const newSearchParams = new URLSearchParams(searchParams)
+        newSearchParams.set('id', String(id))
+        router.push(`${pathname}?${newSearchParams.toString()}`)
+      }
+    },
+    [pathname, router, searchParams],
+  )
 
   return (
     <motion.div
@@ -88,78 +100,79 @@ export default function Projects() {
                   },
                 }}
               >
-                <Link href={`/projects/${project.id}`}>
-                  <Card className="group relative h-full overflow-hidden bg-slate-50/40 transition-all duration-300 hover:-translate-y-1 hover:bg-gray-50 dark:bg-gray-950/40 dark:hover:bg-gray-950">
-                    <CardContent className="flex h-full flex-col justify-between p-0">
-                      {(project.screenshot || project.repo_name) && (
-                        <Image
-                          src={
-                            project.screenshot ||
-                            `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
-                          }
-                          alt={t('projectImageAlt', {
-                            projectName: project.name,
-                          })}
-                          className="aspect-video w-full rounded-xl object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                          fill
-                          style={{ position: '' as never }}
-                          priority
-                        />
-                      )}
+                <Card
+                  className="group relative h-full cursor-pointer overflow-hidden bg-slate-50/40 transition-all duration-300 hover:-translate-y-1 hover:bg-gray-50 dark:bg-gray-950/40 dark:hover:bg-gray-950"
+                  onClick={() => handleOpenProjectDetails(project.id)}
+                >
+                  <CardContent className="flex h-full flex-col justify-between p-0">
+                    {(project.screenshot || project.repo_name) && (
+                      <Image
+                        src={
+                          project.screenshot ||
+                          `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
+                        }
+                        alt={t('projectImageAlt', {
+                          projectName: project.name,
+                        })}
+                        className="aspect-video w-full rounded-xl object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                        fill
+                        style={{ position: '' as never }}
+                        priority
+                      />
+                    )}
 
-                      <div className="flex flex-col gap-4 py-5">
-                        <div className="flex flex-col gap-3 px-5">
-                          <div className="flex items-center justify-between">
-                            <h3 className="text-xl font-semibold">
-                              {project.name}
-                            </h3>
-                            {project.isFeatured && (
-                              <Badge
-                                variant="secondary"
-                                className="border-blue-300/60 bg-blue-50 text-blue-700 dark:border-blue-300/40 dark:bg-blue-900/20 dark:text-blue-300"
-                              >
-                                {t('isFeaturedDescription')}
-                              </Badge>
-                            )}
-                          </div>
-
-                          <div className="flex flex-wrap gap-2">
-                            {project.type.map((type) => (
-                              <Badge
-                                key={type}
-                                variant="secondary"
-                                className="border-slate-300/60 bg-gray-100 text-gray-700 dark:border-slate-700/80 dark:bg-gray-800 dark:text-gray-300"
-                              >
-                                {type}
-                              </Badge>
-                            ))}
-                          </div>
-
-                          <p className="w-full overflow-hidden text-ellipsis text-nowrap text-gray-600 dark:text-gray-400">
-                            {project.description[0]}
-                          </p>
-
-                          <div className="flex items-center gap-1.5 text-sm font-medium text-blue-700 transition-all duration-200 group-hover:gap-2.5 dark:text-blue-400">
-                            <span>{t('seeDetails')}</span>
-                            <ArrowRight className="size-4" />
-                          </div>
+                    <div className="flex flex-col gap-4 py-5">
+                      <div className="flex flex-col gap-3 px-5">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-xl font-semibold">
+                            {project.name}
+                          </h3>
+                          {project.isFeatured && (
+                            <Badge
+                              variant="secondary"
+                              className="border-blue-300/60 bg-blue-50 text-blue-700 dark:border-blue-300/40 dark:bg-blue-900/20 dark:text-blue-300"
+                            >
+                              {t('isFeaturedDescription')}
+                            </Badge>
+                          )}
                         </div>
 
-                        <div className="flex gap-2 overflow-auto px-5">
-                          {project.techs.map((tech) => (
+                        <div className="flex flex-wrap gap-2">
+                          {project.type.map((type) => (
                             <Badge
-                              key={tech}
-                              variant="outline"
-                              className="text-nowrap border-blue-200 font-medium text-blue-700 dark:border-blue-800/70 dark:text-blue-300"
+                              key={type}
+                              variant="secondary"
+                              className="border-slate-300/60 bg-gray-100 text-gray-700 dark:border-slate-700/80 dark:bg-gray-800 dark:text-gray-300"
                             >
-                              {tech}
+                              {type}
                             </Badge>
                           ))}
                         </div>
+
+                        <p className="w-full overflow-hidden text-ellipsis text-nowrap text-gray-600 dark:text-gray-400">
+                          {project.description[0]}
+                        </p>
+
+                        <div className="flex items-center gap-1.5 text-sm font-medium text-blue-700 transition-all duration-200 group-hover:gap-2.5 dark:text-blue-400">
+                          <span>{t('seeDetails')}</span>
+                          <ArrowRight className="size-4" />
+                        </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                </Link>
+
+                      <div className="flex gap-2 overflow-auto px-5">
+                        {project.techs.map((tech) => (
+                          <Badge
+                            key={tech}
+                            variant="outline"
+                            className="text-nowrap border-blue-200 font-medium text-blue-700 dark:border-blue-800/70 dark:text-blue-300"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -167,6 +180,8 @@ export default function Projects() {
       ) : (
         <EmptyState onClearFilters={() => router.push(pathname)} />
       )}
+
+      <ProjectDetailsModal />
     </motion.div>
   )
 }
