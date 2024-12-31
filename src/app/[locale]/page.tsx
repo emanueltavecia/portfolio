@@ -121,11 +121,16 @@ export default function Home() {
 
       <div className="flex w-full flex-col gap-8">
         <div className="flex flex-col px-5">
-          <h2 className="mb-1 text-2xl font-bold tracking-tight md:-mb-3">
+          <h2 className="mb-1 text-2xl font-bold tracking-tight sm:-mb-3">
             {t('featuredProjectsTitle')}
           </h2>
           <div className="flex items-end justify-between gap-6">
-            <p className="max-w-64 text-sm text-gray-600 dark:text-gray-400 md:max-w-none">
+            <p
+              className={cn(
+                'text-sm text-gray-600 dark:text-gray-400 sm:max-w-none',
+                locale === Locales.PT_BR ? 'max-w-64' : 'max-w-40',
+              )}
+            >
               {t('featuredProjectsSubtitle')}
             </p>
             <Link
