@@ -12,7 +12,7 @@ import {
 import { LocaleSwitcherProps } from './types'
 import { cn } from '@/lib/utils'
 import { usePathname, useRouter } from '@/navigation'
-import { useParams } from 'next/navigation'
+import { useParams, useSearchParams } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { Locales } from '@/locales'
 import { useTranslations } from 'next-intl'
@@ -24,6 +24,7 @@ export function LocaleSwitcher({ isMobile }: LocaleSwitcherProps) {
   const [, startTransition] = useTransition()
   const pathname = usePathname()
   const params = useParams()
+  const searchParams = useSearchParams()
 
   const t = useTranslations('Header')
 
@@ -36,8 +37,12 @@ export function LocaleSwitcher({ isMobile }: LocaleSwitcherProps) {
           window.location.replace(`/${locale}${pathname}`)
         } else {
           router.replace(
-            // @ts-expect-error params is correct
-            { pathname, params },
+            {
+              pathname,
+              // @ts-expect-error params is correct
+              params,
+              query: Object.fromEntries(searchParams.entries()),
+            },
             { locale },
           )
         }
