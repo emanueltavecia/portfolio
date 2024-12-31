@@ -49,7 +49,7 @@ export function ProjectDetailsModal() {
 
   return (
     <Dialog open={detailsModalOpen} onOpenChange={handleCloseProjectDetails}>
-      <DialogContent className="px-2 py-0 md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+      <DialogContent className="px-2 py-0 sm:px-4 md:max-w-2xl md:px-6 lg:max-w-4xl xl:max-w-6xl">
         {projectDetailsId && <Details isModal id={projectDetailsId} />}
       </DialogContent>
     </Dialog>

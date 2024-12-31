@@ -112,7 +112,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
     >
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-4">
-          <div className="mb-3 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+          <div className="mb-3 flex items-center justify-between gap-4">
             <div className="flex items-center gap-2 sm:gap-3">
               {!isModal && (
                 <Button
@@ -137,7 +137,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
             {project.isFeatured && (
               <Badge
                 variant="secondary"
-                className="hidden w-fit border-blue-300/60 bg-blue-50 text-blue-700 dark:border-blue-300/40 dark:bg-blue-900/20 dark:text-blue-300 sm:flex"
+                className="w-fit border-blue-300/60 bg-blue-50 text-blue-700 dark:border-blue-300/40 dark:bg-blue-900/20 dark:text-blue-300"
               >
                 {t('isFeaturedDescription')}
               </Badge>
@@ -186,7 +186,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-x-4 gap-y-2">
           {project.repo_name && (
             <Button className="gap-2" asChild>
               <a
