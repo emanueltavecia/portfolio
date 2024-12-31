@@ -37,7 +37,7 @@
     "featuredProjectsSeeAllButtonText": "see all",
     "featuredProjectsImageAlt": "{projectName} project cover"
   },
-  
+
   "Experience": {
     "title": "Professional Experience",
     "subtitle": "Discover my professional journey",
@@ -51,7 +51,7 @@
     "filtersTitle": "Filters",
     "clearFiltersButtonText": "Clear filters",
     "selectTriggerDescriptionLastSeparator": " and ",
-  
+
     "projectImageAlt": "{projectName} project cover",
     "isFeaturedDescription": "Featured",
     "seeDetails": "See details",
