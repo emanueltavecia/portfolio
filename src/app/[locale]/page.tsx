@@ -164,7 +164,7 @@ export default function Home() {
                 >
                   <div
                     onClick={() => handleOpenProjectDetails(project.id)}
-                    className="relative mx-2 block overflow-hidden rounded-lg"
+                    className="relative mx-2 block cursor-pointer overflow-hidden rounded-lg"
                   >
                     <Image
                       className="w-full"
