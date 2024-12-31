@@ -21,6 +21,9 @@ export function ProjectDetailsModal() {
     if (id) {
       setDetailsModalOpen(true)
       return id
+    } else {
+      setDetailsModalOpen(false)
+      return undefined
     }
   }, [searchParams])
 
@@ -36,8 +39,11 @@ export function ProjectDetailsModal() {
     newSearchParams.delete('id')
     setDetailsModalOpen(false)
     setTimeout(
-      () => router.push(`${pathname}?${newSearchParams.toString()}`),
-      300,
+      () =>
+        router.push(`${pathname}?${newSearchParams.toString()}`, {
+          scroll: false,
+        }),
+      200,
     )
   }, [pathname, router, searchParams])
 

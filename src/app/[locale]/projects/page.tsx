@@ -56,7 +56,9 @@ export default function Projects() {
       if (id) {
         const newSearchParams = new URLSearchParams(searchParams)
         newSearchParams.set('id', String(id))
-        router.push(`${pathname}?${newSearchParams.toString()}`)
+        router.push(`${pathname}?${newSearchParams.toString()}`, {
+          scroll: false,
+        })
       }
     },
     [pathname, router, searchParams],
