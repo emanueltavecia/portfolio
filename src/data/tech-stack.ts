@@ -13,7 +13,7 @@ export enum Techs {
   STYLED_COMPONENTS = 'Styled Components',
   NODEJS = 'Node.js',
   EXPRESS = 'Express',
-  REACT_ROUTER = 'react-router',
+  REACT_ROUTER = 'React Router',
   AXIOS = 'Axios',
 }
 
