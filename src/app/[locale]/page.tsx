@@ -1,28 +1,30 @@
 'use client'
 
-import { useLocale, useTranslations } from 'next-intl'
-import { Link } from '@/i18n/routing'
+import { useCallback, useRef } from 'react'
 
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation'
+
+import Autoplay from 'embla-carousel-autoplay'
+import { motion } from 'framer-motion'
+import { ArrowRight, Download } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
+
+import { ProjectDetailsModal } from '@/components/project-details/modal'
+import { Badge } from '@/components/ui/badge'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
-import { Button, buttonVariants } from '@/components/ui/button'
-import { ArrowRight, Download } from 'lucide-react'
 import { projects } from '@/data/projects'
-import { cn } from '@/lib/utils'
-import Autoplay from 'embla-carousel-autoplay'
-import { useCallback, useRef } from 'react'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
 import { techStack } from '@/data/tech-stack'
-import { motion } from 'framer-motion'
+import { Link } from '@/i18n/routing'
+import { cn } from '@/lib/utils'
 import { Locales } from '@/locales'
-import { ProjectDetailsModal } from '@/components/project-details/modal'
 import { useRouter, usePathname } from '@/navigation'
-import { useSearchParams } from 'next/navigation'
 
 export default function Home() {
   const locale = useLocale() as Locales

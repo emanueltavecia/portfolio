@@ -1,17 +1,19 @@
 'use client'
 
 import { ArrowUp, Github, Linkedin, Mail, Instagram } from 'lucide-react'
-import { Button } from '../ui/button'
-import { scrollToTop } from '@/utils/scroll-to-top'
+import { useTranslations } from 'next-intl'
+
 import { Separator } from '@/components/ui/separator'
 import { usePathname, Link } from '@/navigation'
+import { scrollToTop } from '@/utils/scroll-to-top'
+
+import { Button } from '../ui/button'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from '../ui/tooltip'
-import { useTranslations } from 'next-intl'
 
 const SOCIAL_LINKS = [
   {

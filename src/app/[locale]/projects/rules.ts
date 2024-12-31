@@ -1,4 +1,5 @@
 import { Locales } from '@/locales'
+
 import {
   FilterOption,
   ProjectComplexity,

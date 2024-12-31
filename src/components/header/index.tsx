@@ -1,8 +1,14 @@
 'use client'
 
+import { useState } from 'react'
+
+import { Menu } from 'lucide-react'
+
 import { Link } from '@/navigation'
-import { Button } from '../ui/button'
+
 import { HeaderNav } from './nav'
+
+import { Button } from '../ui/button'
 import {
   Sheet,
   SheetContent,
@@ -10,8 +16,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '../ui/sheet'
-import { Menu } from 'lucide-react'
-import { useState } from 'react'
 
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)

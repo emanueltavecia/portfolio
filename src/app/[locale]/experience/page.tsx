@@ -1,13 +1,15 @@
 'use client'
-import { experiences } from '@/data/experiences'
-import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 import Image from 'next/image'
-import { Card, CardContent } from '@/components/ui/card'
-import { MapPin, Calendar, Building2 } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
+
 import { motion } from 'framer-motion'
+import { MapPin, Calendar, Building2 } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
+
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
+import { experiences } from '@/data/experiences'
 import { Locales } from '@/locales'
+import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 
 export default function Experience() {
   const locale = useLocale() as Locales

@@ -1,6 +1,7 @@
 'use client'
 
 import { Check, Moon, Settings, Sun } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
@@ -10,9 +11,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Themes, ThemeSwitcherProps } from './types'
 import { cn } from '@/lib/utils'
-import { useTranslations } from 'next-intl'
+
+import { Themes, ThemeSwitcherProps } from './types'
 
 export function ThemeSwitcher({ isMobile }: ThemeSwitcherProps) {
   const { theme, setTheme } = useTheme()

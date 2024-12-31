@@ -1,21 +1,25 @@
 'use client'
 
 import { useCallback, useMemo } from 'react'
-import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
-import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation'
+
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
+
+import { ProjectDetailsModal } from '@/components/project-details/modal'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
 import { projects } from '@/data/projects'
+import { Locales } from '@/locales'
+import { usePathname, useRouter } from '@/navigation'
+import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
+
 import { EmptyState } from './empty-state'
 import { Filters } from './filters'
-import { useSearchParams } from 'next/navigation'
-import { usePathname, useRouter } from '@/navigation'
 import { FilterState } from './types'
-import { useLocale, useTranslations } from 'next-intl'
-import { Locales } from '@/locales'
-import { ProjectDetailsModal } from '@/components/project-details/modal'
 
 export default function Projects() {
   useScrollToTopOnPageLoad()

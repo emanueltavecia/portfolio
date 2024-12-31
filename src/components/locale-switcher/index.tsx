@@ -1,6 +1,11 @@
 'use client'
 
+import { useState, useTransition } from 'react'
+
+import { useParams, useSearchParams } from 'next/navigation'
+
 import { Languages, Check } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -9,13 +14,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { LocaleSwitcherProps } from './types'
 import { cn } from '@/lib/utils'
-import { usePathname, useRouter } from '@/navigation'
-import { useParams, useSearchParams } from 'next/navigation'
-import { useState, useTransition } from 'react'
 import { Locales } from '@/locales'
-import { useTranslations } from 'next-intl'
+import { usePathname, useRouter } from '@/navigation'
+
+import { LocaleSwitcherProps } from './types'
 
 export function LocaleSwitcher({ isMobile }: LocaleSwitcherProps) {
   const [open, setOpen] = useState(false)

@@ -1,9 +1,10 @@
 import { ReactNode } from 'react'
 
 import { setRequestLocale } from 'next-intl/server'
-import { routing } from '@/i18n/routing'
+
 import { LocaleParams } from '@/app/[locale]/types'
 import { projects } from '@/data/projects'
+import { routing } from '@/i18n/routing'
 import { Locales } from '@/locales'
 
 export async function generateStaticParams() {

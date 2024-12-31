@@ -1,8 +1,9 @@
 'use client'
 
-import { NavItemProps } from './types'
-import { usePathname, useRouter } from '@/navigation'
 import { cn } from '@/lib/utils'
+import { usePathname, useRouter } from '@/navigation'
+
+import { NavItemProps } from './types'
 
 export function NavItem({ name, href, onCloseSheet }: NavItemProps) {
   const pathname = usePathname()

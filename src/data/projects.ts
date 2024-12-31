@@ -5,9 +5,10 @@ import {
   ProjectType,
   ProjectVisibility,
 } from '@/app/[locale]/projects/types'
-import { Techs } from './tech-stack'
 import project10Screenshot from '@/app/assets/project-10-screenshot.png'
 import { Locales } from '@/locales'
+
+import { Techs } from './tech-stack'
 
 const featuresPtBrTitle = 'Funcionalidades'
 const featuresEnUsTitle = 'Features'

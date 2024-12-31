@@ -1,11 +1,8 @@
 'use client'
 
-import { notFound } from 'next/navigation'
-import { useRouter } from '@/navigation'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
+
 import { motion } from 'framer-motion'
 import {
   ArrowLeft,
@@ -24,21 +21,28 @@ import {
   Layout,
   Server,
 } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
+
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
 import { projects } from '@/data/projects'
+import { cn } from '@/lib/utils'
+import { Locales } from '@/locales'
+import { useRouter } from '@/navigation'
+
 import { ProjectDetailsProps } from './types'
-import {
-  ProjectComplexity,
-  ProjectListItem,
-  ProjectType,
-} from '../../app/[locale]/projects/types'
+
 import {
   getComplexityLabel,
   getSourceLabel,
   getVisibilityLabel,
 } from '../../app/[locale]/projects/rules'
-import { cn } from '@/lib/utils'
-import { useLocale, useTranslations } from 'next-intl'
-import { Locales } from '@/locales'
+import {
+  ProjectComplexity,
+  ProjectListItem,
+  ProjectType,
+} from '../../app/[locale]/projects/types'
 import { DialogTitle } from '../ui/dialog'
 
 export function Details({ id, isModal }: ProjectDetailsProps) {

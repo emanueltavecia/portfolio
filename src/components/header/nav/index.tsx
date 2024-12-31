@@ -1,9 +1,12 @@
-import { ThemeSwitcher } from '@/components/theme-switcher'
-import { NavItem } from '../item'
-import { HeaderNavProps } from './types'
-import { cn } from '@/lib/utils'
-import { LocaleSwitcher } from '@/components/locale-switcher'
 import { useTranslations } from 'next-intl'
+
+import { LocaleSwitcher } from '@/components/locale-switcher'
+import { ThemeSwitcher } from '@/components/theme-switcher'
+import { cn } from '@/lib/utils'
+
+import { HeaderNavProps } from './types'
+
+import { NavItem } from '../item'
 
 export function HeaderNav({ isMobile, handleCloseSheet }: HeaderNavProps) {
   const t = useTranslations('Header')

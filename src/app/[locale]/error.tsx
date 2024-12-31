@@ -1,11 +1,13 @@
 'use client'
 
+import { useEffect } from 'react'
+
+import { motion } from 'framer-motion'
+import { Home, RotateCcw } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { Home, RotateCcw } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { useRouter } from '@/navigation'
-import { useEffect } from 'react'
 
 export default function Error({
   error,

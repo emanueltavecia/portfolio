@@ -1,9 +1,11 @@
 'use client'
 
-import Cookies from 'js-cookie'
-import { Locales } from '@/locales'
 // eslint-disable-next-line no-restricted-imports
 import { redirect } from 'next/navigation'
+
+import Cookies from 'js-cookie'
+
+import { Locales } from '@/locales'
 
 export default function NotFound() {
   const locale = Cookies.get('NEXT_LOCALE')

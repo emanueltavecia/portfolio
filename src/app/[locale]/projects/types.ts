@@ -1,5 +1,6 @@
-import { Techs } from '@/data/tech-stack'
 import { StaticImageData } from 'next/image'
+
+import { Techs } from '@/data/tech-stack'
 
 export enum ProjectType {
   FRONTEND = 'Front-end',

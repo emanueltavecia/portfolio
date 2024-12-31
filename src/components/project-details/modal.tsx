@@ -1,10 +1,14 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Dialog, DialogContent } from '../ui/dialog'
-import { redirect, usePathname, useRouter } from '@/navigation'
+
 import { useSearchParams } from 'next/navigation'
-import { Locales } from '@/locales'
+
 import { useLocale } from 'next-intl'
+
 import { Details } from '@/components/project-details'
+import { Locales } from '@/locales'
+import { redirect, usePathname, useRouter } from '@/navigation'
+
+import { Dialog, DialogContent } from '../ui/dialog'
 
 export function ProjectDetailsModal() {
   const [detailsModalOpen, setDetailsModalOpen] = useState(false)

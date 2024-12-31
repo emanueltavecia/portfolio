@@ -1,10 +1,11 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { ArrowLeft, Home } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { ArrowLeft, Home } from 'lucide-react'
 import { useRouter } from '@/navigation'
-import { motion } from 'framer-motion'
 
 export default function NotFound() {
   const router = useRouter()

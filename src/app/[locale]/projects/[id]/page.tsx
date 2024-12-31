@@ -1,7 +1,8 @@
 'use client'
 
-import { Details } from '@/components/project-details'
 import { notFound, useParams } from 'next/navigation'
+
+import { Details } from '@/components/project-details'
 
 export default function ProjectDetails() {
   const { id } = useParams()

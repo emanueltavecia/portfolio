@@ -1,13 +1,17 @@
-import { Button } from '@/components/ui/button'
-import { Eraser } from 'lucide-react'
-import { Select } from '@/components/ui/select'
-import { useSearchParams } from 'next/navigation'
-import { usePathname, useRouter } from '@/navigation'
 import { useCallback, useMemo } from 'react'
-import { FilterState } from './types'
-import { filtersOptions } from './rules'
+
+import { useSearchParams } from 'next/navigation'
+
+import { Eraser } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
+
+import { Button } from '@/components/ui/button'
+import { Select } from '@/components/ui/select'
 import { Locales } from '@/locales'
+import { usePathname, useRouter } from '@/navigation'
+
+import { filtersOptions } from './rules'
+import { FilterState } from './types'
 
 export function Filters() {
   const router = useRouter()

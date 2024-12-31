@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useMemo, useEffect, MouseEvent } from 'react'
+
 import { Check, ChevronDown, X } from 'lucide-react'
 
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
   Command,
@@ -18,6 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
 
 interface Option {
   value: string

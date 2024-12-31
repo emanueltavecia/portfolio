@@ -38,7 +38,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@emanueltavecia/eslint-config": "^1.0.1",
+    "@emanueltavecia/eslint-config": "^1.0.2",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
