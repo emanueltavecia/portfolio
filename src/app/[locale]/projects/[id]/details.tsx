@@ -33,12 +33,17 @@ import {
   getVisibilityLabel,
 } from '../rules'
 import { cn } from '@/lib/utils'
+import { useLocale, useTranslations } from 'next-intl'
+import { Locales } from '@/locales'
 
 export function Details({ isModal }: ProjectDetailsProps) {
   const { id } = useParams()
   const router = useRouter()
 
-  const project = projects.find((p) => p.id === Number(id))
+  const locale = useLocale() as Locales
+  const t = useTranslations('ProjectDetails')
+
+  const project = projects[locale].find((p) => p.id === Number(id))
 
   if (!project) {
     notFound()
@@ -124,7 +129,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
                 variant="secondary"
                 className="hidden w-fit border-blue-300/60 bg-blue-50 text-blue-700 dark:border-blue-300/40 dark:bg-blue-900/20 dark:text-blue-300 sm:flex"
               >
-                Destaque
+                {t('isFeaturedDescription')}
               </Badge>
             )}
           </div>
@@ -133,7 +138,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
             <div className="flex items-center gap-2">
               <Box className="size-4 shrink-0 text-gray-500 dark:text-gray-400" />
               <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Tipos
+                {t('typesTitle')}
               </span>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -154,7 +159,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
             <div className="flex items-center gap-2">
               <Code2 className="size-4 shrink-0 text-gray-500 dark:text-gray-400" />
               <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Tecnologias
+                {t('technologiesTitle')}
               </span>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -180,7 +185,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
                 rel="noopener noreferrer"
               >
                 <Github className="size-4" />
-                Ver código
+                {t('viewCode')}
               </a>
             </Button>
           )}
@@ -193,7 +198,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
                 rel="noopener noreferrer"
               >
                 <ExternalLink className="size-4 shrink-0" />
-                Ver projeto online
+                {t('viewProjectOnline')}
               </a>
             </Button>
           )}
@@ -207,7 +212,9 @@ export function Details({ isModal }: ProjectDetailsProps) {
                 project.screenshot ||
                 `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
               }
-              alt={`Capa do projeto ${project.name}`}
+              alt={t('projectImageAlt', {
+                projectName: project.name,
+              })}
               className="object-cover object-top"
               fill
               priority
@@ -221,7 +228,9 @@ export function Details({ isModal }: ProjectDetailsProps) {
               <div>
                 <div className="mb-4 flex items-center gap-3">
                   <Info className="size-5 shrink-0" />
-                  <h2 className="text-2xl font-semibold">Sobre o projeto</h2>
+                  <h2 className="text-2xl font-semibold">
+                    {t('aboutProjectTitle')}
+                  </h2>
                 </div>
                 <div className="flex flex-col gap-4">
                   {project.description.map((paragraph, index) => (
@@ -238,18 +247,18 @@ export function Details({ isModal }: ProjectDetailsProps) {
                 </div>
               </div>
 
-              {project.overviewVideo && (
+              {project.videoOverview && (
                 <div>
                   <div className="mb-4 flex items-center gap-3">
                     <Video className="size-5 shrink-0" />
                     <h2 className="text-2xl font-semibold">
-                      Visão geral em vídeo
+                      {t('videoOverviewTitle')}
                     </h2>
                   </div>
                   <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
                     <video controls className="h-full w-full">
                       <source
-                        src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/${project.overviewVideo}?raw=true`}
+                        src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/${project.videoOverview}?raw=true`}
                         type="video/mp4"
                       ></source>
                     </video>
@@ -284,7 +293,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
               <div>
                 <div className="mb-4 flex items-center gap-3">
                   <Workflow className="size-5 shrink-0" />
-                  <h2 className="text-2xl font-semibold">Informações</h2>
+                  <h2 className="text-2xl font-semibold">{t('infoTitle')}</h2>
                 </div>
 
                 <div className="flex flex-col gap-4">
@@ -292,14 +301,14 @@ export function Details({ isModal }: ProjectDetailsProps) {
                     <div className="flex items-center gap-2">
                       <Tag className="size-4 shrink-0 text-gray-500 dark:text-gray-400" />
                       <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                        Origem
+                        {t('sourceTitle')}
                       </span>
                     </div>
                     <Badge
                       variant="secondary"
                       className="w-fit border-blue-200 bg-blue-50 font-medium text-blue-700 dark:border-blue-800/70 dark:bg-blue-900/20 dark:text-blue-300"
                     >
-                      {getSourceLabel(project.source)}
+                      {getSourceLabel(project.source, locale)}
                     </Badge>
                   </div>
 
@@ -307,14 +316,14 @@ export function Details({ isModal }: ProjectDetailsProps) {
                     <div className="flex items-center gap-2">
                       <Lock className="size-4 shrink-0 text-gray-500 dark:text-gray-400" />
                       <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                        Visibilidade
+                        {t('visibilityTitle')}
                       </span>
                     </div>
                     <Badge
                       variant="secondary"
                       className="w-fit border-blue-200 bg-blue-50 font-medium text-blue-700 dark:border-blue-800/70 dark:bg-blue-900/20 dark:text-blue-300"
                     >
-                      {getVisibilityLabel(project.visibility)}
+                      {getVisibilityLabel(project.visibility, locale)}
                     </Badge>
                   </div>
 
@@ -322,7 +331,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
                     <div className="flex items-center gap-2">
                       <BarChart3 className="size-4 shrink-0 text-gray-500 dark:text-gray-400" />
                       <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                        Complexidade
+                        {t('complexityTitle')}
                       </span>
                     </div>
                     <Badge
@@ -331,7 +340,7 @@ export function Details({ isModal }: ProjectDetailsProps) {
                         project.complexity,
                       )}`}
                     >
-                      {getComplexityLabel(project.complexity)}
+                      {getComplexityLabel(project.complexity, locale)}
                     </Badge>
                   </div>
                 </div>

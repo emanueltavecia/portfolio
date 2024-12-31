@@ -12,9 +12,12 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Themes, ThemeSwitcherProps } from './types'
 import { cn } from '@/lib/utils'
+import { useTranslations } from 'next-intl'
 
 export function ThemeSwitcher({ isMobile }: ThemeSwitcherProps) {
   const { theme, setTheme } = useTheme()
+
+  const t = useTranslations('Header')
 
   return (
     <DropdownMenu>
@@ -23,15 +26,14 @@ export function ThemeSwitcher({ isMobile }: ThemeSwitcherProps) {
           <Button variant="outline" size="icon">
             <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Toggle theme</span>
           </Button>
           <span
             className={cn(
               'text-gray-800 dark:text-gray-300',
-              !isMobile && 'hidden',
+              !isMobile && 'sr-only',
             )}
           >
-            Trocar o tema
+            {t('changeTheme')}
           </span>
         </div>
       </DropdownMenuTrigger>
@@ -46,7 +48,7 @@ export function ThemeSwitcher({ isMobile }: ThemeSwitcherProps) {
         >
           <span className="flex items-center gap-3">
             <Sun className="h-4 w-4 shrink-0" />
-            <span>Claro</span>
+            <span>{t('lightLabel')}</span>
           </span>
 
           {theme === Themes.LIGHT && <Check className="h-4 w-4 shrink-0" />}
@@ -57,7 +59,7 @@ export function ThemeSwitcher({ isMobile }: ThemeSwitcherProps) {
         >
           <span className="flex items-center gap-3">
             <Moon className="h-4 w-4 shrink-0" />
-            <span>Escuro</span>
+            <span>{t('darkLabel')}</span>
           </span>
 
           {theme === Themes.DARK && <Check className="h-4 w-4 shrink-0" />}
@@ -68,7 +70,7 @@ export function ThemeSwitcher({ isMobile }: ThemeSwitcherProps) {
         >
           <span className="flex items-center gap-3">
             <Settings className="h-4 w-4 shrink-0" />
-            <span>Sistema</span>
+            <span>{t('systemLabel')}</span>
           </span>
 
           {theme === Themes.SYSTEM && <Check className="h-4 w-4 shrink-0" />}

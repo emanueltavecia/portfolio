@@ -3,7 +3,74 @@
     "title": "Emanuel Tavecia | Portfólio",
     "description": "Portfólio de Emanuel Tavecia, desenvolvedor Front-end com experiência em React, TypeScript e desenvolvimento Mobile com React Native."
   },
+
+  "Header": {
+    "homeLink": "Home",
+    "experienceLink": "Experiência",
+    "projectsLink": "Projetos",
+    "educationLink": "Educação",
+    "certificatesLink": "Certificações",
+    "contactLink": "Contato",
+
+    "changeLanguage": "Trocar o idioma",
+
+    "changeTheme": "Trocar o tema",
+    "lightLabel": "Claro",
+    "darkLabel": "Escuro",
+    "systemLabel": "Sistema"
+  },
+
+  "Footer": {
+    "description": "Desenvolvedor Front-end e Mobile apaixonado por criar experiências modernas e acessíveis.",
+    "socialMediaTitle": "Redes sociais",
+    "copyright": "Todos os direitos reservados."
+  },
+
   "Home": {
-    "title": "Olá, sou o"
+    "title": "<span>Olá, sou o</span> <name>Emanuel Tavecia</name>",
+    "subtitle": "Desenvolvedor Front-end e Mobile",
+    "description": "Desenvolvedor front-end e mobile apaixonado por tecnologia. Tenho cerca de 1 ano e meio de experiência com desenvolvimento web e mobile com React e React Native, e estou sempre em busca de novos desafios e aprendizados.",
+    "softSkills": "Comunicação, Trabalho em equipe, Resolução de problemas, Adaptabilidade, Proatividade",
+    "imageAlt": "Foto de Emanuel Tavecia",
+    "featuredProjectsTitle": "Projetos em destaque",
+    "featuredProjectsSubtitle": "Deslize para ver alguns dos meus trabalhos recentes",
+    "featuredProjectsSeeAllButtonText": "ver todos",
+    "featuredProjectsImageAlt": "Capa do projeto {projectName}"
+  },
+
+  "Experience": {
+    "title": "Experiência Profissional",
+    "subtitle": "Conheça a minha jornada profissional",
+    "companyLogoAlt": "Logo da empresa {companyName}"
+  },
+
+  "Projects": {
+    "title": "Projetos",
+    "subtitle": "Conheça alguns dos projetos que desenvolvi",
+
+    "filtersTitle": "Filtros",
+    "clearFiltersButtonText": "Limpar filtros",
+    "selectTriggerDescriptionLastSeparator": " e ",
+  
+    "projectImageAlt": "Capa do projeto {projectName}",
+    "isFeaturedDescription": "Destaque",
+    "seeDetails": "Ver detalhes",
+
+    "noProjectsFound": "Nenhum projeto encontrado"
+  },
+
+  "ProjectDetails": {
+    "isFeaturedDescription": "Destaque",
+    "typesTitle": "Tipos",
+    "technologiesTitle": "Tecnologias",
+    "viewCode": "Ver código",
+    "viewProjectOnline": "Ver projeto online",
+    "projectImageAlt": "Capa do projeto {projectName}",
+    "aboutProjectTitle": "Sobre o projeto",
+    "videoOverviewTitle": "Visão geral em vídeo",
+    "infoTitle": "Informações",
+    "sourceTitle": "Origem",
+    "visibilityTitle": "Visibilidade",
+    "complexityTitle": "Complexidade"
   }
 }

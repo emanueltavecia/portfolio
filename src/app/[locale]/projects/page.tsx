@@ -13,6 +13,8 @@ import { Filters } from './filters'
 import { useSearchParams } from 'next/navigation'
 import { usePathname, useRouter, Link } from '@/navigation'
 import { FilterState } from './types'
+import { useLocale, useTranslations } from 'next-intl'
+import { Locales } from '@/locales'
 
 export default function Projects() {
   useScrollToTopOnPageLoad()
@@ -20,6 +22,9 @@ export default function Projects() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+
+  const locale = useLocale() as Locales
+  const t = useTranslations('Projects')
 
   const filters = useMemo(() => {
     const parsedFilters: Partial<FilterState> = {}
@@ -30,7 +35,7 @@ export default function Projects() {
   }, [searchParams])
 
   const filteredProjects = useMemo(() => {
-    return projects.filter((project) => {
+    return projects[locale].filter((project) => {
       const typeMatch =
         !filters.type ||
         project.type.some((type) => filters.type?.includes(type))
@@ -43,7 +48,7 @@ export default function Projects() {
 
       return typeMatch && sourceMatch && visibilityMatch && complexityMatch
     })
-  }, [filters])
+  }, [filters, locale])
 
   return (
     <motion.div
@@ -54,11 +59,9 @@ export default function Projects() {
     >
       <div className="flex flex-col gap-2">
         <h2 className="text-3xl font-bold tracking-tight dark:text-white md:text-4xl">
-          Projetos
+          {t('title')}
         </h2>
-        <p className="text-gray-600 dark:text-gray-400">
-          Conheça alguns dos projetos que desenvolvi
-        </p>
+        <p className="text-gray-600 dark:text-gray-400">{t('subtitle')}</p>
       </div>
 
       <Filters />
@@ -94,7 +97,9 @@ export default function Projects() {
                             project.screenshot ||
                             `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
                           }
-                          alt={`Capa do projeto ${project.name}`}
+                          alt={t('projectImageAlt', {
+                            projectName: project.name,
+                          })}
                           className="aspect-video w-full rounded-xl object-cover object-top transition-transform duration-300 group-hover:scale-105"
                           fill
                           style={{ position: '' as never }}
@@ -113,7 +118,7 @@ export default function Projects() {
                                 variant="secondary"
                                 className="border-blue-300/60 bg-blue-50 text-blue-700 dark:border-blue-300/40 dark:bg-blue-900/20 dark:text-blue-300"
                               >
-                                Destaque
+                                {t('isFeaturedDescription')}
                               </Badge>
                             )}
                           </div>
@@ -135,7 +140,7 @@ export default function Projects() {
                           </p>
 
                           <div className="flex items-center gap-1.5 text-sm font-medium text-blue-700 transition-all duration-200 group-hover:gap-2.5 dark:text-blue-400">
-                            <span>Ver detalhes</span>
+                            <span>{t('seeDetails')}</span>
                             <ArrowRight className="size-4" />
                           </div>
                         </div>

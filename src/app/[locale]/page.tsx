@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 
 import Image from 'next/image'
@@ -19,8 +19,10 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { techStack } from '@/data/tech-stack'
 import { motion } from 'framer-motion'
+import { Locales } from '@/locales'
 
 export default function Home() {
+  const locale = useLocale() as Locales
   const t = useTranslations('Home')
 
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }))
@@ -30,27 +32,28 @@ export default function Home() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative mb-6 mt-10 flex flex-col items-center gap-20 md:mt-20"
+      className="relative mb-6 mt-10 flex flex-col items-center gap-20 md:mt-24"
     >
       <div className="flex w-full max-w-xl flex-col items-center justify-between gap-10 px-5 md:max-w-full md:flex-row md:items-start">
         <div className="relative flex max-w-3xl flex-col items-center gap-6 md:items-start">
           <div className="flex flex-col gap-2">
             <p className="text-center font-medium text-blue-600 dark:text-blue-400 md:text-left">
-              Desenvolvedor Front-end e Mobile
+              {t('subtitle')}
             </p>
             <h1 className="flex flex-wrap justify-center gap-x-2 text-center text-4xl font-bold tracking-tight md:block md:text-left lg:text-5xl">
-              <span>{t('title')}</span>{' '}
-              <span className="text-blue-600 dark:text-blue-400">
-                Emanuel Tavecia
-              </span>
+              {t.rich('title', {
+                span: (chunks) => <span>{chunks}</span>,
+                name: (chunks) => (
+                  <span className="text-blue-600 dark:text-blue-400">
+                    {chunks}
+                  </span>
+                ),
+              })}
             </h1>
           </div>
 
           <p className="text-center text-lg text-gray-600 dark:text-gray-400 md:text-justify">
-            Desenvolvedor front-end e mobile apaixonado por tecnologia. Tenho
-            cerca de 1 ano e meio de experiência com desenvolvimento web e
-            mobile com React e React Native, e estou sempre em busca de novos
-            desafios e aprendizados.
+            {t('description')}
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 md:justify-start">
@@ -68,9 +71,8 @@ export default function Home() {
           <Card className="w-full border-blue-100 bg-blue-50/50 dark:border-blue-900/30 dark:bg-blue-900/10">
             <CardContent className="p-4">
               <p className="text-sm text-gray-600 dark:text-gray-300">
-                <span className="font-semibold">Soft Skills:</span> Comunicação,
-                Trabalho em equipe, Resolução de problemas, Adaptabilidade,
-                Proatividade
+                <span className="font-semibold">Soft Skills:</span>{' '}
+                {t('softSkills')}
               </p>
             </CardContent>
           </Card>
@@ -87,7 +89,7 @@ export default function Home() {
           <div className="absolute -right-4 -top-4 h-60 w-60 animate-pulse rounded-full bg-blue-500/10 blur-3xl filter dark:bg-blue-500/5" />
           <Image
             src="https://github.com/emanueltavecia.png"
-            alt="Foto de Emanuel Tavecia"
+            alt={t('imageAlt')}
             priority
             fetchPriority="high"
             className="relative size-52 rounded-full border-4 border-blue-50 object-cover shadow-lg dark:border-blue-900/30"
@@ -100,11 +102,11 @@ export default function Home() {
       <div className="flex w-full flex-col gap-8">
         <div className="flex flex-col px-5">
           <h2 className="mb-1 text-2xl font-bold tracking-tight md:-mb-3">
-            Projetos em destaque
+            {t('featuredProjectsTitle')}
           </h2>
           <div className="flex items-end justify-between gap-6">
             <p className="max-w-64 text-sm text-gray-600 dark:text-gray-400 md:max-w-none">
-              Deslize para ver alguns dos meus trabalhos recentes
+              {t('featuredProjectsSubtitle')}
             </p>
             <Link
               href="/projects"
@@ -115,7 +117,7 @@ export default function Home() {
                 'group gap-2 p-0 text-base font-medium',
               )}
             >
-              ver todos
+              {t('featuredProjectsSeeAllButtonText')}
               <ArrowRight className="size-4 transition-all duration-200 group-hover:translate-x-0.5" />
             </Link>
           </div>
@@ -128,7 +130,7 @@ export default function Home() {
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent className="mx-3">
-            {projects
+            {projects[locale]
               .filter((project) => project.isFeatured)
               .map((project) => (
                 <CarouselItem
@@ -142,7 +144,9 @@ export default function Home() {
                     <Image
                       className="w-full"
                       src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`}
-                      alt={`Capa do projeto ${project.name}`}
+                      alt={t('featuredProjectsImageAlt', {
+                        projectName: project.name,
+                      })}
                       priority
                       fetchPriority="high"
                       width={1500}

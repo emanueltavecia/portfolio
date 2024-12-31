@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion'
 import { Eraser, FolderSearch } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 
 interface EmptyStateProps {
   onClearFilters: () => void
 }
 
 export function EmptyState({ onClearFilters }: EmptyStateProps) {
+  const t = useTranslations('Projects')
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -21,13 +24,13 @@ export function EmptyState({ onClearFilters }: EmptyStateProps) {
 
         <div className="max-w-sm space-y-2">
           <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-            Nenhum projeto encontrado
+            {t('noProjectsFound')}
           </h3>
         </div>
 
         <Button onClick={onClearFilters} variant="outline" className="mt-2">
           <Eraser />
-          Limpar filtros
+          {t('clearFiltersButtonText')}
         </Button>
       </div>
     </motion.div>

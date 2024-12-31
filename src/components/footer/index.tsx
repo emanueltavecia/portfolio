@@ -11,6 +11,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '../ui/tooltip'
+import { useTranslations } from 'next-intl'
 
 const SOCIAL_LINKS = [
   {
@@ -41,6 +42,9 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   const pathname = usePathname()
+
+  const t = useTranslations('Footer')
+
   return (
     <footer className="w-full border-t border-blue-200/20 bg-slate-100 pb-6 pt-12 dark:border-blue-950/30 dark:bg-gray-950/80">
       <div className="mx-auto flex max-w-screen-xl flex-col items-center gap-8 px-6 sm:items-start sm:gap-10">
@@ -62,13 +66,13 @@ export function Footer() {
               </p>
             )}
             <p className="max-w-64 text-center text-sm text-gray-600 dark:text-gray-400 sm:text-left">
-              Desenvolvedor Front-end e Mobile apaixonado por criar experiências
-              modernas e acessíveis.
+              {t('description')}
             </p>
           </div>
 
           <div className="flex flex-col items-center gap-4 sm:items-start">
-            <h3 className="font-semibold">Redes sociais</h3>
+            <h3 className="font-semibold">{t('socialMediaTitle')}</h3>
+
             <ul className="flex flex-col gap-2">
               {SOCIAL_LINKS.map((link) => (
                 <li key={link.name}>
@@ -104,8 +108,7 @@ export function Footer() {
 
         <div className="flex w-full flex-col-reverse items-center justify-between gap-4 sm:flex-row">
           <p className="text-center text-sm text-gray-600 dark:text-gray-400 sm:text-left">
-            &copy; {new Date().getFullYear()} Emanuel Tavecia. Todos os direitos
-            reservados.
+            &copy; {new Date().getFullYear()} Emanuel Tavecia. {t('copyright')}
           </p>
 
           <Button

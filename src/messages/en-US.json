@@ -3,7 +3,74 @@
     "title": "Emanuel Tavecia | Portfolio",
     "description": "Emanuel Tavecia's Portfolio, Front-end developer with experience in React, TypeScript and Mobile development with React Native."
   },
+
+  "Header": {
+    "homeLink": "Home",
+    "experienceLink": "Experience",
+    "projectsLink": "Projects",
+    "educationLink": "Education",
+    "certificatesLink": "Certificates",
+    "contactLink": "Contact",
+
+    "changeLanguage": "Change language",
+
+    "changeTheme": "Change theme",
+    "lightLabel": "Light",
+    "darkLabel": "Dark",
+    "systemLabel": "System"
+  },
+
+  "Footer": {
+    "description": "Front-end and Mobile developer passionate about creating modern and accessible experiences.",
+    "socialMediaTitle": "Social media",
+    "copyright": "All rights reserved."
+  },
+
   "Home": {
-    "title": "Hello, I'm"
+    "title": "<span>Hello, I'm</span> <name>Emanuel Tavecia</name>",
+    "subtitle": "Front-end & Mobile Developer",
+    "description": "Front-end and Mobile developer passionate about technology. I have about 1 year and a half of experience with web and mobile development with React and React Native, and I am always looking for new challenges and learning.",
+    "softSkills": "Communication, Teamwork, Problem Solving, Adaptability, Proactivity",
+    "imageAlt": "Photo of Emanuel Tavecia",
+    "featuredProjectsTitle": "Featured projects",
+    "featuredProjectsSubtitle": "Swipe to see some of my recent work",
+    "featuredProjectsSeeAllButtonText": "see all",
+    "featuredProjectsImageAlt": "{projectName} project cover"
+  },
+  
+  "Experience": {
+    "title": "Professional Experience",
+    "subtitle": "Discover my professional journey",
+    "companyLogoAlt": "{companyName} company logo"
+  },
+
+  "Projects": {
+    "title": "Projects",
+    "subtitle": "Discover some of the projects I have developed",
+
+    "filtersTitle": "Filters",
+    "clearFiltersButtonText": "Clear filters",
+    "selectTriggerDescriptionLastSeparator": " and ",
+  
+    "projectImageAlt": "{projectName} project cover",
+    "isFeaturedDescription": "Featured",
+    "seeDetails": "See details",
+
+    "noProjectsFound": "No projects found"
+  },
+
+  "ProjectDetails": {
+    "isFeaturedDescription": "Featured",
+    "typesTitle": "Types",
+    "technologiesTitle": "Technologies",
+    "viewCode": "View code",
+    "viewProjectOnline": "View project online",
+    "projectImageAlt": "{projectName} project cover",
+    "aboutProjectTitle": "About the project",
+    "videoOverviewTitle": "Video overview",
+    "infoTitle": "Info",
+    "sourceTitle": "Source",
+    "visibilityTitle": "Visibility",
+    "complexityTitle": "Complexity"
   }
 }

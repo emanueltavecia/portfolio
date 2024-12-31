@@ -16,6 +16,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import './globals.css'
+import { LocaleParams } from './types'
 
 const mainFontFamily = localFont({
   src: '../assets/outfit.ttf',
@@ -27,9 +28,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params: { locale },
-}: {
-  params: { locale: string }
-}): Promise<Metadata> {
+}: LocaleParams): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'RootMetadata' })
 
   return {
@@ -46,8 +45,7 @@ export default async function LocaleLayout({
 }: {
   children: ReactNode
   modal: ReactNode
-  params: { locale: string }
-}) {
+} & LocaleParams) {
   if (!routing.locales.includes(locale as Locales)) {
     notFound()
   }

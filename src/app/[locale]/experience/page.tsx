@@ -6,8 +6,13 @@ import { Card, CardContent } from '@/components/ui/card'
 import { MapPin, Calendar, Building2 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { motion } from 'framer-motion'
+import { useTranslations, useLocale } from 'next-intl'
+import { Locales } from '@/locales'
 
 export default function Experience() {
+  const locale = useLocale() as Locales
+  const t = useTranslations('Experience')
+
   useScrollToTopOnPageLoad()
 
   return (
@@ -19,15 +24,13 @@ export default function Experience() {
     >
       <div className="flex flex-col gap-2">
         <h2 className="text-3xl font-bold tracking-tight dark:text-white md:text-4xl">
-          Experiência Profissional
+          {t('title')}
         </h2>
-        <p className="text-gray-600 dark:text-gray-400">
-          Conheça a minha jornada profissional
-        </p>
+        <p className="text-gray-600 dark:text-gray-400">{t('subtitle')}</p>
       </div>
 
       <div className="relative flex flex-col gap-8">
-        {experiences.map((experience, i) => (
+        {experiences[locale].map((experience, i) => (
           <Card
             key={experience.id}
             className={`group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 ${i === 0 ? 'shadow-lg dark:bg-gray-900/90' : 'dark:bg-gray-900/50'}`}
@@ -39,7 +42,9 @@ export default function Experience() {
                     <div className="relative h-10 w-36">
                       <Image
                         src={experience.logo}
-                        alt={`Logo da empresa ${experience.company}`}
+                        alt={t('companyLogoAlt', {
+                          companyName: experience.company,
+                        })}
                         className="object-contain brightness-[0.2] dark:brightness-100"
                         fill
                         priority

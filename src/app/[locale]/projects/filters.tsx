@@ -6,11 +6,16 @@ import { usePathname, useRouter } from '@/navigation'
 import { useCallback, useMemo } from 'react'
 import { FilterState } from './types'
 import { filtersOptions } from './rules'
+import { useLocale, useTranslations } from 'next-intl'
+import { Locales } from '@/locales'
 
 export function Filters() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+
+  const locale = useLocale() as Locales
+  const t = useTranslations('Projects')
 
   const filtersFromUrl = useMemo(() => {
     const parsedFilters: Partial<FilterState> = {}
@@ -40,18 +45,18 @@ export function Filters() {
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between gap-4">
-        <p className="text-lg font-medium">Filtros</p>
+        <p className="text-lg font-medium">{t('filtersTitle')}</p>
         <Button
           variant="link"
           className="p-0 text-slate-700 dark:text-slate-300"
           onClick={handleClearFilters}
         >
           <Eraser />
-          Limpar filtros
+          {t('clearFiltersButtonText')}
         </Button>
       </div>
       <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-4 md:grid-cols-4">
-        {filtersOptions.map((filter) => (
+        {filtersOptions[locale].map((filter) => (
           <Select
             key={filter.id}
             {...filter}
@@ -61,7 +66,9 @@ export function Filters() {
             useClear
             useAll
             multiple
-            triggerDescriptionLastSeparator=" e "
+            triggerDescriptionLastSeparator={t(
+              'selectTriggerDescriptionLastSeparator',
+            )}
           />
         ))}
       </div>

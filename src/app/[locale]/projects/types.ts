@@ -35,7 +35,7 @@ export interface Project {
   repo_name?: string
   deploy?: string
   screenshot?: StaticImageData
-  overviewVideo?: string
+  videoOverview?: string
   id: number
   type: ProjectType[]
   source: ProjectSource

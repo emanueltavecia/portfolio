@@ -15,6 +15,7 @@ import { usePathname, useRouter } from '@/navigation'
 import { useParams } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { Locales } from '@/locales'
+import { useTranslations } from 'next-intl'
 
 export function LocaleSwitcher({ isMobile }: LocaleSwitcherProps) {
   const [open, setOpen] = useState(false)
@@ -23,6 +24,8 @@ export function LocaleSwitcher({ isMobile }: LocaleSwitcherProps) {
   const [, startTransition] = useTransition()
   const pathname = usePathname()
   const params = useParams()
+
+  const t = useTranslations('Header')
 
   function handleLocaleChange(locale: Locales) {
     setOpen(false)
@@ -55,7 +58,7 @@ export function LocaleSwitcher({ isMobile }: LocaleSwitcherProps) {
               !isMobile && 'sr-only',
             )}
           >
-            Trocar o idioma
+            {t('changeLanguage')}
           </span>
         </div>
       </DropdownMenuTrigger>
