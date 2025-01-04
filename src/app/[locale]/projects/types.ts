@@ -1,5 +1,7 @@
 import { StaticImageData } from 'next/image'
 
+import { Option } from 'select-shadcn-v2'
+
 import { Techs } from '@/data/tech-stack'
 
 export enum ProjectType {
@@ -57,7 +59,7 @@ export interface FilterState {
 
 export interface FilterOption {
   id: keyof FilterState
-  options: { value: string; label: string }[]
+  options: Option[]
   placeholder: string
   allDescription: string
   allSelectedDescription: string

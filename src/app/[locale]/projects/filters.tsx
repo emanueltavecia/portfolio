@@ -4,9 +4,9 @@ import { useSearchParams } from 'next/navigation'
 
 import { Eraser } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
+import { Select } from 'select-shadcn-v2'
 
 import { Button } from '@/components/ui/button'
-import { Select } from '@/components/ui/select'
 import { Locales } from '@/locales'
 import { usePathname, useRouter } from '@/navigation'
 
