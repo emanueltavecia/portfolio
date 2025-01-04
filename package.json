@@ -30,14 +30,14 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.54.2",
-    "select-shadcn-v2": "^0.0.8",
+    "select-shadcn-v2": "^0.0.10",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@emanueltavecia/eslint-config": "^1.0.4",
+    "@emanueltavecia/eslint-config": "^1.0.5",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
