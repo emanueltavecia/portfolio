@@ -2,6 +2,8 @@ import { StaticImageData } from 'next/image'
 
 import { Locales } from '@/locales'
 
+import { CourseType } from './certificates'
+
 import ifscLogo from '../app/assets/ifsc-logo.png'
 import rocketseatLogo from '../app/assets/rocketseat-logo.svg'
 import unescLogo from '../app/assets/unesc-logo.png'
@@ -12,7 +14,7 @@ export interface Education {
   courseType: string
   workload: number
   date: {
-    start: string
+    start?: string
     end: string
   }
   logo: StaticImageData
@@ -30,7 +32,7 @@ export const educations: Record<Locales, Education[]> = {
     {
       institution: 'UNESC',
       course: 'Ciência da Computação',
-      courseType: 'Bacharel',
+      courseType: CourseType[Locales.PT_BR].BACHELOR,
       workload: 3200,
       date: {
         start: 'Mar 2024',
@@ -41,7 +43,7 @@ export const educations: Record<Locales, Education[]> = {
     {
       institution: 'Rocketseat',
       course: 'Explorer',
-      courseType: 'Curso',
+      courseType: CourseType[Locales.PT_BR].COURSE,
       workload: 100,
       date: {
         start: 'Nov 2023',
@@ -60,7 +62,7 @@ export const educations: Record<Locales, Education[]> = {
     {
       institution: 'IFSC',
       course: 'Eletromecânica',
-      courseType: 'Curso Técnico',
+      courseType: CourseType[Locales.PT_BR].TECHNICAL_COURSE,
       workload: 3360,
       date: {
         start: 'Fev 2021',
@@ -82,7 +84,7 @@ export const educations: Record<Locales, Education[]> = {
     {
       institution: 'UNESC',
       course: 'Computer Science',
-      courseType: 'Bachelor',
+      courseType: CourseType[Locales.EN_US].BACHELOR,
       workload: 3200,
       date: {
         start: 'Mar 2024',
@@ -93,7 +95,7 @@ export const educations: Record<Locales, Education[]> = {
     {
       institution: 'Rocketseat',
       course: 'Explorer',
-      courseType: 'Course',
+      courseType: CourseType[Locales.EN_US].COURSE,
       workload: 100,
       date: {
         start: 'Nov 2023',
@@ -112,7 +114,7 @@ export const educations: Record<Locales, Education[]> = {
     {
       institution: 'IFSC',
       course: 'Electromechanics',
-      courseType: 'Technical Course',
+      courseType: CourseType[Locales.EN_US].TECHNICAL_COURSE,
       workload: 3360,
       date: {
         start: 'Feb 2021',
