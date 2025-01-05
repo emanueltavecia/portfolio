@@ -72,5 +72,18 @@
     "sourceTitle": "Source",
     "visibilityTitle": "Visibility",
     "complexityTitle": "Complexity"
+  },
+
+  "Education": {
+    "title": "Education",
+    "subtitle": "My academic journey and completed courses",
+    "institutionLogoAlt": "{institutionName} logo",
+    "workload": "{hours} hours",
+    "issueDate": "Issued on: {date}",
+    "verificationCode": "Verification code",
+    "registrationNumber": "Registration number",
+    "viewCertificate": "View Certificate",
+    "verifyCertificate": "Verify Certificate",
+    "certificateTitle": "Certificate"
   }
 }
