@@ -64,10 +64,10 @@ export default function Educations() {
                       />
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex shrink-0 gap-2">
                       <Badge
                         variant="secondary"
-                        className="bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:hover:bg-blue-900/30"
+                        className="shrink-0 text-nowrap bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:hover:bg-blue-900/30"
                       >
                         {education.courseType}
                       </Badge>
