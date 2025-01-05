@@ -32,8 +32,20 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      console.log(data)
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (!result?.success) {
+        throw new Error('Failed to submit form')
+      }
 
       toast({
         description: (

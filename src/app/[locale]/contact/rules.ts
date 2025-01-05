@@ -4,10 +4,10 @@ import { z } from 'zod'
 import { ContactFormData } from './types'
 
 export const contactFormDefaultValues: ContactFormData = {
-  name: 'e',
-  email: 'e@example.com',
-  subject: 'e',
-  message: '1234567890',
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
 }
 
 export const schema = (t: {
