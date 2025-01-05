@@ -57,22 +57,21 @@ export default function Education() {
                   : 'dark:bg-gray-900/50'
               }`}
             >
-              <CardContent className="p-6 md:px-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="flex flex-col gap-4 md:gap-6">
                   <div className="flex items-center justify-between gap-4 sm:items-start">
-                    <div className="flex items-start gap-4">
-                      <div className="relative h-10 w-36">
-                        <Image
-                          src={edu.logo}
-                          alt={t('institutionLogoAlt', {
-                            institutionName: edu.institution,
-                          })}
-                          className="object-contain brightness-[0.2] dark:brightness-100"
-                          fill
-                          priority
-                          fetchPriority="high"
-                        />
-                      </div>
+                    <div className="h-9 max-w-52">
+                      <Image
+                        src={edu.logo}
+                        alt={t('institutionLogoAlt', {
+                          institutionName: edu.institution,
+                        })}
+                        className="object-contain object-left brightness-[0.2] dark:brightness-100"
+                        fill
+                        priority
+                        fetchPriority="high"
+                        style={{ position: '' as never }}
+                      />
                     </div>
 
                     <div className="flex flex-wrap gap-2">
