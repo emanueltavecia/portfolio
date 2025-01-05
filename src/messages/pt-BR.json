@@ -83,6 +83,13 @@
     "viewCertificate": "Visualizar Certificado"
   },
 
+  "Certificates": {
+    "title": "Certificados",
+    "subtitle": "Explore minha jornada acadêmica e profissional através dos meus certificados",
+    "workload": "{hours} horas",
+    "viewDetails": "Ver detalhes"
+  },
+
   "CertificateDetailsDialog": {
     "title": "{type, select, Curso {{type} {name}} other {{type} em {name}}}",
     "issueDate": "Emitido em: {date}",

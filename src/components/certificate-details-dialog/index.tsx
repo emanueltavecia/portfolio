@@ -11,23 +11,25 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Education } from '@/data/educations'
+import { Certificate } from '@/data/certificates'
 
 interface CertificateDetailsDialogProps {
-  selectedEducation: Education | undefined
-  setSelectedEducation: Dispatch<SetStateAction<Education | undefined>>
+  selectedCertificate: Partial<Certificate> | undefined
+  setSelectedCertificate: Dispatch<
+    SetStateAction<Partial<Certificate> | undefined>
+  >
 }
 
 export function CertificateDetailsDialog({
-  selectedEducation,
-  setSelectedEducation,
+  selectedCertificate,
+  setSelectedCertificate,
 }: CertificateDetailsDialogProps) {
   const t = useTranslations('CertificateDetailsDialog')
 
   return (
     <Dialog
-      open={!!selectedEducation}
-      onOpenChange={() => setSelectedEducation(undefined)}
+      open={!!selectedCertificate}
+      onOpenChange={() => setSelectedCertificate(undefined)}
     >
       <DialogContent className="max-h-[95vh] max-w-4xl">
         <motion.div
@@ -39,20 +41,20 @@ export function CertificateDetailsDialog({
           <DialogHeader>
             <DialogTitle className="text-left text-3xl">
               {t('title', {
-                name: selectedEducation?.course,
-                type: selectedEducation?.courseType,
+                name: selectedCertificate?.course,
+                type: selectedCertificate?.courseType,
               })}
             </DialogTitle>
           </DialogHeader>
 
-          {selectedEducation && (
+          {selectedCertificate && (
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2.5 text-sm text-gray-600 dark:text-gray-400 md:gap-3 md:text-base">
                 <div className="flex items-center gap-2">
                   <Calendar className="size-4 shrink-0 md:size-5" />
                   <span>
                     {t('issueDate', {
-                      date: selectedEducation?.certificate?.issueDate,
+                      date: selectedCertificate?.issueDate,
                     })}
                   </span>
                 </div>
@@ -61,16 +63,16 @@ export function CertificateDetailsDialog({
                   <QrCode className="size-4 shrink-0 md:size-5" />
                   <span>
                     {t('verificationCode')}:{' '}
-                    {selectedEducation?.certificate?.verificationCode}
+                    {selectedCertificate?.verificationCode}
                   </span>
                 </div>
 
-                {selectedEducation?.certificate?.registrationNumber && (
+                {selectedCertificate?.registrationNumber && (
                   <div className="flex items-center gap-2">
                     <Hash className="size-4 shrink-0 md:size-5" />
                     <span>
                       {t('registrationNumber')}:{' '}
-                      {selectedEducation?.certificate?.registrationNumber}
+                      {selectedCertificate?.registrationNumber}
                     </span>
                   </div>
                 )}
@@ -78,7 +80,7 @@ export function CertificateDetailsDialog({
 
               <Button variant="outline" className="gap-2 self-start" asChild>
                 <a
-                  href={selectedEducation?.certificate?.verifierUrl}
+                  href={selectedCertificate?.verifierUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -89,12 +91,12 @@ export function CertificateDetailsDialog({
 
               <div
                 style={{
-                  height: `calc(60vh${selectedEducation?.certificate?.verifierUrl ? ' - 60px' : ''}${selectedEducation?.certificate?.registrationNumber ? ' - 36px' : ''})`,
+                  height: `calc(60vh${selectedCertificate?.verifierUrl ? ' - 60px' : ''}${selectedCertificate?.registrationNumber ? ' - 36px' : ''})`,
                 }}
               >
                 <iframe
                   className="h-full w-full rounded-lg"
-                  src={selectedEducation?.certificate?.pdfUrl}
+                  src={selectedCertificate?.pdfUrl}
                 />
               </div>
             </div>

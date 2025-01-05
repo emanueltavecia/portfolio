@@ -11,14 +11,17 @@ import { CertificateDetailsDialog } from '@/components/certificate-details-dialo
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Education, educations } from '@/data/educations'
+import { Certificate } from '@/data/certificates'
+import { educations } from '@/data/educations'
 import { Locales } from '@/locales'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 
-export default function Educations() {
+export default function Education() {
+  const [selectedEducation, setSelectedEducation] =
+    useState<Partial<Certificate>>()
+
   const locale = useLocale() as Locales
   const t = useTranslations('Education')
-  const [selectedEducation, setSelectedEducation] = useState<Education>()
 
   useScrollToTopOnPageLoad()
 
@@ -50,19 +53,21 @@ export default function Educations() {
               <CardContent className="p-6 md:px-8">
                 <div className="flex flex-col gap-4 md:gap-6">
                   <div className="flex items-center justify-between gap-4 sm:items-start">
-                    <div className="h-9 max-w-52">
-                      <Image
-                        src={education.logo}
-                        alt={t('institutionLogoAlt', {
-                          institutionName: education.institution,
-                        })}
-                        className="object-contain object-left brightness-[0.2] dark:brightness-100"
-                        fill
-                        priority
-                        fetchPriority="high"
-                        style={{ position: '' as never }}
-                      />
-                    </div>
+                    {education.logo && (
+                      <div className="h-9 max-w-52">
+                        <Image
+                          src={education.logo}
+                          alt={t('institutionLogoAlt', {
+                            institutionName: education.institution,
+                          })}
+                          className="object-contain object-left brightness-[0.2] dark:brightness-100"
+                          fill
+                          priority
+                          fetchPriority="high"
+                          style={{ position: '' as never }}
+                        />
+                      </div>
+                    )}
 
                     <div className="flex shrink-0 gap-2">
                       <Badge
@@ -92,7 +97,7 @@ export default function Educations() {
                     <div className="flex items-center gap-2">
                       <Calendar className="size-4 shrink-0 md:size-5" />
                       <span>
-                        {education.date.start} - {education.date.end}
+                        {education?.date?.start} - {education?.date?.end}
                       </span>
                     </div>
 
@@ -106,7 +111,7 @@ export default function Educations() {
                     </div>
                   </div>
 
-                  {education.certificate && (
+                  {education.pdfUrl && (
                     <div className="flex flex-wrap gap-2">
                       <Button
                         variant="outline"
@@ -126,8 +131,8 @@ export default function Educations() {
       </motion.main>
 
       <CertificateDetailsDialog
-        selectedEducation={selectedEducation}
-        setSelectedEducation={setSelectedEducation}
+        selectedCertificate={selectedEducation}
+        setSelectedCertificate={setSelectedEducation}
       />
     </>
   )

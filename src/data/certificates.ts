@@ -1,6 +1,9 @@
+import { StaticImageData } from 'next/image'
+
 import { Locales } from '@/locales'
 
-import { Education } from './educations'
+import ifscLogo from '../app/assets/ifsc-logo.png'
+import rocketseatLogo from '../app/assets/rocketseat-logo.svg'
 
 export const CourseType = {
   [Locales.PT_BR]: {
@@ -17,8 +20,24 @@ export const CourseType = {
   },
 }
 
-export type Certificate = Omit<Education, 'certificate' | 'logo'> &
-  Education['certificate'] & { id: number }
+export interface Certificate {
+  id: number
+  institution: string
+  course: string
+  courseType: string
+  workload: number
+  date: {
+    start?: string
+    end: string
+  }
+  logo?: StaticImageData
+  pdfUrl: string
+  verifierUrl: string
+  issueDate: string
+  verificationCode: string
+  registrationNumber?: string
+  isEducation?: boolean
+}
 
 export const certificates: Record<Locales, Certificate[]> = {
   [Locales.PT_BR]: [
@@ -32,12 +51,14 @@ export const certificates: Record<Locales, Certificate[]> = {
         start: 'Nov 2023',
         end: 'Jul 2024',
       },
+      logo: rocketseatLogo,
       pdfUrl:
         'https://drive.google.com/file/d/1nL_V8C8cfiL4F_EEEGzKEhbVIzdi26_9/preview',
       verifierUrl:
         'https://app.rocketseat.com.br/certificates/d2bb9e84-a302-4467-8068-ae5cbb4a51c7',
       issueDate: '16 de julho de 2024',
       verificationCode: 'd2bb9e84-a302-4467-8068-ae5cbb4a51c7',
+      isEducation: true,
     },
     {
       id: 6,
@@ -49,6 +70,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         start: 'Fev 2021',
         end: 'Dez 2023',
       },
+      logo: ifscLogo,
       pdfUrl:
         'https://drive.google.com/file/d/1sbz0bP9kTrZKSgnBiJ5EausuTCd6A9iL/preview',
       verifierUrl:
@@ -56,6 +78,7 @@ export const certificates: Record<Locales, Certificate[]> = {
       issueDate: '01 de fevereiro de 2024',
       verificationCode: '7baeca3f6a',
       registrationNumber: '20009342',
+      isEducation: true,
     },
     {
       id: 5,
@@ -148,12 +171,14 @@ export const certificates: Record<Locales, Certificate[]> = {
         start: 'Nov 2023',
         end: 'Jul 2024',
       },
+      logo: rocketseatLogo,
       pdfUrl:
         'https://drive.google.com/file/d/1nL_V8C8cfiL4F_EEEGzKEhbVIzdi26_9/preview',
       verifierUrl:
         'https://app.rocketseat.com.br/certificates/d2bb9e84-a302-4467-8068-ae5cbb4a51c7',
       issueDate: 'July 16, 2024',
       verificationCode: 'd2bb9e84-a302-4467-8068-ae5cbb4a51c7',
+      isEducation: true,
     },
     {
       id: 6,
@@ -165,6 +190,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         start: 'Feb 2021',
         end: 'Dec 2023',
       },
+      logo: ifscLogo,
       pdfUrl:
         'https://drive.google.com/file/d/1sbz0bP9kTrZKSgnBiJ5EausuTCd6A9iL/preview',
       verifierUrl:
@@ -172,6 +198,7 @@ export const certificates: Record<Locales, Certificate[]> = {
       issueDate: 'February 1, 2024',
       verificationCode: '7baeca3f6a',
       registrationNumber: '20009342',
+      isEducation: true,
     },
     {
       id: 5,
