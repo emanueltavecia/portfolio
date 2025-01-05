@@ -86,12 +86,13 @@
   "Certificates": {
     "title": "Certificates",
     "subtitle": "Explore my academic and professional journey through my certificates",
+    "course": "{type, select, Course {{name} {type}} Bachelor {{type} of {name}} Event {{type}: {name}} other {{type} in {name}}}",
     "workload": "{hours} hours",
     "viewDetails": "View details"
   },
 
   "CertificateDetailsDialog": {
-    "title": "{type, select, Course {{name} {type}} Bachelor {{type} of {name}} other {{type} in {name}}}",
+    "title": "{type, select, Course {{name} {type}} Bachelor {{type} of {name}} Event {{type}: {name}} other {{type} in {name}}}",
     "issueDate": "Issued on: {date}",
     "verificationCode": "Verification code",
     "registrationNumber": "Registration number",

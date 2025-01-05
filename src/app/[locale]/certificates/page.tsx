@@ -44,45 +44,50 @@ export default function Certificates() {
               key={certificate.id}
               className="group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 dark:bg-gray-900/50"
             >
-              <CardContent className="p-6">
-                <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-4">
-                    <Badge
-                      variant="secondary"
-                      className="shrink-0 text-nowrap bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:hover:bg-blue-900/30"
-                    >
-                      {certificate.courseType}
-                    </Badge>
-                  </div>
-
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                      {certificate.course}
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2.5 text-sm text-gray-600 dark:text-gray-400">
-                    <div className="flex items-center gap-2">
-                      <Building2 className="size-4 shrink-0" />
-                      <span>{certificate.institution}</span>
+              <CardContent className="h-full p-6">
+                <div className="flex h-full flex-col justify-between gap-4">
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-4">
+                      <Badge
+                        variant="secondary"
+                        className="shrink-0 text-nowrap bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:hover:bg-blue-900/30"
+                      >
+                        {certificate.courseType}
+                      </Badge>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                      <Calendar className="size-4 shrink-0" />
-                      <span>
-                        {certificate.date.start &&
-                          `${certificate.date.start} - `}
-                        {certificate.date.end}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <Clock className="size-4 shrink-0" />
-                      <span>
-                        {t('workload', {
-                          hours: certificate.workload,
+                    <div className="flex flex-col gap-1">
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                        {t('course', {
+                          name: certificate.course,
+                          type: certificate.courseType,
                         })}
-                      </span>
+                      </h3>
+                    </div>
+
+                    <div className="flex flex-col gap-2.5 text-sm text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center gap-2">
+                        <Building2 className="size-4 shrink-0" />
+                        <span>{certificate.institution}</span>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <Calendar className="size-4 shrink-0" />
+                        <span>
+                          {certificate.date.start &&
+                            `${certificate.date.start} - `}
+                          {certificate.date.end}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <Clock className="size-4 shrink-0" />
+                        <span>
+                          {t('workload', {
+                            hours: certificate.workload,
+                          })}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
