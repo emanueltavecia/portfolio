@@ -47,7 +47,7 @@ export default function Educations() {
                   : 'dark:bg-gray-900/50'
               }`}
             >
-              <CardContent className="p-6 md:p-8">
+              <CardContent className="p-6 md:px-8">
                 <div className="flex flex-col gap-4 md:gap-6">
                   <div className="flex items-center justify-between gap-4 sm:items-start">
                     <div className="h-9 max-w-52">
