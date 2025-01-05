@@ -78,12 +78,16 @@
     "title": "Educação",
     "subtitle": "Minha jornada acadêmica e cursos realizados",
     "institutionLogoAlt": "Logo da {institutionName}",
+    "course": "{type, select, Curso {{type} {name}} other {{type} em {name}}}",
     "workload": "{hours} horas",
+    "viewCertificate": "Visualizar Certificado"
+  },
+
+  "CertificateDetailsDialog": {
+    "title": "{type, select, Curso {{type} {name}} other {{type} em {name}}}",
     "issueDate": "Emitido em: {date}",
     "verificationCode": "Código de verificação",
     "registrationNumber": "Número de registro",
-    "viewCertificate": "Visualizar Certificado",
-    "verifyCertificate": "Verificar Certificado",
-    "certificateTitle": "Certificado"
+    "verifyCertificate": "Verificar Certificado"
   }
 }

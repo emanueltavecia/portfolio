@@ -4,31 +4,21 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 import { motion } from 'framer-motion'
-import {
-  Building2,
-  Calendar,
-  Clock,
-  ExternalLink,
-  FileText,
-  Hash,
-  QrCode,
-} from 'lucide-react'
+import { Building2, Calendar, Clock, FileText } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
 
-import { CertificatePdfDialogViewer } from '@/components/certificate-pdf-dialog-viewer'
+import { CertificateDetailsDialog } from '@/components/certificate-details-dialog'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { education } from '@/data/education'
+import { Education, educations } from '@/data/education'
 import { Locales } from '@/locales'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 
-export default function Education() {
+export default function Educations() {
   const locale = useLocale() as Locales
   const t = useTranslations('Education')
-  const [selectedCertificate, setSelectedCertificate] = useState<string | null>(
-    null,
-  )
+  const [selectedEducation, setSelectedEducation] = useState<Education>()
 
   useScrollToTopOnPageLoad()
 
@@ -48,9 +38,9 @@ export default function Education() {
         </div>
 
         <div className="relative flex flex-col gap-8">
-          {education[locale].map((edu, i) => (
+          {educations[locale].map((education, i) => (
             <Card
-              key={edu.institution}
+              key={education.institution}
               className={`group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
                 i === 0
                   ? 'shadow-lg dark:bg-gray-900/90'
@@ -62,9 +52,9 @@ export default function Education() {
                   <div className="flex items-center justify-between gap-4 sm:items-start">
                     <div className="h-9 max-w-52">
                       <Image
-                        src={edu.logo}
+                        src={education.logo}
                         alt={t('institutionLogoAlt', {
-                          institutionName: edu.institution,
+                          institutionName: education.institution,
                         })}
                         className="object-contain object-left brightness-[0.2] dark:brightness-100"
                         fill
@@ -79,27 +69,30 @@ export default function Education() {
                         variant="secondary"
                         className="bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:hover:bg-blue-900/30"
                       >
-                        {edu.courseType}
+                        {education.courseType}
                       </Badge>
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-1">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white md:text-2xl">
-                      {edu.course}
+                      {t('course', {
+                        name: education.course,
+                        type: education.courseType,
+                      })}
                     </h3>
                   </div>
 
                   <div className="flex flex-col gap-2.5 text-sm text-gray-600 dark:text-gray-400 md:gap-3 md:text-base">
                     <div className="flex items-center gap-2">
                       <Building2 className="size-4 shrink-0 md:size-5" />
-                      <span>{edu.institution}</span>
+                      <span>{education.institution}</span>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <Calendar className="size-4 shrink-0 md:size-5" />
                       <span>
-                        {edu.date.start} - {edu.date.end}
+                        {education.date.start} - {education.date.end}
                       </span>
                     </div>
 
@@ -107,66 +100,21 @@ export default function Education() {
                       <Clock className="size-4 shrink-0 md:size-5" />
                       <span>
                         {t('workload', {
-                          hours: edu.workload,
+                          hours: education.workload,
                         })}
                       </span>
                     </div>
-
-                    {edu.certificate && (
-                      <>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="size-4 shrink-0 md:size-5" />
-                          <span>
-                            {t('issueDate', {
-                              date: edu.certificate.issueDate,
-                            })}
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-2">
-                          <QrCode className="size-4 shrink-0 md:size-5" />
-                          <span>
-                            {t('verificationCode')}:{' '}
-                            {edu.certificate.verificationCode}
-                          </span>
-                        </div>
-
-                        {edu.certificate.registrationNumber && (
-                          <div className="flex items-center gap-2">
-                            <Hash className="size-4 shrink-0 md:size-5" />
-                            <span>
-                              {t('registrationNumber')}:{' '}
-                              {edu.certificate.registrationNumber}
-                            </span>
-                          </div>
-                        )}
-                      </>
-                    )}
                   </div>
 
-                  {edu.certificate && (
+                  {education.certificate && (
                     <div className="flex flex-wrap gap-2">
                       <Button
                         variant="outline"
                         className="gap-2"
-                        onClick={() =>
-                          setSelectedCertificate(
-                            edu.certificate?.pdfUrl || null,
-                          )
-                        }
+                        onClick={() => setSelectedEducation(education)}
                       >
                         <FileText className="size-4" />
                         {t('viewCertificate')}
-                      </Button>
-                      <Button variant="outline" className="gap-2" asChild>
-                        <a
-                          href={edu.certificate.verifierUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="size-4" />
-                          {t('verifyCertificate')}
-                        </a>
                       </Button>
                     </div>
                   )}
@@ -176,9 +124,10 @@ export default function Education() {
           ))}
         </div>
       </motion.main>
-      <CertificatePdfDialogViewer
-        selectedCertificate={selectedCertificate}
-        setSelectedCertificate={setSelectedCertificate}
+
+      <CertificateDetailsDialog
+        selectedEducation={selectedEducation}
+        setSelectedEducation={setSelectedEducation}
       />
     </>
   )

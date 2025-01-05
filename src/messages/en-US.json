@@ -78,12 +78,16 @@
     "title": "Education",
     "subtitle": "My academic journey and completed courses",
     "institutionLogoAlt": "{institutionName} logo",
+    "course": "{type, select, Course {{name} {type}} Bachelor {{type} of {name}} other {{type} in {name}}}",
     "workload": "{hours} hours",
+    "viewCertificate": "View Certificate"
+  },
+
+  "CertificateDetailsDialog": {
+    "title": "{type, select, Course {{name} {type}} Bachelor {{type} of {name}} other {{type} in {name}}}",
     "issueDate": "Issued on: {date}",
     "verificationCode": "Verification code",
     "registrationNumber": "Registration number",
-    "viewCertificate": "View Certificate",
-    "verifyCertificate": "Verify Certificate",
-    "certificateTitle": "Certificate"
+    "verifyCertificate": "Verify Certificate"
   }
 }

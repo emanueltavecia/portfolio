@@ -25,7 +25,7 @@ export interface Education {
   }
 }
 
-export const education: Record<Locales, Education[]> = {
+export const educations: Record<Locales, Education[]> = {
   [Locales.PT_BR]: [
     {
       institution: 'UNESC',
