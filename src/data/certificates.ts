@@ -18,11 +18,12 @@ export const CourseType = {
 }
 
 export type Certificate = Omit<Education, 'certificate' | 'logo'> &
-  Education['certificate']
+  Education['certificate'] & { id: number }
 
 export const certificates: Record<Locales, Certificate[]> = {
   [Locales.PT_BR]: [
     {
+      id: 7,
       institution: 'Rocketseat',
       course: 'Explorer',
       courseType: CourseType[Locales.PT_BR].COURSE,
@@ -39,6 +40,7 @@ export const certificates: Record<Locales, Certificate[]> = {
       verificationCode: 'd2bb9e84-a302-4467-8068-ae5cbb4a51c7',
     },
     {
+      id: 6,
       institution: 'IFSC',
       course: 'Eletromecânica',
       courseType: CourseType[Locales.PT_BR].TECHNICAL_COURSE,
@@ -56,6 +58,7 @@ export const certificates: Record<Locales, Certificate[]> = {
       registrationNumber: '20009342',
     },
     {
+      id: 5,
       institution: 'Rocketseat',
       course: 'NLW Pocket: Mobile - React Native',
       courseType: CourseType[Locales.PT_BR].EVENT,
@@ -71,6 +74,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         'https://app.rocketseat.com.br/certificates/d48419e3-0f98-48fa-aa34-593df95b6f6c',
     },
     {
+      id: 4,
       institution: 'Rocketseat',
       course: 'NLW Journey - React Native',
       courseType: CourseType[Locales.PT_BR].EVENT,
@@ -86,6 +90,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         'https://app.rocketseat.com.br/certificates/e4274575-d0c8-48ff-8a30-570f9197e694',
     },
     {
+      id: 3,
       institution: 'Rocketseat',
       course: 'NLW Expert React',
       courseType: CourseType[Locales.PT_BR].EVENT,
@@ -101,6 +106,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         'https://app.rocketseat.com.br/certificates/023b9e8d-867a-4c1a-9905-29f390f879d1',
     },
     {
+      id: 2,
       institution: 'Rocketseat',
       course: 'Discover Especializar',
       courseType: CourseType[Locales.PT_BR].COURSE,
@@ -116,6 +122,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         'https://app.rocketseat.com.br/certificates/84b0f178-829c-406f-bf71-4eb2248c4065',
     },
     {
+      id: 1,
       institution: 'Danki Code',
       course: 'Webmaster Front-End Completo',
       courseType: CourseType[Locales.PT_BR].COURSE,
@@ -132,6 +139,7 @@ export const certificates: Record<Locales, Certificate[]> = {
   ],
   [Locales.EN_US]: [
     {
+      id: 7,
       institution: 'Rocketseat',
       course: 'Explorer',
       courseType: CourseType[Locales.EN_US].COURSE,
@@ -148,6 +156,7 @@ export const certificates: Record<Locales, Certificate[]> = {
       verificationCode: 'd2bb9e84-a302-4467-8068-ae5cbb4a51c7',
     },
     {
+      id: 6,
       institution: 'IFSC',
       course: 'Electromechanics',
       courseType: CourseType[Locales.EN_US].TECHNICAL_COURSE,
@@ -165,6 +174,7 @@ export const certificates: Record<Locales, Certificate[]> = {
       registrationNumber: '20009342',
     },
     {
+      id: 5,
       institution: 'Rocketseat',
       course: 'NLW Pocket: Mobile - React Native',
       courseType: CourseType[Locales.EN_US].EVENT,
@@ -180,6 +190,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         'https://app.rocketseat.com.br/certificates/d48419e3-0f98-48fa-aa34-593df95b6f6c',
     },
     {
+      id: 4,
       institution: 'Rocketseat',
       course: 'NLW Journey - React Native',
       courseType: CourseType[Locales.EN_US].EVENT,
@@ -195,6 +206,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         'https://app.rocketseat.com.br/certificates/e4274575-d0c8-48ff-8a30-570f9197e694',
     },
     {
+      id: 3,
       institution: 'Rocketseat',
       course: 'NLW Expert React',
       courseType: CourseType[Locales.EN_US].EVENT,
@@ -210,6 +222,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         'https://app.rocketseat.com.br/certificates/023b9e8d-867a-4c1a-9905-29f390f879d1',
     },
     {
+      id: 2,
       institution: 'Rocketseat',
       course: 'Discover Specialization',
       courseType: CourseType[Locales.EN_US].COURSE,
@@ -225,6 +238,7 @@ export const certificates: Record<Locales, Certificate[]> = {
         'https://app.rocketseat.com.br/certificates/84b0f178-829c-406f-bf71-4eb2248c4065',
     },
     {
+      id: 1,
       institution: 'Danki Code',
       course: 'Webmaster Complete Front-End',
       courseType: CourseType[Locales.EN_US].COURSE,
