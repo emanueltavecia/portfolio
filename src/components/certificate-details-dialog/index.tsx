@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Education } from '@/data/education'
+import { Education } from '@/data/educations'
 
 interface CertificateDetailsDialogProps {
   selectedEducation: Education | undefined

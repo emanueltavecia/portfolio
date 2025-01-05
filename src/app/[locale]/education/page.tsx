@@ -11,7 +11,7 @@ import { CertificateDetailsDialog } from '@/components/certificate-details-dialo
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Education, educations } from '@/data/education'
+import { Education, educations } from '@/data/educations'
 import { Locales } from '@/locales'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 
