@@ -97,5 +97,24 @@
     "verificationCode": "Código de verificação",
     "registrationNumber": "Número de registro",
     "verifyCertificate": "Verificar Certificado"
+  },
+
+  "Contact": {
+    "title": "Contato",
+    "subtitle": "Entre em contato comigo para conversarmos sobre oportunidades e colaborações",
+    "nameLabel": "Nome",
+    "emailLabel": "Email",
+    "subjectLabel": "Assunto",
+    "messageLabel": "Mensagem",
+    "sendButtonText": "Enviar mensagem",
+    "sending": "Enviando...",
+    "nameRequiredValidationError": "O nome é obrigatório",
+    "emailRequiredValidationError": "O e-mail é obrigatório",
+    "emailInvalidValidationError": "Digite um e-mail válido",
+    "subjectRequiredValidationError": "O assunto é obrigatório",
+    "messageRequiredValidationError": "A mensagem é obrigatória",
+    "messageMinLengthValidationError": "A mensagem deve ter pelo menos 10 caracteres",
+    "successMessage": "<span>Obrigado pelo contato.</span><span>Responderei assim que possível.</span>",
+    "errorMessage": "<span>Ocorreu um erro ao enviar sua mensagem.</span><span>Por favor, tente novamente.</span>"
   }
 }

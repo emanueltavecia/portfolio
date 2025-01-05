@@ -14,6 +14,7 @@ import {
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/toaster'
 import { routing } from '@/i18n/routing'
 import { Locales } from '@/locales'
 
@@ -74,6 +75,8 @@ export default async function LocaleLayout({
                 {children}
               </div>
               <Footer />
+
+              <Toaster />
             </ThemeProvider>
           </NextIntlClientProvider>
         </Suspense>
