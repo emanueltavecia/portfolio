@@ -6,9 +6,12 @@ import { ArrowLeft, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { useRouter } from '@/navigation'
+import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 
 export default function NotFound() {
   const router = useRouter()
+
+  useScrollToTopOnPageLoad()
 
   return (
     <motion.div
