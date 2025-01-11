@@ -107,7 +107,7 @@ export default function Projects() {
                 }}
               >
                 <Card
-                  className="group relative h-full cursor-pointer overflow-hidden bg-slate-50/40 transition-all duration-300 hover:-translate-y-1 hover:bg-gray-50 dark:bg-gray-950/40 dark:hover:bg-gray-950"
+                  className="group relative h-full cursor-pointer overflow-hidden bg-slate-50/40 transition-all duration-300 hover:-translate-y-1 hover:bg-gray-50 active:scale-[0.97] dark:bg-gray-950/40 dark:hover:bg-gray-950"
                   onClick={() => handleOpenProjectDetails(project.id)}
                 >
                   <CardContent className="flex h-full flex-col justify-between p-0">

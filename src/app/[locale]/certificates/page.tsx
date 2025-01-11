@@ -94,6 +94,7 @@ export default function Certificates() {
                   <div className="flex flex-wrap gap-2">
                     <Button
                       variant="outline"
+                      animatedSize="md"
                       className="w-full gap-2"
                       onClick={() => setSelectedCertificate(certificate)}
                     >

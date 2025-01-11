@@ -162,7 +162,7 @@ export default function Home() {
               .map((project) => (
                 <CarouselItem
                   key={project.id}
-                  className="group ml-0 basis-10/12 p-0 md:basis-2/3"
+                  className="group ml-0 basis-10/12 p-0 transition-all duration-300 active:scale-[0.97] md:basis-2/3"
                 >
                   <div
                     onClick={() => handleOpenProjectDetails(project.id)}

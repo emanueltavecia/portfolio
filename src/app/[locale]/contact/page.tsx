@@ -191,6 +191,7 @@ export default function Contact() {
           <Button
             type="submit"
             disabled={isSubmitting}
+            animatedSize="sm"
             className="w-full gap-2 ring-offset-2 ring-offset-slate-50 transition-all duration-200 focus-visible:ring-2 dark:ring-offset-black"
           >
             {isSubmitting ? <Loader2 className="animate-spin" /> : <Send />}
