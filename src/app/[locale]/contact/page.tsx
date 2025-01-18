@@ -98,15 +98,16 @@ export default function Contact() {
         <form
           noValidate
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-6"
+          className="space-y-3 md:space-y-6"
         >
-          <div className="flex flex-col gap-6 sm:flex-row sm:gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 md:gap-6">
             <div className="w-full space-y-2">
               <Label htmlFor="name" className="text-sm font-medium">
                 {t('nameLabel')}
               </Label>
               <Input
                 id="name"
+                placeholder={t('namePlaceholder')}
                 {...register('name')}
                 className={cn(
                   'ring-offset-1 ring-offset-slate-100 transition-shadow duration-200 focus-visible:ring-2 focus-visible:ring-gray-600 dark:ring-offset-gray-900 dark:focus-visible:ring-slate-400',
@@ -128,6 +129,7 @@ export default function Contact() {
               </Label>
               <Input
                 id="email"
+                placeholder={t('emailPlaceholder')}
                 type="email"
                 {...register('email')}
                 className={cn(
@@ -151,6 +153,7 @@ export default function Contact() {
             </Label>
             <Input
               id="subject"
+              placeholder={t('subjectPlaceholder')}
               {...register('subject')}
               className={cn(
                 'ring-offset-1 ring-offset-slate-100 transition-shadow duration-200 focus-visible:ring-2 focus-visible:ring-gray-600 dark:ring-offset-gray-900 dark:focus-visible:ring-slate-400',
@@ -172,6 +175,7 @@ export default function Contact() {
             </Label>
             <Textarea
               id="message"
+              placeholder={t('messagePlaceholder')}
               {...register('message')}
               rows={5}
               className={cn(

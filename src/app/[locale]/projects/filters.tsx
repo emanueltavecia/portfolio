@@ -37,13 +37,17 @@ export function Filters() {
       } else {
         newSearchParams.delete(name)
       }
-      router.push(`${pathname}?${newSearchParams.toString()}`)
+      router.replace(`${pathname}?${newSearchParams.toString()}`, {
+        scroll: false,
+      })
     },
     [pathname, router, searchParams],
   )
 
   const handleClearFilters = () => {
-    router.push(pathname)
+    router.replace(pathname, {
+      scroll: false,
+    })
   }
 
   return (

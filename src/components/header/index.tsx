@@ -21,7 +21,7 @@ export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-10 border-b border-blue-200/40 bg-slate-100/80 backdrop-blur-md dark:border-blue-950/30 dark:bg-gray-950/80">
+    <header className="fixed left-0 right-0 top-0 z-[70] border-b border-blue-200/40 bg-slate-100/80 backdrop-blur-md dark:border-blue-950/30 dark:bg-gray-950/80">
       <div className="mx-auto flex h-20 w-full max-w-screen-xl items-center justify-between gap-4 px-5">
         <Link
           href="/"

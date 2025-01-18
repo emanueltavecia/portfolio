@@ -109,12 +109,10 @@ export default function Certificates() {
         </div>
       </motion.main>
 
-      {selectedCertificate?.id && (
-        <CertificateDetailsDialog
-          selectedCertificate={selectedCertificate}
-          setSelectedCertificate={setSelectedCertificate}
-        />
-      )}
+      <CertificateDetailsDialog
+        selectedCertificate={selectedCertificate}
+        setSelectedCertificate={setSelectedCertificate}
+      />
     </>
   )
 }
