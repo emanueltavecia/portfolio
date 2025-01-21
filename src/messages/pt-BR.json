@@ -1,0 +1,124 @@
+{
+  "RootMetadata": {
+    "title": "Emanuel Tavecia | Portfólio",
+    "description": "Portfólio de Emanuel Tavecia, desenvolvedor Front-end com experiência em React, TypeScript e desenvolvimento Mobile com React Native."
+  },
+
+  "Header": {
+    "homeLink": "Home",
+    "experienceLink": "Experiência",
+    "projectsLink": "Projetos",
+    "educationLink": "Educação",
+    "certificatesLink": "Certificações",
+    "contactLink": "Contato",
+
+    "changeLanguage": "Trocar o idioma",
+
+    "changeTheme": "Trocar o tema",
+    "lightLabel": "Claro",
+    "darkLabel": "Escuro",
+    "systemLabel": "Sistema"
+  },
+
+  "Footer": {
+    "description": "Desenvolvedor Front-end e Mobile apaixonado por criar experiências modernas e acessíveis.",
+    "socialMediaTitle": "Redes sociais",
+    "copyright": "Todos os direitos reservados."
+  },
+
+  "Home": {
+    "title": "<span>Olá, sou o</span> <name>Emanuel Tavecia</name>",
+    "subtitle": "Desenvolvedor Front-end e Mobile",
+    "description": "Desenvolvedor front-end e mobile apaixonado por tecnologia. Tenho cerca de 1 ano e meio de experiência com desenvolvimento web e mobile com React e React Native, e estou sempre em busca de novos desafios e aprendizados.",
+    "softSkills": "Comunicação, Trabalho em equipe, Resolução de problemas, Adaptabilidade, Proatividade",
+    "imageAlt": "Foto de Emanuel Tavecia",
+    "featuredProjectsTitle": "Projetos em destaque",
+    "featuredProjectsSubtitle": "Deslize para ver alguns dos meus trabalhos recentes",
+    "featuredProjectsSeeAllButtonText": "ver todos",
+    "featuredProjectsImageAlt": "Capa do projeto {projectName}"
+  },
+
+  "Experience": {
+    "title": "Experiência Profissional",
+    "subtitle": "Conheça a minha jornada profissional",
+    "companyLogoAlt": "Logo da empresa {companyName}"
+  },
+
+  "Projects": {
+    "title": "Projetos",
+    "subtitle": "Conheça alguns dos projetos que desenvolvi",
+
+    "filtersTitle": "Filtros",
+    "clearFiltersButtonText": "Limpar filtros",
+    "selectTriggerDescriptionLastSeparator": " e ",
+
+    "projectImageAlt": "Capa do projeto {projectName}",
+    "isFeaturedDescription": "Destaque",
+    "seeDetails": "Ver detalhes",
+
+    "noProjectsFound": "Nenhum projeto encontrado"
+  },
+
+  "ProjectDetails": {
+    "isFeaturedDescription": "Destaque",
+    "typesTitle": "Tipos",
+    "technologiesTitle": "Tecnologias",
+    "viewCode": "Ver código",
+    "viewProjectOnline": "Ver projeto online",
+    "projectImageAlt": "Capa do projeto {projectName}",
+    "aboutProjectTitle": "Sobre o projeto",
+    "videoOverviewTitle": "Visão geral em vídeo",
+    "infoTitle": "Informações",
+    "sourceTitle": "Origem",
+    "visibilityTitle": "Visibilidade",
+    "complexityTitle": "Complexidade"
+  },
+
+  "Education": {
+    "title": "Educação",
+    "subtitle": "Minha jornada acadêmica e cursos realizados",
+    "institutionLogoAlt": "Logo da {institutionName}",
+    "course": "{type, select, Curso {{type} {name}} Evento {{type}: {name}} other {{type} em {name}}}",
+    "workload": "{hours} horas",
+    "viewCertificate": "Visualizar Certificado"
+  },
+
+  "Certificates": {
+    "title": "Certificados",
+    "subtitle": "Explore minha jornada acadêmica e profissional através dos meus certificados",
+    "course": "{type, select, Curso {{type} {name}} Evento {{type}: {name}} other {{type} em {name}}}",
+    "workload": "{hours} horas",
+    "viewDetails": "Ver detalhes"
+  },
+
+  "CertificateDetailsDialog": {
+    "title": "{type, select, Curso {{type} {name}} Evento {{type}: {name}} other {{type} em {name}}}",
+    "issueDate": "Emitido em: {date}",
+    "verificationCode": "Código de verificação",
+    "registrationNumber": "Número de registro",
+    "verifyCertificate": "Verificar Certificado"
+  },
+
+  "Contact": {
+    "title": "Contato",
+    "subtitle": "Entre em contato comigo para conversarmos sobre oportunidades e colaborações",
+    "nameLabel": "Nome",
+    "namePlaceholder": "Digite seu nome",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Digite seu email",
+    "subjectLabel": "Assunto",
+    "subjectPlaceholder": "Digite o assunto",
+    "messageLabel": "Mensagem",
+    "messagePlaceholder": "Digite sua mensagem",
+    "sendButtonText": "Enviar mensagem",
+    "sending": "Enviando...",
+    "nameRequiredValidationError": "O nome é obrigatório",
+    "emailRequiredValidationError": "O e-mail é obrigatório",
+    "emailInvalidValidationError": "Digite um e-mail válido",
+    "subjectRequiredValidationError": "O assunto é obrigatório",
+    "messageRequiredValidationError": "A mensagem é obrigatória",
+    "messageMinLengthValidationError": "A mensagem deve ter pelo menos 10 caracteres",
+    "successMessage": "<span>Obrigado pelo contato.</span><span>Responderei assim que possível.</span>",
+    "errorMessage": "<span>Ocorreu um erro ao enviar sua mensagem.</span><span>Por favor, tente novamente.</span>"
+  }
+}
