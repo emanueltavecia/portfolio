@@ -12,13 +12,14 @@ import { useLocale, useTranslations } from 'next-intl'
 
 import { ProjectDetailsModal } from '@/components/project-details/modal'
 import { Badge } from '@/components/ui/badge'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
+import { curriculum } from '@/data/curriculum'
 import { projects } from '@/data/projects'
 import { techStack } from '@/data/tech-stack'
 import { Link } from '@/i18n/routing'
@@ -100,10 +101,17 @@ export default function Home() {
           </Card>
 
           <div className="flex flex-wrap justify-center gap-4 md:justify-start">
-            <Button className="gap-2 hover:bg-blue-500">
+            <Link
+              href={curriculum[locale]}
+              className={cn(
+                buttonVariants(),
+                'gap-2 hover:bg-blue-500 hover:dark:bg-blue-600 hover:dark:text-slate-50',
+              )}
+              target="_blank"
+            >
               <Download className="size-4" />
               Download CV
-            </Button>
+            </Link>
           </div>
         </div>
 
