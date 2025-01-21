@@ -84,7 +84,7 @@ export default function Home() {
               <Badge
                 key={tech}
                 variant="secondary"
-                className="bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:hover:bg-blue-900/30"
+                className="bg-blue-100/80 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-900/30"
               >
                 {tech}
               </Badge>

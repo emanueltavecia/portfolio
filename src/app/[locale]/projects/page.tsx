@@ -136,7 +136,7 @@ export default function Projects() {
                           {project.isFeatured && (
                             <Badge
                               variant="secondary"
-                              className="border-blue-300/60 bg-blue-50 text-blue-700 dark:border-blue-300/40 dark:bg-blue-900/20 dark:text-blue-300"
+                              className="bg-blue-100/70 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
                             >
                               {t('isFeaturedDescription')}
                             </Badge>
@@ -148,7 +148,7 @@ export default function Projects() {
                             <Badge
                               key={type}
                               variant="secondary"
-                              className="border-slate-300/60 bg-gray-100 text-gray-700 dark:border-slate-700/80 dark:bg-gray-800 dark:text-gray-300"
+                              className="bg-gray-200/60 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
                             >
                               {type}
                             </Badge>
@@ -170,7 +170,7 @@ export default function Projects() {
                           <Badge
                             key={tech}
                             variant="outline"
-                            className="text-nowrap border-blue-200 font-medium text-blue-700 dark:border-blue-800/70 dark:text-blue-300"
+                            className="text-nowrap border-blue-200 font-medium text-blue-700 dark:border-blue-800/60 dark:text-blue-300"
                           >
                             {tech}
                           </Badge>

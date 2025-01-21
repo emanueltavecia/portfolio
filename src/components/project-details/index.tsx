@@ -141,7 +141,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
             {project.isFeatured && (
               <Badge
                 variant="secondary"
-                className="w-fit border-blue-300/60 bg-blue-50 text-blue-700 dark:border-blue-300/40 dark:bg-blue-900/20 dark:text-blue-300"
+                className="w-fit bg-blue-100/70 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
               >
                 {t('isFeaturedDescription')}
               </Badge>
@@ -160,7 +160,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
                 <Badge
                   key={type}
                   variant="secondary"
-                  className="gap-1.5 border-slate-300/60 bg-gray-100 text-gray-700 dark:border-slate-700/80 dark:bg-gray-800 dark:text-gray-300 [&_svg]:size-3.5"
+                  className="gap-1.5 bg-gray-200/60 text-gray-700 dark:bg-gray-800 dark:text-gray-300 [&_svg]:size-3.5"
                 >
                   {getTypeIcon(type)}
                   {type}
@@ -181,7 +181,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
                 <Badge
                   key={tech}
                   variant="outline"
-                  className="border-blue-200 font-medium text-blue-700 dark:border-blue-800/70 dark:text-blue-300"
+                  className="border-blue-200 font-medium text-blue-700 dark:border-blue-800/60 dark:text-blue-300"
                 >
                   {tech}
                 </Badge>
