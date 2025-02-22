@@ -773,7 +773,7 @@ export const projects: Record<Locales, Project[]> = {
           ],
         },
         {
-          title: featuresPtBrTitle,
+          title: featuresEnUsTitle,
           content: [
             {
               title: 'Home screen',
@@ -797,16 +797,12 @@ export const projects: Record<Locales, Project[]> = {
           ],
         },
         {
-          title: conceptsDevelopedPtBrTitle,
+          title: conceptsDevelopedEnUsTitle,
           content: [
-            'Integração com o back-end com o Orval',
+            'Back-end integration with Orval',
             {
               title: 'Next.js',
-              content: [
-                'Funcionalidades',
-                'Server components',
-                'Boas práticas',
-              ],
+              content: ['Features', 'Server components', 'Good practices'],
             },
           ],
         },
