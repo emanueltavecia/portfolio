@@ -19,7 +19,7 @@ export const projects: Record<Locales, Project[]> = {
   [Locales.PT_BR]: [
     {
       name: 'Sistema Ponto de Caixa',
-      id: 10,
+      id: 11,
       screenshot: project10Screenshot,
       type: [ProjectType.DESKTOP],
       source: ProjectSource.FREELANCE,
@@ -71,7 +71,7 @@ export const projects: Record<Locales, Project[]> = {
     {
       name: 'Nearby',
       repo_name: 'nearby-mobile',
-      id: 9,
+      id: 10,
       type: [ProjectType.MOBILE],
       source: ProjectSource.PERSONAL,
       visibility: ProjectVisibility.PUBLIC,
@@ -118,7 +118,7 @@ export const projects: Record<Locales, Project[]> = {
       name: 'plann.er',
       repo_name: 'planner-mobile',
       videoOverview: 'overview.mp4',
-      id: 8,
+      id: 9,
       type: [ProjectType.MOBILE],
       source: ProjectSource.PERSONAL,
       visibility: ProjectVisibility.PUBLIC,
@@ -163,6 +163,69 @@ export const projects: Record<Locales, Project[]> = {
             'Utilização do AsyncStorage para salvar informações localmente',
             'Utilização do NativeWind (TailwindCSS para React Native) para estilização',
             'Utilização da biblioteca react-native-calendars para o componente de calendário',
+          ],
+        },
+      ],
+    },
+    {
+      name: 'DevStage',
+      repo_name: 'devstage',
+      id: 8,
+      type: [ProjectType.FRONTEND],
+      source: ProjectSource.PERSONAL,
+      visibility: ProjectVisibility.PUBLIC,
+      complexity: ProjectComplexity.MEDIUM,
+      isFeatured: true,
+      description: [
+        'DevStage é um software de indicação web que pode ser usado durante eventos online.',
+      ],
+      techs: [Techs.REACT, Techs.TYPESCRIPT, Techs.NEXT_JS, Techs.TAILWIND_CSS],
+      listItems: [
+        {
+          title: 'Rodando o projeto',
+          content: [
+            'Siga as instruções disponível no Readme do repositório, clicando no botão "Ver código" no topo da página',
+          ],
+        },
+        {
+          title: featuresPtBrTitle,
+          content: [
+            {
+              title: 'Tela inicial',
+              content: [
+                'Exibição dos dados do evento',
+                'Formulário de inscrição no evento',
+              ],
+            },
+            {
+              title: 'Tela de inscrição confirmada',
+              content: [
+                'Exibição do link de indicação, com botão de copiar',
+                {
+                  title: 'Informações de indicação',
+                  content: [
+                    'Quantidade de acessos ao link de indicação',
+                    'Quantidade de inscrições confirmadas através do link de indicação',
+                    'Posição no ranking',
+                  ],
+                },
+                'Ranking de indicações com o top 3',
+              ],
+            },
+          ],
+        },
+        {
+          title: conceptsDevelopedPtBrTitle,
+          content: [
+            'Integração com o back-end com o Orval',
+            {
+              title: 'Next.js',
+              content: [
+                'Funcionalidades',
+                'Server components',
+                'Boas práticas',
+              ],
+            },
           ],
         },
       ],
@@ -539,7 +602,7 @@ export const projects: Record<Locales, Project[]> = {
   [Locales.EN_US]: [
     {
       name: 'Point of Sale System',
-      id: 10,
+      id: 11,
       screenshot: project10Screenshot,
       type: [ProjectType.DESKTOP],
       source: ProjectSource.FREELANCE,
@@ -591,7 +654,7 @@ export const projects: Record<Locales, Project[]> = {
     {
       name: 'Nearby',
       repo_name: 'nearby-mobile',
-      id: 9,
+      id: 10,
       type: [ProjectType.MOBILE],
       source: ProjectSource.PERSONAL,
       visibility: ProjectVisibility.PUBLIC,
@@ -638,7 +701,7 @@ export const projects: Record<Locales, Project[]> = {
       name: 'plann.er',
       repo_name: 'planner-mobile',
       videoOverview: 'overview.mp4',
-      id: 8,
+      id: 9,
       type: [ProjectType.MOBILE],
       source: ProjectSource.PERSONAL,
       visibility: ProjectVisibility.PUBLIC,
@@ -685,6 +748,62 @@ export const projects: Record<Locales, Project[]> = {
             'Using AsyncStorage to save information locally',
             'Using NativeWind (TailwindCSS for React Native) for styling',
             'Using react-native-calendars library for calendar component',
+          ],
+        },
+      ],
+    },
+    {
+      name: 'DevStage',
+      repo_name: 'devstage',
+      id: 8,
+      type: [ProjectType.FRONTEND],
+      source: ProjectSource.PERSONAL,
+      visibility: ProjectVisibility.PUBLIC,
+      complexity: ProjectComplexity.MEDIUM,
+      isFeatured: true,
+      description: [
+        'DevStage is an indication web software that can be used during online events.',
+      ],
+      techs: [Techs.REACT, Techs.TYPESCRIPT, Techs.NEXT_JS, Techs.TAILWIND_CSS],
+      listItems: [
+        {
+          title: 'Running the project',
+          content: [
+            `Follow the instructions available in the repository's Readme by clicking the "View code" button at the top of the page.`,
+          ],
+        },
+        {
+          title: featuresEnUsTitle,
+          content: [
+            {
+              title: 'Home screen',
+              content: ['Displaying event data', 'Event Registration Form'],
+            },
+            {
+              title: 'Confirmed registration screen',
+              content: [
+                'Referral link display, with copy button',
+                {
+                  title: 'Referral information',
+                  content: [
+                    'Number of hits on the referral link',
+                    'Number of registrations confirmed through the referral link',
+                    'Ranking position',
+                  ],
+                },
+                'Ranking of referral with the top 3',
+              ],
+            },
+          ],
+        },
+        {
+          title: conceptsDevelopedEnUsTitle,
+          content: [
+            'Back-end integration with Orval',
+            {
+              title: 'Next.js',
+              content: ['Features', 'Server components', 'Good practices'],
+            },
           ],
         },
       ],
