@@ -120,5 +120,11 @@
     "messageMinLengthValidationError": "Message must be at least 10 characters long",
     "successMessage": "<span>Thank you for reaching out.</span><span>I'll respond as soon as possible.</span>",
     "errorMessage": "<span>There was an error sending your message.</span><span>Please try again.</span>"
+  },
+
+  "CinekeepPrivacyPolicy": {
+    "title": "Privacy Policy - Cinekeep",
+    "subtitle": "Privacy policy for Cinekeep application",
+    "effectiveDateLabel": "Effective date:"
   }
 }

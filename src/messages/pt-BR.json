@@ -120,5 +120,11 @@
     "messageMinLengthValidationError": "A mensagem deve ter pelo menos 10 caracteres",
     "successMessage": "<span>Obrigado pelo contato.</span><span>Responderei assim que possível.</span>",
     "errorMessage": "<span>Ocorreu um erro ao enviar sua mensagem.</span><span>Por favor, tente novamente.</span>"
+  },
+
+  "CinekeepPrivacyPolicy": {
+    "title": "Política de Privacidade - Cinekeep",
+    "subtitle": "Política de privacidade do aplicativo Cinekeep",
+    "effectiveDateLabel": "Data de vigência:"
   }
 }
