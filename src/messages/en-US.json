@@ -29,7 +29,7 @@
   "Home": {
     "title": "<span>Hello, I'm</span> <name>Emanuel Tavecia</name>",
     "subtitle": "Front-end & Mobile Developer",
-    "description": "Front-end and Mobile developer passionate about technology. I have about 1 year and a half of experience with web and mobile development with React and React Native, and I am always looking for new challenges and learning.",
+    "description": "Front-end and Mobile developer passionate about technology. I have over 2 years of experience with web and mobile development with React and React Native, and I am always looking for new challenges and learning.",
     "softSkills": "Communication, Teamwork, Problem Solving, Adaptability, Proactivity",
     "imageAlt": "Photo of Emanuel Tavecia",
     "featuredProjectsTitle": "Featured projects",
@@ -41,7 +41,8 @@
   "Experience": {
     "title": "Professional Experience",
     "subtitle": "Discover my professional journey",
-    "companyLogoAlt": "{companyName} company logo"
+    "companyLogoAlt": "{companyName} company logo",
+    "careerProgression": "Career progression"
   },
 
   "Projects": {
