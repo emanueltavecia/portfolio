@@ -91,7 +91,7 @@ export const experiences: Record<Locales, Experience[]> = {
       ],
       timeline: [
         {
-          position: 'Front-end Junior',
+          position: 'Junior Front-end',
           startDate: 'Jun 2024',
           endDate: 'Nov 2025',
           description: [
@@ -100,7 +100,7 @@ export const experiences: Record<Locales, Experience[]> = {
           ],
         },
         {
-          position: 'Full-stack Mid-level',
+          position: 'Mid-level Full-stack',
           startDate: 'Dec 2025',
           endDate: 'Present',
           description: [
