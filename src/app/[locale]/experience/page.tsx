@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 
+import { CaretUpIcon } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
 import { MapPin, Calendar, Building2 } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
@@ -10,7 +11,6 @@ import { Card, CardContent } from '@/components/ui/card'
 import { experiences } from '@/data/experiences'
 import { Locales } from '@/locales'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
-import { CaretUpIcon } from '@phosphor-icons/react'
 
 export default function Experience() {
   const locale = useLocale() as Locales

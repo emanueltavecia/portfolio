@@ -1,7 +1,15 @@
+import { StaticImageData } from 'next/image'
+
 import controlleLogo from '@/app/assets/controlle-logo.svg'
 import elevcodeLogo from '@/app/assets/elevcode-logo.png'
 import { Locales } from '@/locales'
-import { StaticImageData } from 'next/image'
+
+interface Timeline {
+  position: string
+  startDate: string
+  endDate: string
+  description?: string[] | string
+}
 
 interface Experience {
   id: number
@@ -14,13 +22,6 @@ interface Experience {
   position: string
   description: string[] | string
   timeline?: Timeline[]
-}
-
-interface Timeline {
-  position: string
-  startDate: string
-  endDate: string
-  description?: string[] | string
 }
 
 export const experiences: Record<Locales, Experience[]> = {
