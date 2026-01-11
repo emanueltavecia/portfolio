@@ -41,7 +41,8 @@
   "Experience": {
     "title": "Professional Experience",
     "subtitle": "Discover my professional journey",
-    "companyLogoAlt": "{companyName} company logo"
+    "companyLogoAlt": "{companyName} company logo",
+    "careerProgression": "Career progression"
   },
 
   "Projects": {

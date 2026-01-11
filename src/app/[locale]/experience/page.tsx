@@ -10,6 +10,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { experiences } from '@/data/experiences'
 import { Locales } from '@/locales'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
+import { CaretUpIcon } from '@phosphor-icons/react'
 
 export default function Experience() {
   const locale = useLocale() as Locales
@@ -89,10 +90,62 @@ export default function Experience() {
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <p className="text-justify text-gray-700 dark:text-gray-300 md:text-lg">
-                    {experience.description}
-                  </p>
+                {experience.timeline && experience.timeline.length > 0 && (
+                  <div className="relative mt-2 border-l-2 border-blue-200 pl-4 dark:border-blue-800">
+                    <div className="absolute -left-[9px] -top-1.5 text-blue-200 dark:text-blue-800">
+                      <CaretUpIcon size={16} weight="bold" />
+                    </div>
+                    <h4 className="mb-3 text-sm font-semibold text-gray-700 dark:text-gray-300">
+                      {t('careerProgression')}
+                    </h4>
+                    <div className="flex flex-col gap-3">
+                      {[...experience.timeline].reverse().map((item, index) => (
+                        <div
+                          key={index}
+                          className="relative flex flex-col gap-1"
+                        >
+                          <div className="absolute -left-[22px] top-1.5 h-2.5 w-2.5 rounded-full bg-blue-500 dark:bg-blue-400" />
+                          <span className="font-medium text-gray-800 dark:text-gray-200">
+                            {item.position}
+                          </span>
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {item.startDate} - {item.endDate}
+                          </span>
+                          {item.description && (
+                            <div className="mt-1.5 space-y-1">
+                              {[
+                                ...(Array.isArray(item.description)
+                                  ? item.description
+                                  : [item.description]),
+                              ].map((description, i) => (
+                                <p
+                                  key={i}
+                                  className="text-justify text-gray-700 dark:text-gray-300"
+                                >
+                                  {description}
+                                </p>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="space-y-2">
+                  {[
+                    ...(Array.isArray(experience.description)
+                      ? experience.description
+                      : [experience.description]),
+                  ].map((description, i) => (
+                    <p
+                      key={i}
+                      className="text-justify text-gray-700 dark:text-gray-300 md:text-lg"
+                    >
+                      {description}
+                    </p>
+                  ))}
                 </div>
               </div>
             </CardContent>
