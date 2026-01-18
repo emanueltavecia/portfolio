@@ -18,6 +18,105 @@ const conceptsDevelopedEnUsTitle = 'Concepts developed'
 export const projects: Record<Locales, Project[]> = {
   [Locales.PT_BR]: [
     {
+      name: 'Let me ask',
+      id: 12,
+      repo_name: {
+        frontend: 'letmeask-ai-web',
+        backend: 'letmeask-ai-server',
+      },
+      deploy: 'https://letmeask-ai-web.vercel.app/',
+      type: [ProjectType.BACKEND, ProjectType.FRONTEND],
+      source: ProjectSource.PERSONAL,
+      visibility: ProjectVisibility.PUBLIC,
+      complexity: ProjectComplexity.HIGH,
+      isFeatured: true,
+      description: [
+        'Plataforma de perguntas e respostas em tempo real potencializada por IA, que permite criar salas de discussão onde áudios são transcritos e utilizados como contexto para respostas automáticas e precisas via Google Gemini.',
+        'O backend implementa busca semântica vetorial com PostgreSQL e embeddings, garantindo respostas contextualmente relevantes baseadas no conteúdo transcrito.',
+      ],
+      techs: [
+        Techs.TYPESCRIPT,
+        Techs.NODEJS,
+        Techs.FASTIFY,
+        Techs.POSTGRESQL,
+        Techs.DOCKER,
+        Techs.DRIZZLE_ORM,
+        Techs.ZOD,
+        Techs.GOOGLE_GEMINI,
+        Techs.VITE,
+        Techs.TAILWIND_CSS,
+        Techs.REACT,
+      ],
+      listItems: [
+        {
+          title: featuresPtBrTitle,
+          content: [
+            'Upload e transcrição automática de áudio com Google Gemini 2.5 Flash',
+            'Busca semântica com embeddings e PostgreSQL pgvector para contexto preciso',
+            'Geração de respostas por IA baseadas em similaridade de conteúdo',
+            'Criação e gerenciamento de salas de perguntas',
+            'Interface responsiva para gravação e envio de áudio',
+            'Validação robusta de dados com Zod em todas as rotas',
+          ],
+        },
+        {
+          title: 'Arquitetura Backend',
+          content: [
+            {
+              title: 'API RESTful',
+              content: [
+                'Framework Fastify com type-safety completo via fastify-type-provider-zod',
+                'Validação rigorosa de payloads com Zod',
+                'Suporte a multipart/form-data para upload de áudio',
+                'Rotas tipadas end-to-end',
+              ],
+            },
+            {
+              title: 'Banco de Dados',
+              content: [
+                'PostgreSQL 17 com extensão pgvector para armazenamento vetorial',
+                'Drizzle ORM para migrations e queries type-safe',
+                'Schema relacional com relacionamentos entre rooms, questions e audio_chunks',
+                'Suporte nativo a operações de similaridade de vetores (<=> operator)',
+              ],
+            },
+            {
+              title: 'Inteligência Artificial',
+              content: [
+                'Transcrição de áudio via Google Gemini 2.5 Flash',
+                'Geração de embeddings com modelo text-embedding-004',
+                'RAG (Retrieval-Augmented Generation) para respostas contextuais',
+                'Busca por similaridade semântica com threshold de 0.7',
+                'Seleção dos 3 chunks mais relevantes para contexto da resposta',
+              ],
+            },
+            {
+              title: 'Infraestrutura',
+              content: [
+                'Docker Compose para ambiente de desenvolvimento isolado',
+                'Migrations versionadas com Drizzle Kit',
+                'Sistema de seed para dados de teste',
+                'Scripts de build com correção automática de imports',
+              ],
+            },
+          ],
+        },
+        {
+          title: conceptsDevelopedPtBrTitle,
+          content: [
+            'Implementação de sistema RAG com busca vetorial',
+            'Integração com Google Generative AI para processamento multimodal',
+            'Modelagem de dados para aplicações com IA generativa',
+            'Vector similarity search com operador de distância cosseno',
+            'Type-safety completo do banco de dados até a API',
+            'Arquitetura de microserviços com separação frontend/backend',
+            'Pipeline de processamento: áudio → transcrição → embeddings → busca → geração',
+            'Containerização de ambiente PostgreSQL com extensões customizadas',
+          ],
+        },
+      ],
+    },
+    {
       name: 'Sistema Ponto de Caixa',
       id: 11,
       screenshot: project10Screenshot,
@@ -600,6 +699,105 @@ export const projects: Record<Locales, Project[]> = {
   ],
 
   [Locales.EN_US]: [
+    {
+      name: 'Let me ask',
+      id: 12,
+      repo_name: {
+        frontend: 'letmeask-ai-web',
+        backend: 'letmeask-ai-server',
+      },
+      deploy: 'https://letmeask-ai-web.vercel.app/',
+      type: [ProjectType.BACKEND, ProjectType.FRONTEND],
+      source: ProjectSource.PERSONAL,
+      visibility: ProjectVisibility.PUBLIC,
+      complexity: ProjectComplexity.HIGH,
+      isFeatured: true,
+      description: [
+        'Real-time Q&A platform powered by AI that allows you to create discussion rooms where audio is transcribed and used as context for accurate automatic responses via Google Gemini.',
+        'The backend implements vector semantic search with PostgreSQL and embeddings, ensuring contextually relevant responses based on transcribed content.',
+      ],
+      techs: [
+        Techs.TYPESCRIPT,
+        Techs.NODEJS,
+        Techs.FASTIFY,
+        Techs.POSTGRESQL,
+        Techs.DOCKER,
+        Techs.DRIZZLE_ORM,
+        Techs.ZOD,
+        Techs.GOOGLE_GEMINI,
+        Techs.VITE,
+        Techs.TAILWIND_CSS,
+        Techs.REACT,
+      ],
+      listItems: [
+        {
+          title: featuresEnUsTitle,
+          content: [
+            'Automatic audio upload and transcription with Google Gemini 2.5 Flash',
+            'Semantic search with embeddings and PostgreSQL pgvector for precise context',
+            'AI-generated responses based on content similarity',
+            'Creation and management of question rooms',
+            'Responsive interface for recording and sending audio',
+            'Robust data validation with Zod on all routes',
+          ],
+        },
+        {
+          title: 'Backend Architecture',
+          content: [
+            {
+              title: 'RESTful API',
+              content: [
+                'Fastify framework with complete type-safety via fastify-type-provider-zod',
+                'Strict payload validation with Zod',
+                'Support for multipart/form-data for audio upload',
+                'End-to-end typed routes',
+              ],
+            },
+            {
+              title: 'Database',
+              content: [
+                'PostgreSQL 17 with pgvector extension for vector storage',
+                'Drizzle ORM for type-safe migrations and queries',
+                'Relational schema with relationships between rooms, questions, and audio_chunks',
+                'Native support for vector similarity operations (<=> operator)',
+              ],
+            },
+            {
+              title: 'Artificial Intelligence',
+              content: [
+                'Audio transcription via Google Gemini 2.5 Flash',
+                'Embedding generation with text-embedding-004 model',
+                'RAG (Retrieval-Augmented Generation) for contextual responses',
+                'Semantic similarity search with 0.7 threshold',
+                'Selection of the 3 most relevant chunks for response context',
+              ],
+            },
+            {
+              title: 'Infrastructure',
+              content: [
+                'Docker Compose for isolated development environment',
+                'Versioned migrations with Drizzle Kit',
+                'Seed system for test data',
+                'Build scripts with automatic import correction',
+              ],
+            },
+          ],
+        },
+        {
+          title: conceptsDevelopedEnUsTitle,
+          content: [
+            'Implementation of RAG system with vector search',
+            'Integration with Google Generative AI for multimodal processing',
+            'Data modeling for generative AI applications',
+            'Vector similarity search with cosine distance operator',
+            'Complete type-safety from database to API',
+            'Microservices architecture with frontend/backend separation',
+            'Processing pipeline: audio → transcription → embeddings → search → generation',
+            'Containerization of PostgreSQL environment with custom extensions',
+          ],
+        },
+      ],
+    },
     {
       name: 'Point of Sale System',
       id: 11,

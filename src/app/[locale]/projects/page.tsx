@@ -20,6 +20,7 @@ import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 import { EmptyState } from './empty-state'
 import { Filters } from './filters'
 import { FilterState } from './types'
+import { getRepoName } from '@/utils/get-repo-name'
 
 export default function Projects() {
   useScrollToTopOnPageLoad()
@@ -115,7 +116,7 @@ export default function Projects() {
                       <Image
                         src={
                           project.screenshot ||
-                          `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
+                          `https://github.com/emanueltavecia/${getRepoName(project.repo_name)}/blob/main/.github/screenshot.png?raw=true`
                         }
                         alt={t('projectImageAlt', {
                           projectName: project.name,

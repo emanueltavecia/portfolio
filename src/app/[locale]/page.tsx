@@ -26,6 +26,7 @@ import { Link } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
 import { Locales } from '@/locales'
 import { useRouter, usePathname } from '@/navigation'
+import { getRepoName } from '@/utils/get-repo-name'
 
 export default function Home() {
   const locale = useLocale() as Locales
@@ -178,7 +179,10 @@ export default function Home() {
                   >
                     <Image
                       className="w-full"
-                      src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`}
+                      src={
+                        project.screenshot ||
+                        `https://github.com/emanueltavecia/${getRepoName(project.repo_name)}/blob/main/.github/screenshot.png?raw=true`
+                      }
                       alt={t('featuredProjectsImageAlt', {
                         projectName: project.name,
                       })}

@@ -44,6 +44,7 @@ import {
   ProjectType,
 } from '../../app/[locale]/projects/types'
 import { DialogTitle } from '../ui/dialog'
+import { getRepoName } from '@/utils/get-repo-name'
 
 export function Details({ id, isModal }: ProjectDetailsProps) {
   const router = useRouter()
@@ -191,18 +192,36 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
         </div>
 
         <div className="flex flex-wrap gap-x-4 gap-y-2">
-          {project.repo_name && (
-            <Button className="gap-2" asChild>
-              <a
-                href={`https://github.com/emanueltavecia/${project.repo_name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="size-4" />
-                {t('viewCode')}
-              </a>
-            </Button>
-          )}
+          {project.repo_name &&
+            typeof project.repo_name !== 'string' &&
+            project.repo_name.backend && (
+              <Button className="gap-2" asChild>
+                <a
+                  href={`https://github.com/emanueltavecia/${getRepoName(project.repo_name.backend)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="size-4" />
+                  {t('accessBackendRepository')}
+                </a>
+              </Button>
+            )}
+          {project.repo_name &&
+            (typeof project.repo_name === 'string' ||
+              project.repo_name.frontend) && (
+              <Button className="gap-2" asChild>
+                <a
+                  href={`https://github.com/emanueltavecia/${getRepoName(project.repo_name)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="size-4" />
+                  {typeof project.repo_name === 'string'
+                    ? t('accessRepository')
+                    : t('accessFrontendRepository')}
+                </a>
+              </Button>
+            )}
 
           {project.deploy && (
             <Button className="gap-2" asChild>
@@ -224,7 +243,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
             <Image
               src={
                 project.screenshot ||
-                `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
+                `https://github.com/emanueltavecia/${getRepoName(project.repo_name)}/blob/main/.github/screenshot.png?raw=true`
               }
               alt={t('projectImageAlt', {
                 projectName: project.name,
@@ -272,7 +291,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
                   <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
                     <video controls className="h-full w-full">
                       <source
-                        src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/${project.videoOverview}?raw=true`}
+                        src={`https://github.com/emanueltavecia/${getRepoName(project.repo_name)}/blob/main/.github/${project.videoOverview}?raw=true`}
                         type="video/mp4"
                       ></source>
                     </video>
