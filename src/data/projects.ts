@@ -576,7 +576,7 @@ export const projects: Record<Locales, Project[]> = {
       source: ProjectSource.UNIVERSITY,
       visibility: ProjectVisibility.PUBLIC,
       complexity: ProjectComplexity.MEDIUM,
-      isFeatured: true,
+      isFeatured: false,
       description: [
         'uFitt é uma aplicação web para calcular o Gasto Energético Basal com base nos conceitos de expressões algébricas.',
         'Este é um projeto universitário desenvolvido para a disciplina de Fundamentos Matemáticos do curso de Ciência da Computação.',
@@ -1488,7 +1488,7 @@ export const projects: Record<Locales, Project[]> = {
       source: ProjectSource.UNIVERSITY,
       visibility: ProjectVisibility.PUBLIC,
       complexity: ProjectComplexity.MEDIUM,
-      isFeatured: true,
+      isFeatured: false,
       description: [
         'uFitt is a web application to calculate Basal Energy Expenditure based on the concepts of algebraic expressions.',
         'This is a university project developed for the Mathematical Foundations discipline of the Computer Science course.',
