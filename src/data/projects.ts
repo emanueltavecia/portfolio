@@ -32,7 +32,7 @@ export const projects: Record<Locales, Project[]> = {
       isFeatured: true,
       description: [
         'Plataforma completa de Central de Compras desenvolvida como MVP para o projeto interdisciplinar da 4ª fase do curso de Ciência da Computação na UNESC.',
-        'Sistema full-stack que permite gerenciar organizações (lojas e fornecedores), usuários, produtos, campanhas promocionais, pedidos, cashback e condições comerciais, com três níveis de permissão: Administrador, Loja e Fornecedor.',
+        'Sistema full stack que permite gerenciar organizações (lojas e fornecedores), usuários, produtos, campanhas promocionais, pedidos, cashback e condições comerciais, com três níveis de permissão: Administrador, Loja e Fornecedor.',
       ],
       techs: [
         Techs.TYPESCRIPT,
@@ -241,7 +241,7 @@ export const projects: Record<Locales, Project[]> = {
             'Dependency Injection com decorators',
             'Middleware Pattern para autenticação e validação',
             'Containerização de aplicações com Docker',
-            'Deploy de aplicações full-stack na Vercel',
+            'Deploy de aplicações full stack na Vercel',
             'Documentação de API com Swagger/OpenAPI',
             'Type-safety completo do banco de dados até a UI',
             'Gerenciamento de permissões e autorização',
@@ -364,7 +364,7 @@ export const projects: Record<Locales, Project[]> = {
       complexity: ProjectComplexity.HIGH,
       isFeatured: false,
       description: [
-        'Sistema full-stack de gerenciamento de eventos para desktop com registro de produtos, impressão de tickets, calculadora de caixa e relatório final de vendas. Minha responsabilidade nesse projeto freelancer foi o front-end.',
+        'Sistema full stack de gerenciamento de eventos para desktop com registro de produtos, impressão de tickets, calculadora de caixa e relatório final de vendas. Minha responsabilidade nesse projeto freelancer foi o front-end.',
       ],
       techs: [
         Techs.ELECTRON,
@@ -952,7 +952,7 @@ export const projects: Record<Locales, Project[]> = {
       isFeatured: true,
       description: [
         'Complete Purchasing Center platform developed as an MVP for the interdisciplinary project of the 4th phase of the Computer Science course at UNESC.',
-        'Full-stack system that allows managing organizations (stores and suppliers), users, products, promotional campaigns, orders, cashback and commercial conditions, with three permission levels: Administrator, Store and Supplier.',
+        'Full stack system that allows managing organizations (stores and suppliers), users, products, promotional campaigns, orders, cashback and commercial conditions, with three permission levels: Administrator, Store and Supplier.',
       ],
       techs: [
         Techs.TYPESCRIPT,
@@ -1158,7 +1158,7 @@ export const projects: Record<Locales, Project[]> = {
             'Dependency Injection with decorators',
             'Middleware Pattern for authentication and validation',
             'Application containerization with Docker',
-            'Full-stack application deployment on Vercel',
+            'Full stack application deployment on Vercel',
             'API documentation with Swagger/OpenAPI',
             'Complete type-safety from database to UI',
             'Permission and authorization management',
@@ -1281,7 +1281,7 @@ export const projects: Record<Locales, Project[]> = {
       complexity: ProjectComplexity.HIGH,
       isFeatured: false,
       description: [
-        'Full-stack desktop event management system with product registration, ticket printing, cash calculator and final sales report. My responsibility in this freelance project was the front-end.',
+        'Full stack desktop event management system with product registration, ticket printing, cash calculator and final sales report. My responsibility in this freelance project was the front-end.',
       ],
       techs: [
         Techs.ELECTRON,

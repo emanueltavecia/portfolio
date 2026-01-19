@@ -34,7 +34,7 @@ export const experiences: Record<Locales, Experience[]> = {
       location: 'Remoto',
       startDate: 'Jun 2024',
       endDate: 'Atual',
-      position: 'Desenvolvedor Full-stack',
+      position: 'Desenvolvedor Full Stack',
       description: [
         'A Controlle é uma plataforma web completa voltada para a gestão financeira de pequenas e médias empresas. O sistema é projetado para simplificar o controle financeiro, oferecendo recursos como relatórios detalhados, integração bancária, emissão de notas fiscais e diversas automatizações que otimizam a rotina financeira das empresas.',
         'Ao longo da minha trajetória na empresa, transitei por diferentes áreas do desenvolvimento, atuando em front-end, mobile e back-end. Essa experiência multidisciplinar me proporcionou uma visão abrangente do produto e da arquitetura da plataforma.',
@@ -51,11 +51,11 @@ export const experiences: Record<Locales, Experience[]> = {
           ],
         },
         {
-          position: 'Full-stack Pleno',
+          position: 'Full Stack Pleno',
           startDate: 'Dez 2025',
           endDate: 'Atual',
           description: [
-            'Atuo como desenvolvedor full-stack pleno com ênfase em back-end, sendo responsável pelo desenvolvimento e manutenção de microsserviços críticos da plataforma. Minhas atividades incluem a criação de novas funcionalidades, otimização de processos existentes e correção de bugs.',
+            'Atuo como desenvolvedor full stack pleno com ênfase em back-end, sendo responsável pelo desenvolvimento e manutenção de microsserviços críticos da plataforma. Minhas atividades incluem a criação de novas funcionalidades, otimização de processos existentes e correção de bugs.',
             'Trabalho diariamente com tecnologias como Node.js, NestJS, TypeScript, Express e PostgreSQL, aplicando boas práticas de desenvolvimento como Clean Code e padrões de arquitetura de microsserviços.',
           ],
         },
@@ -84,7 +84,7 @@ export const experiences: Record<Locales, Experience[]> = {
       location: 'Remote',
       startDate: 'Jun 2024',
       endDate: 'Present',
-      position: 'Full-stack Developer',
+      position: 'Full Stack Developer',
       description: [
         'Controlle is a comprehensive web platform designed for the financial management of small and medium-sized businesses. The system is built to simplify financial control, offering features such as detailed reports, bank integration, invoice issuance, and various automations that optimize the financial routines of companies.',
         'Throughout my journey at the company, I have transitioned through different areas of development, working in front-end, mobile, and back-end. This multidisciplinary experience has provided me with a comprehensive understanding of the product and the platform architecture.',
@@ -101,11 +101,11 @@ export const experiences: Record<Locales, Experience[]> = {
           ],
         },
         {
-          position: 'Mid-level Full-stack',
+          position: 'Mid-level Full Stack',
           startDate: 'Dec 2025',
           endDate: 'Present',
           description: [
-            'I work as a mid-level full-stack developer with emphasis on back-end, being responsible for the development and maintenance of critical platform microservices. My activities include creating new features, optimizing existing processes, and fixing bugs.',
+            'I work as a mid-level full stack developer with emphasis on back-end, being responsible for the development and maintenance of critical platform microservices. My activities include creating new features, optimizing existing processes, and fixing bugs.',
             'I work daily with technologies such as Node.js, NestJS, TypeScript, Express, and PostgreSQL, applying development best practices such as Clean Code and microservices architecture patterns.',
           ],
         },

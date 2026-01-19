@@ -1,7 +1,7 @@
 {
   "RootMetadata": {
     "title": "Emanuel Tavecia | Portfólio",
-    "description": "Portfólio de Emanuel Tavecia, desenvolvedor Front-end com experiência em React, TypeScript e desenvolvimento Mobile com React Native."
+    "description": "Portfólio de Emanuel Tavecia, desenvolvedor Full Stack com experiência em React, TypeScript, Node.js e desenvolvimento Mobile com React Native."
   },
 
   "Header": {
@@ -21,15 +21,15 @@
   },
 
   "Footer": {
-    "description": "Desenvolvedor Front-end e Mobile apaixonado por criar experiências modernas e acessíveis.",
+    "description": "Desenvolvedor Full Stack apaixonado por criar experiências modernas e acessíveis.",
     "socialMediaTitle": "Redes sociais",
     "copyright": "Todos os direitos reservados."
   },
 
   "Home": {
     "title": "<span>Olá, sou o</span> <name>Emanuel Tavecia</name>",
-    "subtitle": "Desenvolvedor Front-end e Mobile",
-    "description": "Desenvolvedor front-end e mobile apaixonado por tecnologia. Tenho mais de 2 anos de experiência com desenvolvimento web e mobile com React e React Native, e estou sempre em busca de novos desafios e aprendizados.",
+    "subtitle": "Desenvolvedor Full Stack",
+    "description": "Desenvolvedor full stack apaixonado por tecnologia. Tenho mais de 2 anos de experiência com desenvolvimento web e mobile, trabalhando com React, React Native e Node.js, e estou sempre em busca de novos desafios e aprendizados.",
     "softSkills": "Comunicação, Trabalho em equipe, Resolução de problemas, Adaptabilidade, Proatividade",
     "imageAlt": "Foto de Emanuel Tavecia",
     "featuredProjectsTitle": "Projetos em destaque",
