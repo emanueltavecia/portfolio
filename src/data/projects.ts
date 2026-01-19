@@ -18,6 +18,343 @@ const conceptsDevelopedEnUsTitle = 'Concepts developed'
 export const projects: Record<Locales, Project[]> = {
   [Locales.PT_BR]: [
     {
+      name: 'Central de Compras',
+      id: 13,
+      repo_name: {
+        frontend: 'central-de-compras-frontend',
+        backend: 'central-de-compras-backend',
+      },
+      deploy: 'https://central-de-compras-frontend.vercel.app/',
+      type: [ProjectType.BACKEND, ProjectType.FRONTEND],
+      source: ProjectSource.UNIVERSITY,
+      visibility: ProjectVisibility.PUBLIC,
+      complexity: ProjectComplexity.HIGH,
+      isFeatured: true,
+      description: [
+        'Plataforma completa de Central de Compras desenvolvida como MVP para o projeto interdisciplinar da 4ª fase do curso de Ciência da Computação na UNESC.',
+        'Sistema full stack que permite gerenciar organizações (lojas e fornecedores), usuários, produtos, campanhas promocionais, pedidos, cashback e condições comerciais, com três níveis de permissão: Administrador, Loja e Fornecedor.',
+      ],
+      techs: [
+        Techs.TYPESCRIPT,
+        Techs.NEXT_JS,
+        Techs.REACT,
+        Techs.TAILWIND_CSS,
+        Techs.NODEJS,
+        Techs.EXPRESS,
+        Techs.POSTGRESQL,
+        Techs.DOCKER,
+        Techs.ZOD,
+      ],
+      listItems: [
+        {
+          title: featuresPtBrTitle,
+          content: [
+            {
+              title: 'Dashboard',
+              content: ['Visão geral com estatísticas'],
+            },
+            {
+              title: 'Gerenciamento de Organizações',
+              content: [
+                'Cadastro e gestão de lojas',
+                'Cadastro e gestão de fornecedores',
+                'Gerenciamento de endereços',
+                'Gerenciamento de contatos',
+              ],
+            },
+            {
+              title: 'Catálogo de Produtos',
+              content: [
+                'CRUD completo de produtos',
+                'Organização por categorias',
+                'Filtros e busca avançada',
+              ],
+            },
+            {
+              title: 'Sistema de Pedidos',
+              content: [
+                'Criação e rastreamento de pedidos',
+                'Gerenciamento de cotações',
+                'Aprovação de pedidos',
+                'Histórico de pedidos',
+              ],
+            },
+            {
+              title: 'Campanhas Promocionais',
+              content: [
+                'Criação e gestão de campanhas',
+                'Definição de períodos de vigência',
+                'Associação de produtos às campanhas',
+              ],
+            },
+            {
+              title: 'Programa de Cashback',
+              content: [
+                'Sistema de carteira de cashback',
+                'Rastreamento de transações',
+                'Gerenciamento de saldo',
+              ],
+            },
+            {
+              title: 'Condições Comerciais',
+              content: [
+                'Configuração de condições de pagamento',
+                'Gerenciamento de condições por estado do fornecedor',
+                'Definição de prazos e formas de pagamento',
+              ],
+            },
+            {
+              title: 'Gestão de Usuários',
+              content: [
+                'Sistema de autenticação com JWT',
+                'Três níveis de permissão (Admin, Loja, Fornecedor)',
+                'Gerenciamento de perfil',
+                'Upload de foto de perfil',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Arquitetura Backend',
+          content: [
+            {
+              title: 'API RESTful',
+              content: [
+                'Framework Express 5 com TypeScript',
+                'Documentação completa com Swagger',
+                'Validação de dados com class-validator e class-transformer',
+                'Decorators com routing-controllers',
+                'Rotas tipadas e organizadas por módulos',
+              ],
+            },
+            {
+              title: 'Banco de Dados',
+              content: [
+                'PostgreSQL 16 para persistência',
+                'Schema completo com relacionamentos complexos',
+                'Containerização com Docker Compose',
+              ],
+            },
+            {
+              title: 'Segurança',
+              content: [
+                'Autenticação JWT com tokens seguros',
+                'Hash de senhas com bcryptjs',
+                'Helmet para proteção HTTP',
+                'CORS configurado',
+                'Validação rigorosa de entrada',
+                'Queries parametrizadas contra SQL Injection',
+              ],
+            },
+            {
+              title: 'Upload de Arquivos',
+              content: [
+                'Sistema de upload com Multer',
+                'Armazenamento de imagens de perfil',
+                'Otimização de arquivos',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Arquitetura Frontend',
+          content: [
+            {
+              title: 'Next.js 16 App Router',
+              content: [
+                'Roteamento moderno com App Router',
+                'Server e Client Components',
+                'Rotas protegidas e públicas',
+                'Middleware para autenticação',
+              ],
+            },
+            {
+              title: 'Interface e Componentes',
+              content: [
+                'Biblioteca Mantine v8 para UI',
+                'Tailwind CSS v4 para estilização',
+                'Componentes reutilizáveis',
+                'Design responsivo',
+                'Ícones Tabler Icons e Lucide React',
+              ],
+            },
+            {
+              title: 'Gerenciamento de Estado e Formulários',
+              content: [
+                'React Hook Form para formulários complexos',
+                'Validação com Zod',
+                'Axios para requisições HTTP',
+                'Day.js para manipulação de datas',
+              ],
+            },
+            {
+              title: 'Sistema de Paleta de Cores',
+              content: [
+                'Variáveis CSS customizadas',
+                'Cores semânticas (primary, secondary, success, warning, error)',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Permissões e Funcionalidades por Tipo de Usuário',
+          content: [
+            {
+              title: 'Administrador',
+              content: [
+                {
+                  title: 'Gerenciamento de organizações (lojas e fornecedores)',
+                  content: [
+                    'Gerenciamento de contatos',
+                    'Gerenciamento de endereços',
+                  ],
+                },
+                'Gerenciamento de usuários',
+              ],
+            },
+            {
+              title: 'Loja',
+              content: [
+                'Visualização de fornecedores',
+                'Criação de pedidos',
+                'Visualização dos próprios pedidos',
+                'Acesso ao programa de cashback',
+              ],
+            },
+            {
+              title: 'Fornecedor',
+              content: [
+                'Gerenciamento de produtos',
+                'Visualização e gestão de pedidos recebidos',
+                'Gerenciamento de campanhas promocionais',
+                'Configuração de condições comerciais',
+                'Configuração de condições por estado',
+              ],
+            },
+          ],
+        },
+        {
+          title: conceptsDevelopedPtBrTitle,
+          content: [
+            'Arquitetura em camadas (Controllers → Services → Repositories → Database)',
+            'Padrões Repository e DTO',
+            'Dependency Injection com decorators',
+            'Middleware Pattern para autenticação e validação',
+            'Containerização de aplicações com Docker',
+            'Deploy de aplicações full stack na Vercel',
+            'Documentação de API com Swagger/OpenAPI',
+            'Type-safety completo do banco de dados até a UI',
+            'Gerenciamento de permissões e autorização',
+            'Sistema de upload e armazenamento de arquivos',
+            'Validação de dados em múltiplas camadas',
+            'Separação clara entre frontend e backend',
+            'Utilização de variáveis de ambiente',
+            'Práticas de segurança web (JWT, hash, proteção HTTP)',
+            'Desenvolvimento colaborativo em equipe',
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Let me ask',
+      id: 12,
+      repo_name: {
+        frontend: 'letmeask-ai-web',
+        backend: 'letmeask-ai-server',
+      },
+      deploy: 'https://letmeask-ai-web.vercel.app/',
+      type: [ProjectType.BACKEND, ProjectType.FRONTEND],
+      source: ProjectSource.PERSONAL,
+      visibility: ProjectVisibility.PUBLIC,
+      complexity: ProjectComplexity.HIGH,
+      isFeatured: true,
+      description: [
+        'Plataforma de perguntas e respostas em tempo real potencializada por IA, que permite criar salas de discussão onde áudios são transcritos e utilizados como contexto para respostas automáticas e precisas via Google Gemini.',
+        'O backend implementa busca semântica vetorial com PostgreSQL e embeddings, garantindo respostas contextualmente relevantes baseadas no conteúdo transcrito.',
+      ],
+      techs: [
+        Techs.TYPESCRIPT,
+        Techs.NODEJS,
+        Techs.FASTIFY,
+        Techs.POSTGRESQL,
+        Techs.DOCKER,
+        Techs.DRIZZLE_ORM,
+        Techs.ZOD,
+        Techs.GOOGLE_GEMINI,
+        Techs.VITE,
+        Techs.TAILWIND_CSS,
+        Techs.REACT,
+      ],
+      listItems: [
+        {
+          title: featuresPtBrTitle,
+          content: [
+            'Upload e transcrição automática de áudio com Google Gemini 2.5 Flash',
+            'Busca semântica com embeddings e PostgreSQL pgvector para contexto preciso',
+            'Geração de respostas por IA baseadas em similaridade de conteúdo',
+            'Criação e gerenciamento de salas de perguntas',
+            'Interface responsiva para gravação e envio de áudio',
+            'Validação robusta de dados com Zod em todas as rotas',
+          ],
+        },
+        {
+          title: 'Arquitetura Backend',
+          content: [
+            {
+              title: 'API RESTful',
+              content: [
+                'Framework Fastify com type-safety completo via fastify-type-provider-zod',
+                'Validação rigorosa de payloads com Zod',
+                'Suporte a multipart/form-data para upload de áudio',
+                'Rotas tipadas end-to-end',
+              ],
+            },
+            {
+              title: 'Banco de Dados',
+              content: [
+                'PostgreSQL 17 com extensão pgvector para armazenamento vetorial',
+                'Drizzle ORM para migrations e queries type-safe',
+                'Schema relacional com relacionamentos entre rooms, questions e audio_chunks',
+                'Suporte nativo a operações de similaridade de vetores (<=> operator)',
+              ],
+            },
+            {
+              title: 'Inteligência Artificial',
+              content: [
+                'Transcrição de áudio via Google Gemini 2.5 Flash',
+                'Geração de embeddings com modelo text-embedding-004',
+                'RAG (Retrieval-Augmented Generation) para respostas contextuais',
+                'Busca por similaridade semântica com threshold de 0.7',
+                'Seleção dos 3 chunks mais relevantes para contexto da resposta',
+              ],
+            },
+            {
+              title: 'Infraestrutura',
+              content: [
+                'Docker Compose para ambiente de desenvolvimento isolado',
+                'Migrations versionadas com Drizzle Kit',
+                'Sistema de seed para dados de teste',
+                'Scripts de build com correção automática de imports',
+              ],
+            },
+          ],
+        },
+        {
+          title: conceptsDevelopedPtBrTitle,
+          content: [
+            'Implementação de sistema RAG com busca vetorial',
+            'Integração com Google Generative AI para processamento multimodal',
+            'Modelagem de dados para aplicações com IA generativa',
+            'Vector similarity search com operador de distância cosseno',
+            'Type-safety completo do banco de dados até a API',
+            'Arquitetura de microserviços com separação frontend/backend',
+            'Pipeline de processamento: áudio → transcrição → embeddings → busca → geração',
+            'Containerização de ambiente PostgreSQL com extensões customizadas',
+          ],
+        },
+      ],
+    },
+    {
       name: 'Sistema Ponto de Caixa',
       id: 11,
       screenshot: project10Screenshot,
@@ -27,7 +364,7 @@ export const projects: Record<Locales, Project[]> = {
       complexity: ProjectComplexity.HIGH,
       isFeatured: false,
       description: [
-        'Sistema full-stack de gerenciamento de eventos para desktop com registro de produtos, impressão de tickets, calculadora de caixa e relatório final de vendas. Minha responsabilidade nesse projeto freelancer foi o front-end.',
+        'Sistema full stack de gerenciamento de eventos para desktop com registro de produtos, impressão de tickets, calculadora de caixa e relatório final de vendas. Minha responsabilidade nesse projeto freelancer foi o front-end.',
       ],
       techs: [
         Techs.ELECTRON,
@@ -175,7 +512,7 @@ export const projects: Record<Locales, Project[]> = {
       source: ProjectSource.PERSONAL,
       visibility: ProjectVisibility.PUBLIC,
       complexity: ProjectComplexity.MEDIUM,
-      isFeatured: true,
+      isFeatured: false,
       description: [
         'DevStage é um software de indicação web que pode ser usado durante eventos online.',
       ],
@@ -239,7 +576,7 @@ export const projects: Record<Locales, Project[]> = {
       source: ProjectSource.UNIVERSITY,
       visibility: ProjectVisibility.PUBLIC,
       complexity: ProjectComplexity.MEDIUM,
-      isFeatured: true,
+      isFeatured: false,
       description: [
         'uFitt é uma aplicação web para calcular o Gasto Energético Basal com base nos conceitos de expressões algébricas.',
         'Este é um projeto universitário desenvolvido para a disciplina de Fundamentos Matemáticos do curso de Ciência da Computação.',
@@ -601,6 +938,340 @@ export const projects: Record<Locales, Project[]> = {
 
   [Locales.EN_US]: [
     {
+      name: 'Purchasing Center',
+      id: 13,
+      repo_name: {
+        frontend: 'central-de-compras-frontend',
+        backend: 'central-de-compras-backend',
+      },
+      deploy: 'https://central-de-compras-frontend.vercel.app/',
+      type: [ProjectType.BACKEND, ProjectType.FRONTEND],
+      source: ProjectSource.UNIVERSITY,
+      visibility: ProjectVisibility.PUBLIC,
+      complexity: ProjectComplexity.HIGH,
+      isFeatured: true,
+      description: [
+        'Complete Purchasing Center platform developed as an MVP for the interdisciplinary project of the 4th phase of the Computer Science course at UNESC.',
+        'Full stack system that allows managing organizations (stores and suppliers), users, products, promotional campaigns, orders, cashback and commercial conditions, with three permission levels: Administrator, Store and Supplier.',
+      ],
+      techs: [
+        Techs.TYPESCRIPT,
+        Techs.NEXT_JS,
+        Techs.REACT,
+        Techs.TAILWIND_CSS,
+        Techs.NODEJS,
+        Techs.EXPRESS,
+        Techs.POSTGRESQL,
+        Techs.DOCKER,
+        Techs.ZOD,
+      ],
+      listItems: [
+        {
+          title: featuresEnUsTitle,
+          content: [
+            {
+              title: 'Dashboard',
+              content: ['Overview with statistics'],
+            },
+            {
+              title: 'Organization Management',
+              content: [
+                'Store registration and management',
+                'Supplier registration and management',
+                'Address management',
+                'Contact management',
+              ],
+            },
+            {
+              title: 'Product Catalog',
+              content: [
+                'Complete product CRUD',
+                'Organization by categories',
+                'Advanced filters and search',
+              ],
+            },
+            {
+              title: 'Order System',
+              content: [
+                'Order creation and tracking',
+                'Quotation management',
+                'Order approval',
+                'Order history',
+              ],
+            },
+            {
+              title: 'Promotional Campaigns',
+              content: [
+                'Campaign creation and management',
+                'Definition of validity periods',
+                'Product association to campaigns',
+              ],
+            },
+            {
+              title: 'Cashback Program',
+              content: [
+                'Cashback wallet system',
+                'Transaction tracking',
+                'Balance management',
+              ],
+            },
+            {
+              title: 'Commercial Conditions',
+              content: [
+                'Payment conditions configuration',
+                'Management of conditions by supplier state',
+                'Definition of terms and payment methods',
+              ],
+            },
+            {
+              title: 'User Management',
+              content: [
+                'JWT authentication system',
+                'Three permission levels (Admin, Store, Supplier)',
+                'Profile management',
+                'Profile picture upload',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Backend Architecture',
+          content: [
+            {
+              title: 'RESTful API',
+              content: [
+                'Express 5 framework with TypeScript',
+                'Complete documentation with Swagger',
+                'Data validation with class-validator and class-transformer',
+                'Decorators with routing-controllers',
+                'Typed routes organized by modules',
+              ],
+            },
+            {
+              title: 'Database',
+              content: [
+                'PostgreSQL 16 for persistence',
+                'Complete schema with complex relationships',
+                'Containerization with Docker Compose',
+              ],
+            },
+            {
+              title: 'Security',
+              content: [
+                'JWT authentication with secure tokens',
+                'Password hashing with bcryptjs',
+                'Helmet for HTTP protection',
+                'Configured CORS',
+                'Strict input validation',
+                'Parameterized queries against SQL Injection',
+              ],
+            },
+            {
+              title: 'File Upload',
+              content: [
+                'Upload system with Multer',
+                'Profile image storage',
+                'File optimization',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Frontend Architecture',
+          content: [
+            {
+              title: 'Next.js 16 App Router',
+              content: [
+                'Modern routing with App Router',
+                'Server and Client Components',
+                'Protected and public routes',
+                'Middleware for authentication',
+              ],
+            },
+            {
+              title: 'Interface and Components',
+              content: [
+                'Mantine v8 library for UI',
+                'Tailwind CSS v4 for styling',
+                'Reusable components',
+                'Responsive design',
+                'Tabler Icons and Lucide React icons',
+              ],
+            },
+            {
+              title: 'State Management and Forms',
+              content: [
+                'React Hook Form for complex forms',
+                'Validation with Zod',
+                'Axios for HTTP requests',
+                'Day.js for date manipulation',
+              ],
+            },
+            {
+              title: 'Color Palette System',
+              content: [
+                'Custom CSS variables',
+                'Semantic colors (primary, secondary, success, warning, error)',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Permissions and Features by User Type',
+          content: [
+            {
+              title: 'Administrator',
+              content: [
+                {
+                  title: 'Organization management (stores and suppliers)',
+                  content: ['Contact management', 'Address management'],
+                },
+                'User management',
+              ],
+            },
+            {
+              title: 'Store',
+              content: [
+                'View suppliers',
+                'Create orders',
+                'View own orders',
+                'Access to cashback program',
+              ],
+            },
+            {
+              title: 'Supplier',
+              content: [
+                'Product management',
+                'View and manage received orders',
+                'Promotional campaign management',
+                'Commercial conditions configuration',
+                'Configuration of conditions by state',
+              ],
+            },
+          ],
+        },
+        {
+          title: conceptsDevelopedEnUsTitle,
+          content: [
+            'Layered architecture (Controllers → Services → Repositories → Database)',
+            'Repository and DTO patterns',
+            'Dependency Injection with decorators',
+            'Middleware Pattern for authentication and validation',
+            'Application containerization with Docker',
+            'Full stack application deployment on Vercel',
+            'API documentation with Swagger/OpenAPI',
+            'Complete type-safety from database to UI',
+            'Permission and authorization management',
+            'File upload and storage system',
+            'Multi-layer data validation',
+            'Clear separation between frontend and backend',
+            'Use of environment variables',
+            'Web security practices (JWT, hashing, HTTP protection)',
+            'Collaborative team development',
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Let me ask',
+      id: 12,
+      repo_name: {
+        frontend: 'letmeask-ai-web',
+        backend: 'letmeask-ai-server',
+      },
+      deploy: 'https://letmeask-ai-web.vercel.app/',
+      type: [ProjectType.BACKEND, ProjectType.FRONTEND],
+      source: ProjectSource.PERSONAL,
+      visibility: ProjectVisibility.PUBLIC,
+      complexity: ProjectComplexity.HIGH,
+      isFeatured: true,
+      description: [
+        'Real-time Q&A platform powered by AI that allows you to create discussion rooms where audio is transcribed and used as context for accurate automatic responses via Google Gemini.',
+        'The backend implements vector semantic search with PostgreSQL and embeddings, ensuring contextually relevant responses based on transcribed content.',
+      ],
+      techs: [
+        Techs.TYPESCRIPT,
+        Techs.NODEJS,
+        Techs.FASTIFY,
+        Techs.POSTGRESQL,
+        Techs.DOCKER,
+        Techs.DRIZZLE_ORM,
+        Techs.ZOD,
+        Techs.GOOGLE_GEMINI,
+        Techs.VITE,
+        Techs.TAILWIND_CSS,
+        Techs.REACT,
+      ],
+      listItems: [
+        {
+          title: featuresEnUsTitle,
+          content: [
+            'Automatic audio upload and transcription with Google Gemini 2.5 Flash',
+            'Semantic search with embeddings and PostgreSQL pgvector for precise context',
+            'AI-generated responses based on content similarity',
+            'Creation and management of question rooms',
+            'Responsive interface for recording and sending audio',
+            'Robust data validation with Zod on all routes',
+          ],
+        },
+        {
+          title: 'Backend Architecture',
+          content: [
+            {
+              title: 'RESTful API',
+              content: [
+                'Fastify framework with complete type-safety via fastify-type-provider-zod',
+                'Strict payload validation with Zod',
+                'Support for multipart/form-data for audio upload',
+                'End-to-end typed routes',
+              ],
+            },
+            {
+              title: 'Database',
+              content: [
+                'PostgreSQL 17 with pgvector extension for vector storage',
+                'Drizzle ORM for type-safe migrations and queries',
+                'Relational schema with relationships between rooms, questions, and audio_chunks',
+                'Native support for vector similarity operations (<=> operator)',
+              ],
+            },
+            {
+              title: 'Artificial Intelligence',
+              content: [
+                'Audio transcription via Google Gemini 2.5 Flash',
+                'Embedding generation with text-embedding-004 model',
+                'RAG (Retrieval-Augmented Generation) for contextual responses',
+                'Semantic similarity search with 0.7 threshold',
+                'Selection of the 3 most relevant chunks for response context',
+              ],
+            },
+            {
+              title: 'Infrastructure',
+              content: [
+                'Docker Compose for isolated development environment',
+                'Versioned migrations with Drizzle Kit',
+                'Seed system for test data',
+                'Build scripts with automatic import correction',
+              ],
+            },
+          ],
+        },
+        {
+          title: conceptsDevelopedEnUsTitle,
+          content: [
+            'Implementation of RAG system with vector search',
+            'Integration with Google Generative AI for multimodal processing',
+            'Data modeling for generative AI applications',
+            'Vector similarity search with cosine distance operator',
+            'Complete type-safety from database to API',
+            'Microservices architecture with frontend/backend separation',
+            'Processing pipeline: audio → transcription → embeddings → search → generation',
+            'Containerization of PostgreSQL environment with custom extensions',
+          ],
+        },
+      ],
+    },
+    {
       name: 'Point of Sale System',
       id: 11,
       screenshot: project10Screenshot,
@@ -610,7 +1281,7 @@ export const projects: Record<Locales, Project[]> = {
       complexity: ProjectComplexity.HIGH,
       isFeatured: false,
       description: [
-        'Full-stack desktop event management system with product registration, ticket printing, cash calculator and final sales report. My responsibility in this freelance project was the front-end.',
+        'Full stack desktop event management system with product registration, ticket printing, cash calculator and final sales report. My responsibility in this freelance project was the front-end.',
       ],
       techs: [
         Techs.ELECTRON,
@@ -760,7 +1431,7 @@ export const projects: Record<Locales, Project[]> = {
       source: ProjectSource.PERSONAL,
       visibility: ProjectVisibility.PUBLIC,
       complexity: ProjectComplexity.MEDIUM,
-      isFeatured: true,
+      isFeatured: false,
       description: [
         'DevStage is an indication web software that can be used during online events.',
       ],
@@ -817,7 +1488,7 @@ export const projects: Record<Locales, Project[]> = {
       source: ProjectSource.UNIVERSITY,
       visibility: ProjectVisibility.PUBLIC,
       complexity: ProjectComplexity.MEDIUM,
-      isFeatured: true,
+      isFeatured: false,
       description: [
         'uFitt is a web application to calculate Basal Energy Expenditure based on the concepts of algebraic expressions.',
         'This is a university project developed for the Mathematical Foundations discipline of the Computer Science course.',

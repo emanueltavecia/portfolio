@@ -30,6 +30,7 @@ import { projects } from '@/data/projects'
 import { cn } from '@/lib/utils'
 import { Locales } from '@/locales'
 import { useRouter } from '@/navigation'
+import { getRepoName } from '@/utils/get-repo-name'
 
 import { ProjectDetailsProps } from './types'
 
@@ -190,22 +191,12 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-x-4 gap-y-2">
-          {project.repo_name && (
-            <Button className="gap-2" asChild>
-              <a
-                href={`https://github.com/emanueltavecia/${project.repo_name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="size-4" />
-                {t('viewCode')}
-              </a>
-            </Button>
-          )}
-
+        <div className="flex flex-wrap gap-x-4 gap-y-2 [&_a]:w-full sm:[&_a]:w-auto">
           {project.deploy && (
-            <Button className="gap-2" asChild>
+            <Button
+              className="gap-2 shadow-md shadow-blue-500/25 transition-all hover:shadow-lg hover:shadow-blue-500/30 dark:shadow-blue-500/20"
+              asChild
+            >
               <a
                 href={project.deploy}
                 target="_blank"
@@ -216,15 +207,46 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
               </a>
             </Button>
           )}
+
+          {project.repo_name &&
+            typeof project.repo_name !== 'string' &&
+            project.repo_name.backend && (
+              <Button className="gap-2" asChild variant="outline">
+                <a
+                  href={`https://github.com/emanueltavecia/${getRepoName(project.repo_name.backend)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="size-4" />
+                  {t('accessBackendRepository')}
+                </a>
+              </Button>
+            )}
+          {project.repo_name &&
+            (typeof project.repo_name === 'string' ||
+              project.repo_name.frontend) && (
+              <Button className="gap-2" asChild variant="outline">
+                <a
+                  href={`https://github.com/emanueltavecia/${getRepoName(project.repo_name)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="size-4" />
+                  {typeof project.repo_name === 'string'
+                    ? t('accessRepository')
+                    : t('accessFrontendRepository')}
+                </a>
+              </Button>
+            )}
         </div>
 
         {(project.screenshot || project.repo_name) && (
-          <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800">
             <div className="absolute inset-0 bg-slate-950/10 transition-opacity duration-300 hover:opacity-0" />
             <Image
               src={
                 project.screenshot ||
-                `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
+                `https://github.com/emanueltavecia/${getRepoName(project.repo_name)}/blob/main/.github/screenshot.png?raw=true`
               }
               alt={t('projectImageAlt', {
                 projectName: project.name,
@@ -272,7 +294,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
                   <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
                     <video controls className="h-full w-full">
                       <source
-                        src={`https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/${project.videoOverview}?raw=true`}
+                        src={`https://github.com/emanueltavecia/${getRepoName(project.repo_name)}/blob/main/.github/${project.videoOverview}?raw=true`}
                         type="video/mp4"
                       ></source>
                     </video>

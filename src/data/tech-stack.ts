@@ -13,8 +13,14 @@ export enum Techs {
   STYLED_COMPONENTS = 'Styled Components',
   NODEJS = 'Node.js',
   EXPRESS = 'Express',
+  FASTIFY = 'Fastify',
   REACT_ROUTER = 'React Router',
   AXIOS = 'Axios',
+  POSTGRESQL = 'PostgreSQL',
+  DOCKER = 'Docker',
+  DRIZZLE_ORM = 'Drizzle ORM',
+  ZOD = 'Zod',
+  GOOGLE_GEMINI = 'Google Gemini',
 }
 
 export const techStack: Techs[] = [

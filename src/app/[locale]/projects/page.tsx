@@ -15,6 +15,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { projects } from '@/data/projects'
 import { Locales } from '@/locales'
 import { usePathname, useRouter } from '@/navigation'
+import { getRepoName } from '@/utils/get-repo-name'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 
 import { EmptyState } from './empty-state'
@@ -115,7 +116,7 @@ export default function Projects() {
                       <Image
                         src={
                           project.screenshot ||
-                          `https://github.com/emanueltavecia/${project.repo_name}/blob/main/.github/screenshot.png?raw=true`
+                          `https://github.com/emanueltavecia/${getRepoName(project.repo_name)}/blob/main/.github/screenshot.png?raw=true`
                         }
                         alt={t('projectImageAlt', {
                           projectName: project.name,

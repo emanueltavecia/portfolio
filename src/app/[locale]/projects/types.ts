@@ -35,7 +35,12 @@ export interface ProjectListItem {
 
 export interface Project {
   name: string
-  repo_name?: string
+  repo_name?:
+    | string
+    | {
+        frontend?: string
+        backend?: string
+      }
   deploy?: string
   screenshot?: StaticImageData
   videoOverview?: string
