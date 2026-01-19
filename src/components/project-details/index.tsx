@@ -30,6 +30,7 @@ import { projects } from '@/data/projects'
 import { cn } from '@/lib/utils'
 import { Locales } from '@/locales'
 import { useRouter } from '@/navigation'
+import { getRepoName } from '@/utils/get-repo-name'
 
 import { ProjectDetailsProps } from './types'
 
@@ -44,7 +45,6 @@ import {
   ProjectType,
 } from '../../app/[locale]/projects/types'
 import { DialogTitle } from '../ui/dialog'
-import { getRepoName } from '@/utils/get-repo-name'
 
 export function Details({ id, isModal }: ProjectDetailsProps) {
   const router = useRouter()

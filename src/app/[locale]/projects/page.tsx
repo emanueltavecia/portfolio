@@ -15,12 +15,12 @@ import { Card, CardContent } from '@/components/ui/card'
 import { projects } from '@/data/projects'
 import { Locales } from '@/locales'
 import { usePathname, useRouter } from '@/navigation'
+import { getRepoName } from '@/utils/get-repo-name'
 import { useScrollToTopOnPageLoad } from '@/utils/scroll-to-top'
 
 import { EmptyState } from './empty-state'
 import { Filters } from './filters'
 import { FilterState } from './types'
-import { getRepoName } from '@/utils/get-repo-name'
 
 export default function Projects() {
   useScrollToTopOnPageLoad()
