@@ -512,7 +512,7 @@ export const projects: Record<Locales, Project[]> = {
       source: ProjectSource.PERSONAL,
       visibility: ProjectVisibility.PUBLIC,
       complexity: ProjectComplexity.MEDIUM,
-      isFeatured: true,
+      isFeatured: false,
       description: [
         'DevStage é um software de indicação web que pode ser usado durante eventos online.',
       ],
@@ -1431,7 +1431,7 @@ export const projects: Record<Locales, Project[]> = {
       source: ProjectSource.PERSONAL,
       visibility: ProjectVisibility.PUBLIC,
       complexity: ProjectComplexity.MEDIUM,
-      isFeatured: true,
+      isFeatured: false,
       description: [
         'DevStage is an indication web software that can be used during online events.',
       ],
