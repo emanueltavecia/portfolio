@@ -193,7 +193,10 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
 
         <div className="flex flex-wrap gap-x-4 gap-y-2 [&_a]:w-full sm:[&_a]:w-auto">
           {project.deploy && (
-            <Button className="gap-2" asChild>
+            <Button
+              className="gap-2 shadow-md shadow-blue-500/25 transition-all hover:shadow-lg hover:shadow-blue-500/30 dark:shadow-blue-500/20"
+              asChild
+            >
               <a
                 href={project.deploy}
                 target="_blank"
