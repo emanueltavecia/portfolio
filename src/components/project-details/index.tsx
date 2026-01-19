@@ -241,7 +241,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
         </div>
 
         {(project.screenshot || project.repo_name) && (
-          <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800">
             <div className="absolute inset-0 bg-slate-950/10 transition-opacity duration-300 hover:opacity-0" />
             <Image
               src={
