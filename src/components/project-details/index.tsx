@@ -191,11 +191,24 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-x-4 gap-y-2">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 [&_a]:w-full sm:[&_a]:w-auto">
+          {project.deploy && (
+            <Button className="gap-2" asChild>
+              <a
+                href={project.deploy}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="size-4 shrink-0" />
+                {t('viewProjectOnline')}
+              </a>
+            </Button>
+          )}
+
           {project.repo_name &&
             typeof project.repo_name !== 'string' &&
             project.repo_name.backend && (
-              <Button className="gap-2" asChild>
+              <Button className="gap-2" asChild variant="outline">
                 <a
                   href={`https://github.com/emanueltavecia/${getRepoName(project.repo_name.backend)}`}
                   target="_blank"
@@ -209,7 +222,7 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
           {project.repo_name &&
             (typeof project.repo_name === 'string' ||
               project.repo_name.frontend) && (
-              <Button className="gap-2" asChild>
+              <Button className="gap-2" asChild variant="outline">
                 <a
                   href={`https://github.com/emanueltavecia/${getRepoName(project.repo_name)}`}
                   target="_blank"
@@ -222,19 +235,6 @@ export function Details({ id, isModal }: ProjectDetailsProps) {
                 </a>
               </Button>
             )}
-
-          {project.deploy && (
-            <Button className="gap-2" asChild>
-              <a
-                href={project.deploy}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="size-4 shrink-0" />
-                {t('viewProjectOnline')}
-              </a>
-            </Button>
-          )}
         </div>
 
         {(project.screenshot || project.repo_name) && (
